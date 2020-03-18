@@ -73,12 +73,9 @@ active_hashにて都道府県を追加
   下記をマイグレーションファイルに追加して作成
   t.references :user, foreign_key: true
 
-
-
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|integer|null: false, foreign_key: true|
 |name|string|null: false|
 |content|text|null: false|
 |price|integer|null: false|
