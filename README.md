@@ -124,7 +124,7 @@ active_hashにて都道府県を追加
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand|string||
+|brand|string|null: false|
 
 ### Association
 - has_many :items
