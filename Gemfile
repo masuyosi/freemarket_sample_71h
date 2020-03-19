@@ -76,3 +76,5 @@ gem 'fog-aws'
 gem 'mini_magick'
 
 gem 'active_hash'
+
+gem 'recaptcha', require: "recaptcha/rails"
