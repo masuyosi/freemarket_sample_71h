@@ -1,3 +1,214 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+
+.login-contena{
+  background-color: whitesmoke;
+  height:100vh;
+  width:100%;
+  margin: 0 auto;
+  overflow: scroll;
+  overflow: hidden visible;
+  font-size: 13px;
+
+  .header{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__logo{
+      height: 50px;
+      width: 200px;
+      img{
+        height: 50px;
+        width: 100%;
+      }
+    }
+  }
+
+  .login-contents{
+    display: flex;
+    justify-content: center;
+
+    .login-panel{
+      background-color:white;
+      width: 450px;
+
+      .new-account{
+        height: 140px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: solid 0.5px lightgray;
+        .no-account-box {
+          text-align: center;
+          .txt{
+            font-size: small;
+          }
+          .new-account{
+            height: 40px;
+            width: 300px;
+            background-color: #0099e8;
+            margin: 4px 0;
+            a{
+              text-decoration: none;
+              color: white;
+            }
+          }
+        }
+      }
+      .login-account{
+        height: 140px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 40px;
+        margin-bottom: 15px;
+
+        .list-box{
+          text-align: center;
+
+          &__facebook{
+            height: 40px;
+            width: 300px;
+            background-color: #385185;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: white;
+            }
+
+          }
+          &__google{
+            height: 40px;
+            width: 300px;
+            border:solid 1px gray;
+            margin-top: 16px;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: black;
+            }
+          }
+        }
+      }
+      .address-login-form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px 0 50px;
+
+        &__inner {
+          height: 100%;
+          width: 400px;
+          background-color: white;
+          text-align: center;
+
+          .field{
+            text-align: center;
+
+            &__input{
+              height: 40px;
+              width: 100%;
+              margin-bottom: 15px;
+              .form-box{
+                height:40px;
+                width: 300px;
+              }
+            }
+
+            .actions{
+              height: 40px;
+              width: 100%;
+              .login_btn{
+                height:40px;
+                width: 300px;
+                background-color:#3CCACE;
+                color: white;
+                line-height: 40px;
+              }
+            }
+            .forget-password{
+              font-size: small;
+
+              a{
+                text-decoration: none;
+                color:#3CCACE;
+              }
+            }
+          }
+        }
+      }
+
+
+      &__new {
+        height: 140px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: solid 0.5px lightgray;
+        .txt{
+          font-size:20px;
+          font-weight: bold;
+        }
+      }
+      &__create{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 40px;
+        padding: 30px 0 50px;
+
+        .list-box{
+          text-align: center;
+          padding: 30px 0 50px;
+
+          &__mail{
+            height: 40px;
+            width: 300px;
+            margin-top: 16px;
+            background-color: #3CCACE;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: white;
+            }
+          }
+          &__facebook{
+            height: 40px;
+            width: 300px;
+            margin-top: 16px;
+            background-color: #385185;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: white;
+            }
+          }
+          &__google{
+            height: 40px;
+            width: 300px;
+            border:solid 1px gray;
+            margin-top: 16px;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: black;
+            }
+
+        }
+      }
+    }
+  }
+ } 
+}
