@@ -118,7 +118,9 @@
 = render "app_banner"
 = render "footer"
 .purchase_btn
-  .purchase_btn__text
-    出品する
-  .purchase_btn__icon
-    = image_tag "icons/icon_camera.png"
+  = link_to new_item_path do
+    .purchase_btn__text
+      出品する
+    .purchase_btn__icon
+      = image_tag "icons/icon_camera.png"
+    
