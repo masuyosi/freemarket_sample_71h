@@ -15,4 +15,11 @@ class ItemsController < ApplicationController
     @image = Image.find(params[:id])
     @images = Image.all
   end
+
+  def new
+  end
+
+  def create
+  end
+  
 end
