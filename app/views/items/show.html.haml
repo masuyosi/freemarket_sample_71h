@@ -5,14 +5,14 @@
         %h2.itembox__itemname product3
         .itembox__itembody
           .itembox__itembody--pic
-            %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
             %ul
               %li
-                %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: "75", height: "75"}
+                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size: "75×75"
               %li
-                %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", width: "75", height: "75"}
+                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", size: "75×75"
               %li
-                %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", width: "75", height: "75"}
+                = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", size: "75×75"
         .itembox__itemprice
           %span
             ¥ 30000
@@ -31,11 +31,11 @@
               %tr
                 %th カテゴリー
                 %td
-                  %a{href: "#"} ベビー・キッズ
+                  = link_to 'ベビー・キッズ', '#'
                   %br
-                  %a{href: "#"} ベビー服(男女兼用) ~95cm
+                  = link_to 'ベビー服(男女兼用) ~95cm', '#'
                   %br
-                  %a{href: "#"} アウター
+                  = link_to 'アウター', '#'
                   %br
               %tr
                 %th ブランド
@@ -53,7 +53,7 @@
               %tr
                 %th 発送元の地域
                 %td
-                  %a{href: "#"} 岩手県
+                  = link_to '岩手県', '#'
               %tr
                 %th 発送日の目安
                 %td 4-7で発送
