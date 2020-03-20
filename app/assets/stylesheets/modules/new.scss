@@ -4,6 +4,10 @@ $background: #f4f4f4;
   box-sizing: border-box;
 }
 
+body{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
 @mixin container-color {
   background-color: #eeecec;
 }
@@ -384,9 +388,7 @@ hr{
     height: 49px;
   }
   p {
-    span {
-      font-size: 10px;
-      line-height: 10px;
-    }
+    height: 10px;
+    font-size: 10px;
   }
 }
