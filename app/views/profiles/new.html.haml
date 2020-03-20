@@ -1,0 +1,44 @@
+.login-contena
+  .header
+    .header-logo
+      = link_to "#" do
+        .img
+          =image_tag"logo.png"
+
+
+  .profile-contents
+    .profile-panel
+      .profile-registration 
+        %p.txt 会員情報入力
+      .profile-form
+        .form-inner
+          = form_for(resource, as: resource_name, url: registration_path(resource_profile)) do |f|
+            .field
+              .field-input
+                = f.label :ニックネーム
+                = f.nickname_field :nickname, autofocus: true,placeholder: '仮）フリマ花子',class:'form-box'
+              .field-input
+                = f.label :メールアドレス
+                = f.email_field :email,placeholder: 'PC、携帯どちらでも可',class:'form-box'
+              .field-input
+                = f.label :パスワード
+                = f.password_field :password, autocomplete: "off",placeholder: '7文字以上の半角英数字',class:'form-box'
+              
+              .field-input
+                = f.label :お名前（全角）
+                = f.family_name_field :family_name,placeholder: '例）山田',class:'form-box'
+                = f.first_name_field :first_name,placeholder: '例）杏',class:'form-box'
+              .field-input
+                = f.label :お名前カナ（全角）
+                = f.family_name_kana_field :email,placeholder: '例）ヤマダ',class:'form-box'
+                = f.first_name_kana_field :email,placeholder: '例）アン',class:'form-box'
+              .field-input
+                = f.label :生年月日
+                = f.birth_year_field :email,placeholder: 'PC、携帯どちらでも可',class:'form-box'
+                = f.birth_month_field :email,placeholder: '例）アン',class:'form-box'
+                = f.birth_day_field :email,placeholder: '例）アン',class:'form-box'
+              .actions
+                = f.submit "登録", class:'btn'
+
+
+        
