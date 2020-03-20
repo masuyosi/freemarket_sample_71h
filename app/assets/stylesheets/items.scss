@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 .header{
   width: 100vw;
   padding: 0 60px;
@@ -24,26 +25,24 @@
       .search_box{
         width: 100%;
         position: relative;
-        text-align: right;
         .search_field{
           height: 35x;
           width: 85%;
-          margin: 25px 40px 0 40px;
+          margin: 25px 10px 0 40px;
         }
         .search_btn{
           width: 30px;
           height: 30px;
           background-color: #3CCACE;
           position: absolute;
-          top: 23px;
-          right: 5px;
+          top: 22px;
         }
         img{
           height: 20px;
           width: 20px;
           position: absolute;
-          top: 28px;
-          right: 10px;
+          top: 27px;
+          right: 63px;
         }
       }
     }
@@ -59,19 +58,14 @@
       }
       .lists_right{
         display: flex;
-        a{
-          text-decoration: none;
-          color: black;
-        }
-        .list_right__btn__left{
+        .list_right__login{
           padding-right: 20px;
-        }
-        .list_right__btn__right{
         }
       }
     }
   }
 }
+
 .main{
   width: 100vw;
   .main_visual{
@@ -271,6 +265,7 @@
     }
   }
 }
+
 .app_banner{
   height: 360px;
   background-image: url(bg-appBanner-pict.jpg);
@@ -301,6 +296,7 @@
     }
   }
 }
+
 .footer{
   height: 350px;
   width: 100%;
@@ -313,7 +309,7 @@
     height: 200px;
     width: 60%;
     margin: 0 auto;
-    padding: 60px 0 0 50px;
+    padding-top: 60px;
     .content{
       .content_head{
         font-weight: bold;
@@ -342,6 +338,7 @@
     }
   }
 }
+
 .purchase_btn{
   background: #3CCACE;
   height: 120px;
@@ -352,9 +349,6 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
-  a{
-  text-decoration: none;
-  }
   &__text{
     color: white;
     padding: 10px 0 10px 0;
