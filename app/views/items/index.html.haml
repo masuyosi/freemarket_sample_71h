@@ -1,18 +1,126 @@
-.header
-  .headerInner
-    .icon
-      -# - link_to root_path do
-      = image_tag "logo.png"
-    .searchBox
-  .nav
-    .listsLeft
-    .listsRight
+= render "header"
 .main
-  %section.mainVisual
-  %section.topIntroduction
-  %section.topMiddleDl
-  %section.topKeyFutures
-  %section.pickupContainer
-  %section.pickupContainer
-.appBanner
-.footer
+  %section.main_visual
+    .content
+      .content__title
+        人生を変えるフリマアプリ
+      .content__text
+        FURIMAは誰でも簡単に出品・購入できる
+        %br フリマアプリです
+      .content__btn
+        .content__btn__left
+          = link_to "https://www.apple.com/jp/ios/app-store/" do
+            = image_tag "download-on-the-app-store-apple.svg"
+        .content__btn__right
+          = link_to "https://www.apple.com/jp/ios/app-store/" do
+            = image_tag "google-play-download-android-app.svg"
+  %section.top_introduction
+    .subtitle
+      FURIMAが選ばれる３つの理由
+    %ul.lists
+      %li.list
+        .list__picture
+          = image_tag "pict-reason-01"
+          .number
+            1
+        .list__title
+          %span ３分
+          ですぐ出品
+        .list__text
+          スマホで入力するだけで簡単に
+          %br 出品できる！
+      %li.list
+        .list__picture
+          = image_tag "pict-reason-02"
+          .number
+            2
+        .list__title
+          %span シンプル
+          で使いやすい
+        .list__text
+          めんどくさい入力は必要なく
+          %br 検索も購入もスムーズ！
+      %li.list
+        .list__picture
+          = image_tag "pict-reason-03"
+          .number
+            3
+        .list__title
+          手数料
+          %span 業界最安
+        .list__text
+          最大３％でお得に出品&購入！
+  %section.top_middle
+    .top_middle__inner
+      .top_middle__inner__title
+        会員数日本一位
+      .top_middle__inner__text
+        FURIMAは、フリマアプリで最も人気。
+        %br 出品・購入回数も業界最多です！
+        ほしかったあの商品に出会えるかもしれません
+      .top_middle__inner__btn
+        .top_middle__inner__btn__left
+          = link_to "https://www.apple.com/jp/ios/app-store/" do
+            = image_tag "download-on-the-app-store-apple.svg"
+        .top_middle__inner__btn__right
+          = link_to "https://www.apple.com/jp/ios/app-store/" do
+            = image_tag "google-play-download-android-app.svg"
+  %section.top_key
+    .top_key__head
+      FURIMAの特徴
+    .top_key__items
+      %section.item
+        = image_tag "icons/icon-01.png"
+        .item_title
+          簡単に売り買いできる
+        .item_text
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.item
+        = image_tag "icons/icon-02.png"
+        .item_title
+          売上金は即日振込みに対応
+        .item_text
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %section.item
+        = image_tag "icons/icon-03.png"
+        .item_title
+          様々な支払いに対応
+        .item_text
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.pickup_product
+    .pickup_product__header
+      ピックアップカテゴリー
+    .pickup_product__title
+      新規商品一覧
+    .pickup_product__box
+      %ul.item_lists
+        %li.item_list
+          .item_list__image
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+          .item_list__name
+            aaaaa
+          .item_list__price
+            50000円
+        %li.item_list
+          .item_list__image
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+          .item_list__name
+            eeeee
+          .item_list__price
+            4000円
+        %li.item_list
+          .item_list__image
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
+          .item_list__name
+            rrrrrr
+          .item_list__price
+            500円
+= render "app_banner"
+= render "footer"
+.purchase_btn
+  = link_to new_item_path do
+    .purchase_btn__text
+      出品する
+    .purchase_btn__icon
+      = image_tag "icons/icon_camera.png"
+    

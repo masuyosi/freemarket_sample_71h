@@ -82,7 +82,7 @@ active_hashにて都道府県を追加
 |item_condition|integer|null: false, foreign_key: true|
 |postage_payer|integer|null: false, foreign_key: true|
 |prefecture|integer|null: false, foreign_key: true|
-|preparation_days|integer|null: false, foreign_key: true|
+|preparation_day|integer|null: false, foreign_key: true|
 |user|integer|null: false, foreign_key: true|
 |category|integer|null: false, foreign_key: true|
 |brand|integer|null: false, foreign_key: true|
