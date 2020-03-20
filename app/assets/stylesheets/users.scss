@@ -18,7 +18,7 @@
     justify-content: center;
     align-items: center;
 
-    .header-logo{
+    &__logo{
       height: 50px;
       width: 200px;
       img{
@@ -73,7 +73,7 @@
         .list-box{
           text-align: center;
           
-          .facebook-login{
+          &__facebook{
             height: 40px;
             width: 300px;
             background-color: #385185;
@@ -83,11 +83,8 @@
               color: white;
             }
 
-            // .i{
-            //   font-size: 1.5em;
-            //   color: white;}
           }
-          .google-login{
+          &__google{
             height: 40px;
             width: 300px;
             border:solid 1px gray;
@@ -108,7 +105,7 @@
         text-align: center;
         padding: 30px 0 50px;
         
-        .address-login-form-inner {
+        &__inner {
           height: 100%;
           width: 400px;
           background-color: white;
@@ -117,7 +114,7 @@
           .field{
             text-align: center;
             
-            .field-input{
+            &__input{
               height: 40px;
               width: 100%;
               margin-bottom: 15px;
@@ -126,19 +123,7 @@
                 width: 300px;
               }
             }
-            .APIbox{
-              height: 40px;
-              width: 100%;
-              align-items: center;
-              display: flex;
-              justify-content: center;
-              margin-bottom: 15px;
-              border: solid red;
-              .API{
-                height:40px;
-                width: 300px;
-              }
-            }
+            
             .actions{
               height: 40px;
               width: 100%;
@@ -165,7 +150,7 @@
    // ここから仮の新規登録用のCSS
 
 
-      .new-registration {
+      &__new {
         height: 140px;
         width: 100%;
         display: flex;
@@ -177,7 +162,7 @@
           font-weight: bold;
         }
       }
-      .create-account{
+      &__create{
         width: 100%;
         display: flex;
         justify-content: center;
@@ -190,7 +175,7 @@
           text-align: center;
           padding: 30px 0 50px;
           
-          .mail-use{
+          &__mail{
             height: 40px;
             width: 300px;
             margin-top: 16px;
@@ -201,7 +186,7 @@
               color: white;
             }
           }
-          .facebook-use{
+          &__facebook{
             height: 40px;
             width: 300px;
             margin-top: 16px;
@@ -212,7 +197,7 @@
               color: white;
             }
           }
-          .google-use{
+          &__google{
             height: 40px;
             width: 300px;
             border:solid 1px gray;

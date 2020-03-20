@@ -54,12 +54,25 @@
         text-align: center;
         line-height: 40px;
         padding: 30px 0 50px;
-
-        .profile-list-box{
+        .form-inner{
+          height: 100%;
+          width: 400px;
+          background-color: white;
           text-align: center;
-          padding: 30px 0 50px;
-          
-    }
+          .profile-list-box{
+            text-align: center;
+            padding: 30px 0 50px;
+            &__input{
+              height: 40px;
+              width: 100%;
+              margin-bottom: 15px;
+            .form-box{
+              height:40px;
+              width: 300px;
+            }
+          }
+        }
+      }
   }
 }
 }
