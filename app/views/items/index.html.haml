@@ -1,24 +1,4 @@
-.header
-  .header_box
-    .header_box__main
-      .icon
-        = link_to root_path do
-          = image_tag "logo.png"
-      .search_box
-        = form_for @item_form, url: items_path, method: :get do |f|
-          = f.text_field :name
-          = f.submit
-    .header_box__nav
-      .lists_left
-        .list_left__category
-          カテゴリー
-        .list_left__brand
-          ブランド
-      .lists_right
-        .list_right__login
-          ログイン
-        .list_right__signup
-          新規登録
+= render "header"
 .main
   %section.main_visual
     .content
@@ -135,55 +115,8 @@
             rrrrrr
           .item_list__price
             500円
-
-.app_banner
-  .app_banner__title
-    だれでもかんたん、人生を変えるフリマアプリ
-  .app_banner__text
-    今すぐ無料ダウンロード！
-  .app_banner__btn
-    .app_banner__btn__left
-      = link_to "https://www.apple.com/jp/ios/app-store/" do
-        = image_tag "download-on-the-app-store-apple.svg"
-    .app_banner__btn__right
-      = link_to "https://www.apple.com/jp/ios/app-store/" do
-        = image_tag "google-play-download-android-app.svg"
-.footer
-  %ul.contents
-    %li.content
-      %h2.content_head
-        FURIMAについて
-      %ul
-        %li
-          会社概要（運営会社）
-        %li
-          プライバシーポリシー
-        %li
-          FURIMA利用規約
-        %li
-          ポイントに関する特約
-    %li.content
-      %h2.content_head
-        FURIMAを見る
-      %ul
-        %li
-          カテゴリ一覧
-        %li
-          ブランド一覧
-    %li.content
-      %h2.content_head
-        ヘルプ＆ガイド
-      %ul
-        %li
-          FURIMAガイド
-        %li
-          FURIMAロゴ利用ガイドライン
-        %li
-          お問い合わせ
-  .footer_logo
-    = image_tag "logo-white.png"
-    .footer_logo__name
-      ©️FURIMA
+= render "app_banner"
+= render "footer"
 .purchase_btn
   .purchase_btn__text
     出品する
