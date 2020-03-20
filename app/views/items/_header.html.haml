@@ -16,7 +16,9 @@
         .list_left__brand
           ブランド
       .lists_right
-        .list_right__login
-          ログイン
-        .list_right__signup
-          新規登録
+        - if user_signed_in?
+          = link_to "新規出品", new_item_path, class: "list_right__btn__left"
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "list_right__btn__right"
+        - else
+          = link_to "ログイン", new_user_session_path, class: "list_right__btn__left"
+          = link_to "新規登録", new_user_registration_path, class: "list_right__btn__right"
