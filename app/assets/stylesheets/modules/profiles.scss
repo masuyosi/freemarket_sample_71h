@@ -1,6 +1,17 @@
 * {
   box-sizing: border-box;
 }
+@mixin box-optional-or-required($background-color: #FF0211) {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4em;
+  padding: 0 4px;
+  margin: 0 0 0 8px;
+  border-radius: 2px;
+  background-color: $background-color;
+  color: #fff;
+}
 
 .login-contena{
   background-color: whitesmoke;
@@ -62,6 +73,8 @@
           .profile-list-box{
             text-align: center;
             padding: 30px 0 50px;
+
+            
             
             .field{
               &__input{
@@ -72,6 +85,9 @@
             }
             .text{
               font-size: 15px;
+            }
+            span {
+              @include box-optional-or-required
             }
             .actions{
               height: 40px;
