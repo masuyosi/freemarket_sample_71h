@@ -1,0 +1,136 @@
+.header
+  = image_tag "logo.png", class: "top-logo"
+
+.newitem-container
+  .newitem-container__img-container
+    .newitem-container__img-container__title
+      .newitem-container__img-container__title--text
+        %lavel
+          出品画像
+        %span
+          必須
+    .newitem-container__img-container__text
+      最大10枚までアップロードできます
+    .newitem-container__img-container__wrapper
+      = image_tag "icons/icon_camera.png", class: "camera-icon"
+      .newitem-container__img-container__wrapper__itemimages
+
+  -# 商品名・商品の説明
+  %hr
+  .newitem-container__body
+    .newitem-container__body__form
+      .newitem-container__body__form--text
+        %lavel
+          商品名
+        %span
+          必須
+      .newitem-container__body__form--textarea
+        %form
+          %input{class: "itemname", placeholder: "仮置"}
+    .newitem-container__body__description
+      .newitem-container__body__description--text
+        %lavel
+          商品の説明
+        %span
+          必須
+      .newitem-container__body__description--textarea
+        %form
+          %textarea{class: "description", placeholder: "仮置"}
+
+  -# カテゴリー・ブランド・商品の状態
+  %hr
+  .newitem-container__newitems-detail
+    .newitem-container__newitems-detail__title
+      商品の詳細
+    .newitem-container__newitems-detail__form
+      .newitem-container__newitems-detail__form__category--text
+        %lavel
+          カテゴリー
+        %span
+          必須
+      .newitem-container__newitems-detail__form__category--textarea
+        %form
+          %input{class: "categoriesname", placeholder: "仮置"}
+      .newitem-container__newitems-detail__form__brand--text
+        %lavel
+          ブランド
+        %span
+          任意
+      .newitem-container__newitems-detail__form__brand--textarea
+        %form
+          %input{class: "brandname", placeholder: "仮置"}
+      .newitem-container__newitems-detail__form__status--text
+        %lavel
+          商品の状態
+        %span
+          必須
+      .newitem-container__newitems-detail__form__status--textarea
+        %form
+          %input{class: "status", placeholder: "仮置"}
+
+  -# 発送
+  %hr
+  .newitem-container__newitems-ship
+    .newitem-container__newitems-ship__title
+      配送について
+    .newitem-container__newitems-ship__form
+      .newitem-container__newitems-ship__form__payment--text
+        %lavel
+          配送料の負担
+        %span
+          必須
+      .newitem-container__newitems-ship__form__payment--textarea
+        %form
+          %input{class: "payment", placeholder: "仮置"}
+      .newitem-container__newitems-ship__form__region--text
+        %lavel
+          発送元の地域
+        %span
+          必須
+      .newitem-container__newitems-ship__form__region--textarea
+        %form
+          %input{class: "region", placeholder: "仮置"}
+      .newitem-container__newitems-ship__form__days--text
+        %lavel
+          発送までの日数
+        %span
+          必須
+      .newitem-container__newitems-ship__form__days--textarea
+        %form
+          %input{class: "days", placeholder: "仮置"}
+
+  -# 価格
+  %hr
+  .newitem-container__newitems-price
+    .newitem-container__newitems-price__title
+      価格（¥300〜9,999,999）
+    .newitem-container__newitems-price__form
+      .newitem-container__newitems-price__form__container
+        .newitem-container__newitems-price__form__container--text
+          %lavel
+            販売価格
+          %span
+            必須
+        .newitem-container__newitems-price__form__container--form
+          %span.mark
+            ¥
+          %form
+            %input{class: "price", placeholder: "0"}
+    .newitem-container__newitems-price__container
+      .newitem-container__newitems-price__container__commition
+        %lavel
+          販売手数料（10%）
+        %lavel
+          ー
+      .newitem-container__newitems-price__container__line
+      .newitem-container__newitems-price__container__profit
+        %lavel
+          販売利益
+        %lavel
+          ー
+  .newitem-container__exhibit-button
+    =link_to '出品する', "#" ,class: "button-1"
+  .newitem-container__attention
+    %p
+      禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+= render partial:"items/footer-transition"

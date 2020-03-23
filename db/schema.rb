@@ -10,30 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_031133) do
-
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture"
-    t.string "city"
-    t.integer "post_cord"
-    t.string "house_number"
-    t.integer "phone_number"
-    t.string "family_name"
-    t.string "first_name_kana"
-    t.string "family_name_kana"
-    t.integer "user"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "family_name"
-    t.string "first_name"
-    t.string "family_name_kana"
-    t.string "first_name_kana"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
+ 
+    
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,4 +29,6 @@ ActiveRecord::Schema.define(version: 2020_03_19_031133) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "items"
+  add_foreign_key "items", "images"
 end

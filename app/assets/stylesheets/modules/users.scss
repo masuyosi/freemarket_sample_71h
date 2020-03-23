@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-}
+
 .login-contena{
   background-color: whitesmoke;
   height:100vh;
@@ -8,13 +8,14 @@
   margin: 0 auto;
   overflow: scroll;
   overflow: hidden visible;
+ 
   .header{
     height: 100px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    .header-logo{
+ 
       height: 50px;
       width: 200px;
       img{
@@ -23,21 +24,23 @@
       }
     }
   }
+ 
+
   .login-contents{
     display: flex;
     justify-content: center;
+
     .login-panel{
-      background-color: pink;
-      height: 700px;
+      background-color:white;
       width: 450px;
+
       .new-account{
         height: 140px;
         width: 100%;
-        background-color: burlywood;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-bottom: solid 1px lightgray;
+        border-bottom: solid 0.5px lightgra
         .no-account-box {
           text-align: center;
           .txt{
@@ -46,9 +49,6 @@
           .new-account{
             height: 40px;
             width: 300px;
-            background-color: #0099E8;
-            color: white;
-            margin: 4px 0;
           }
         }
       }
@@ -59,71 +59,122 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        .list-box{
-          text-align: center;
-          .facebook-login{
-            height: 40px;
-            width: 300px;
-            background-color: #385185;
-            color: white;
-            // .i{
-            //   font-size: 1.5em;
-            //   color: white;}
-          }
-          .google-login{
-            height: 40px;
-            width: 300px;
-            border:solid 1px gray;
-            color: white;
-            margin-top: 16px;
+ 
           }
         }
       }
       .address-login-form{
-        height: 400px;
+ 
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        .address-login-form-inner {
+ 
           height: 100%;
           width: 400px;
           background-color: white;
           text-align: center;
+ 
+
+          .field{
+            text-align: center;
+
+            &__input{
+              height: 40px;
+              width: 100%;
+              margin-bottom: 15px;
+              .form-box{
+                height:40px;
+                width: 300px;
+              }
+            }
+
+            .actions{
+              height: 40px;
+              width: 100%;
+              .login_btn{
+                height:40px;
+                width: 300px;
+                background-color:#3CCACE;
+                color: white;
+                line-height: 40px;
+              }
+            }
+            .forget-password{
+              font-size: small;
+
+              a{
+                text-decoration: none;
+                color:#3CCACE;
+              }
+            }
+          }
         }
       }
-    }
-    }
-  }
-  .login-footer{
-    background-color: yellowgreen;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    .footer-content{
-      height: 300px;
-      width: 450px;
-      background-color: whitesmoke;
-      text-align: center;
-      .nav-bar{
-      height: 30px;
-      font-size: small;
+
+
+      &__new {
+        height: 140px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: solid 0.5px lightgray;
+        .txt{
+          font-size:20px;
+          font-weight: bold;
+        }
       }
-      .footer-logo{
-      height: 80px;
-      width: 150px;
-      background-color: brown;
-      margin: auto;
-          img{
+      &__create{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 40px;
+        padding: 30px 0 50px;
+
+        .list-box{
+          text-align: center;
+          padding: 30px 0 50px;
+
+          &__mail{
             height: 40px;
-            width: auto;
+            width: 300px;
+            margin-top: 16px;
+            background-color: #3CCACE;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: white;
+            }
+          }
+          &__facebook{
+            height: 40px;
+            width: 300px;
+            margin-top: 16px;
+            background-color: #385185;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: white;
+            }
+          }
+          &__google{
+            height: 40px;
+            width: 300px;
+            border:solid 1px gray;
+            margin-top: 16px;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: black;
+            }
+
         }
-      }
-      .footer-inc{
-        height: 30px;
-        background-color: black;
-        bottom: 0;
       }
     }
   }
+ } 
+}

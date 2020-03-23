@@ -1,40 +1,9 @@
 .login-contena
   .header
-    .header-logo
-      .img
-        =image_tag"logo.png"
-      -# タスク：imageにトップへのリンクつける↑
-  .login-contents
-    .login-panel
-      .new-account
-        .no-account-box
-          %p.txt アカウントをお持ちでない方はこちら
-          .new-account
-            = link_to "#" do
-              ="新規会員登録"
-      .login-account
-        .list-box
-          .facebook-login
-            = link_to "#" do
-              ="facebookでログイン"
-              -# =icon('fab', 'fa-facebook-square', class: 'icon')
-          .google-login
-            = link_to "#" do
-              ="googleでログイン"
-      .address-login-form
-        .address-login-form-inner
-          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-            .field
-              .field-input
-                = f.email_field :email, autofocus: true,placeholder: 'メールアドレス',class:'form-box'
-              .field-input
-                = f.password_field :password, autocomplete: "off",placeholder: 'パスワード',class:'form-box'
-              .APIbox
-                .API
-                -# =recaptcha_tags
+ 
               .actions
                 = f.submit "ログイン", class:'login_btn'
               %p.forget-password
                 = link_to "#" do
                   ="パスワードをお忘れの方"
-**フッターはフロントのrender**
+ 

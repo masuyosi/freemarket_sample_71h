@@ -1,0 +1,394 @@
+$background: #f4f4f4;
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+@mixin container-color {
+  background-color: #eeecec;
+}
+
+@mixin box-layout($height: 280px) {
+  width: 650px;
+  height: $height;
+  background-color:#fcfcfc;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+@mixin form-layout($height: 48px, $width: 570px) {
+  width: $width;
+  height: $height;
+  padding: 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+@mixin subtitle ($color: #000) {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  color: $color;
+}
+
+@mixin box-optional-or-required($background-color: #ff0211) {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4em;
+  padding: 0 4px;
+  margin: 0 0 0 8px;
+  border-radius: 2px;
+  background-color: $background-color;
+  color: #fff;
+}
+
+hr{
+  height: 2px;
+  width: 650px;
+  color: $background;
+  margin: 0;
+  border: none;
+}
+
+@mixin text {
+  font-size: 14px;
+  line-height: 65px;
+  margin: 10px 0;
+}
+
+
+
+.header {
+  width: 100%;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background;
+  .top-logo {
+    width: 185px;
+    height: 49px;
+  }
+}
+// 画像登録
+.newitem-container {
+  background-color: $background;
+  &__img-container {
+    @include box-layout;
+    padding: 40px;
+    &__title {
+      lavel {
+        @include subtitle;
+      }
+      span {
+        @include box-optional-or-required;
+      }
+    }
+    &__text {
+      font-size: 14px;
+      margin: 8px 0 0 0;
+    }
+    &__wrapper {
+      width: 570px;
+      height: 130px;
+      margin: 10px 0 0 0;
+      background-color: #eeecec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .camera-icon{
+        width: 20px;
+        height: 18px;
+      }
+      &__itemimages {
+
+      }
+    }
+  }
+// 商品の名前と説明
+  &__body {
+    @include box-layout(380px);
+    &__form {
+      &--text {
+        lavel {
+          @include subtitle;
+        }
+        span {
+          @include box-optional-or-required;
+        }
+      }
+      &--textarea {
+        margin-top: 8px;
+        form {
+          input.itemname {
+            @include form-layout;
+          }
+        }
+      }
+    }
+    &__description {
+      margin-top: 32px;
+      &--text {
+        lavel {
+          @include subtitle;
+        }
+        span {
+          @include box-optional-or-required;
+        }
+      }
+      &--textarea {
+        margin-top: 8px;
+        form {
+          textarea.description {
+            @include form-layout(150px);
+          }
+        }
+      }
+    }
+  }
+// 商品のカテゴリー・ブランド・商品の状態
+  &__newitems-detail {
+    @include box-layout(430px);
+    &__title {
+      @include subtitle(#888);
+    }
+    &__form {
+      margin-top: 32px;
+      &__category {
+        &--text {
+          lavel {
+            @include subtitle;
+          }
+          span {
+            @include box-optional-or-required;
+          }
+        }
+        &--textarea {
+          margin-top: 8px;
+          form {
+            input.categoriesname {
+              @include form-layout;
+            }
+          }
+        }
+      }
+      &__brand {
+        &--text {
+          margin-top: 32px;
+          lavel {
+            @include subtitle;
+          }
+          span {
+            @include box-optional-or-required(#a0a0a0);
+          }
+        }
+        &--textarea {
+          margin-top: 8px;
+          form {
+            input.brandname {
+              @include form-layout;
+            }
+          }
+        }
+      }
+      &__status {
+        &--text {
+          margin-top: 32px;
+          lavel {
+            @include subtitle;
+          }
+          span {
+            @include box-optional-or-required;
+          }
+        }
+        &--textarea {
+          margin-top: 8px;
+          form {
+            input.status {
+              @include form-layout;
+            }
+          }
+        }
+      }
+    }
+  }
+  //発送
+  &__newitems-ship {
+    @include box-layout(430px);
+    &__title {
+      @include subtitle(#888);
+    }
+    &__form {
+      margin-top: 32px;
+      &__payment {
+        &--text {
+          lavel {
+            @include subtitle;
+          }
+          span {
+            @include box-optional-or-required;
+          }
+        }
+        &--textarea {
+          margin-top: 8px;
+          form {
+            input.payment {
+              @include form-layout;
+            }
+          }
+        }
+      }
+      &__region {
+        &--text {
+          margin-top: 32px;
+          lavel {
+            @include subtitle;
+          }
+          span {
+            @include box-optional-or-required;
+          }
+        }
+        &--textarea {
+          margin-top: 8px;
+          form {
+            input.region {
+              @include form-layout;
+            }
+          }
+        }
+      }
+      &__days {
+        &--text {
+          margin-top: 32px;
+          lavel {
+            @include subtitle;
+          }
+          span {
+            @include box-optional-or-required;
+          }
+        }
+        &--textarea {
+          margin-top: 8px;
+          form {
+            input.days {
+              @include form-layout;
+            }
+          }
+        }
+      }
+    }
+  }
+  //価格
+  &__newitems-price {
+    @include box-layout(320px);
+    &__title {
+      @include subtitle(#888);
+    }
+    &__form {
+      margin-top: 32px;
+      &__container {
+        height: 48px;
+        display: flex;
+        justify-content: space-between;
+        &--text {
+          line-height: 48px;
+          lavel {
+            @include subtitle;
+          }
+          span {
+            @include box-optional-or-required;
+          }
+        }
+        &--form {
+          display: flex;
+          span.mark {
+            line-height: 48px;
+            text-align: right;
+            margin-right: 5px;
+            font-size: 14px;
+          }
+          form {
+            input.price {
+              @include form-layout($width: 285px);
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+    &__container {
+      &__commition {
+        display: flex;
+        justify-content: space-between;
+        lavel {
+          @include text;
+        }
+      }
+      &__line{
+        height: 1px;
+        width: 500px;
+        background-color: #ccc;
+        margin: 0 auto;
+      }
+      &__profit {
+        display: flex;
+        justify-content: space-between;
+        lavel {
+          @include text;
+        }
+      }
+    }
+  }
+  &__exhibit-button {
+    @include box-layout($height: 48px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .button-1 {
+      display: inline-block;
+      text-align: center;
+      width: 320px;
+      line-height: 48px;
+      font-size: 17px;
+      background-color: #ec342c;
+      text-decoration: none;
+      user-select: none;
+      border-radius: 3px;
+      transition: 0.4s ease;
+      color: #fff;
+    }
+    .button-1:hover {
+      background-color: #d5342c;
+      color: #fff;
+    }
+  }
+  &__attention {
+    @include box-layout($height: 48px);
+    p {
+      font-size: 10px;
+    }
+  }
+}
+.footer-transition {
+  width: 100%;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: $background;
+  .bottom-logo {
+    width: 185px;
+    height: 49px;
+  }
+  p {
+    height: 10px;
+    font-size: 10px;
+  }
+}
