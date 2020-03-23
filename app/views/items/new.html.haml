@@ -1,5 +1,5 @@
 .header
-  = image_tag "logo.png", class: "top-logo"
+  = image_tag asset_path("logo.png"), class: "top-logo"
 
 .newitem-container
   .newitem-container__img-container
@@ -12,7 +12,7 @@
     .newitem-container__img-container__text
       最大10枚までアップロードできます
     .newitem-container__img-container__wrapper
-      = image_tag "icons/icon_camera.png", class: "camera-icon"
+      = image_tag asset_path("icons/icon_camera.png"), class: "camera-icon"
       .newitem-container__img-container__wrapper__itemimages
 
   -# 商品名・商品の説明
