@@ -1,3 +1,129 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+.login-contena{
+  background-color: whitesmoke;
+  height:100vh;
+  width:100%;
+  margin: 0 auto;
+  overflow: scroll;
+  overflow: hidden visible;
+  .header{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .header-logo{
+      height: 50px;
+      width: 200px;
+      img{
+        height: 50px;
+        width: 100%;
+      }
+    }
+  }
+  .login-contents{
+    display: flex;
+    justify-content: center;
+    .login-panel{
+      background-color: pink;
+      height: 700px;
+      width: 450px;
+      .new-account{
+        height: 140px;
+        width: 100%;
+        background-color: burlywood;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: solid 1px lightgray;
+        .no-account-box {
+          text-align: center;
+          .txt{
+            font-size: small;
+          }
+          .new-account{
+            height: 40px;
+            width: 300px;
+            background-color: #0099E8;
+            color: white;
+            margin: 4px 0;
+          }
+        }
+      }
+      .login-account{
+        height: 140px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .list-box{
+          text-align: center;
+          .facebook-login{
+            height: 40px;
+            width: 300px;
+            background-color: #385185;
+            color: white;
+            // .i{
+            //   font-size: 1.5em;
+            //   color: white;}
+          }
+          .google-login{
+            height: 40px;
+            width: 300px;
+            border:solid 1px gray;
+            color: white;
+            margin-top: 16px;
+          }
+        }
+      }
+      .address-login-form{
+        height: 400px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .address-login-form-inner {
+          height: 100%;
+          width: 400px;
+          background-color: white;
+          text-align: center;
+        }
+      }
+    }
+    }
+  }
+  .login-footer{
+    background-color: yellowgreen;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    .footer-content{
+      height: 300px;
+      width: 450px;
+      background-color: whitesmoke;
+      text-align: center;
+      .nav-bar{
+      height: 30px;
+      font-size: small;
+      }
+      .footer-logo{
+      height: 80px;
+      width: 150px;
+      background-color: brown;
+      margin: auto;
+          img{
+            height: 40px;
+            width: auto;
+        }
+      }
+      .footer-inc{
+        height: 30px;
+        background-color: black;
+        bottom: 0;
+      }
+    }
+  }
