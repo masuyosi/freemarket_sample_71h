@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-
+}
 .login-contena{
   background-color: whitesmoke;
   height:100vh;
@@ -8,14 +8,14 @@
   margin: 0 auto;
   overflow: scroll;
   overflow: hidden visible;
- 
+  font-size: 13px;
   .header{
     height: 100px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
- 
+    &__logo{
       height: 50px;
       width: 200px;
       img{
@@ -24,23 +24,19 @@
       }
     }
   }
- 
-
   .login-contents{
     display: flex;
     justify-content: center;
-
     .login-panel{
       background-color:white;
       width: 450px;
-
       .new-account{
         height: 140px;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-bottom: solid 0.5px lightgra
+        border-bottom: solid 0.5px lightgray;
         .no-account-box {
           text-align: center;
           .txt{
@@ -49,6 +45,12 @@
           .new-account{
             height: 40px;
             width: 300px;
+            background-color: #0099E8;
+            margin: 4px 0;
+            a{
+              text-decoration: none;
+              color: white;
+            }
           }
         }
       }
@@ -59,27 +61,47 @@
         justify-content: center;
         align-items: center;
         text-align: center;
- 
+        line-height: 40px;
+        margin-bottom: 15px;
+        .list-box{
+          text-align: center;
+          &__facebook{
+            height: 40px;
+            width: 300px;
+            background-color: #385185;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: white;
+            }
+          }
+          &__google{
+            height: 40px;
+            width: 300px;
+            border:solid 1px gray;
+            margin-top: 16px;
+            line-height: 40px;
+            a{
+              text-decoration: none;
+              color: black;
+            }
           }
         }
       }
       .address-login-form{
- 
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
- 
+        padding: 30px 0 50px;
+        &__inner {
           height: 100%;
           width: 400px;
           background-color: white;
           text-align: center;
- 
-
           .field{
             text-align: center;
-
             &__input{
               height: 40px;
               width: 100%;
@@ -89,7 +111,6 @@
                 width: 300px;
               }
             }
-
             .actions{
               height: 40px;
               width: 100%;
@@ -103,7 +124,6 @@
             }
             .forget-password{
               font-size: small;
-
               a{
                 text-decoration: none;
                 color:#3CCACE;
@@ -112,8 +132,6 @@
           }
         }
       }
-
-
       &__new {
         height: 140px;
         width: 100%;
@@ -134,11 +152,9 @@
         text-align: center;
         line-height: 40px;
         padding: 30px 0 50px;
-
         .list-box{
           text-align: center;
           padding: 30px 0 50px;
-
           &__mail{
             height: 40px;
             width: 300px;
@@ -171,10 +187,9 @@
               text-decoration: none;
               color: black;
             }
-
         }
       }
     }
   }
- } 
+ }
 }
