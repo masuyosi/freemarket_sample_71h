@@ -4,10 +4,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    # @item = Item.new
+    # @image = Image.find(params[:id])
   end
 
   def create
+    # @item = Item.create
+    # redirect_to root_path
   end
 
   def show
@@ -16,11 +19,11 @@ class ItemsController < ApplicationController
     @image = Image.find(params[:id])
     @images = Image.all
   end
-
-  def new
-  end
-
-  def create
-  end
   
+  # private
+
+  # def item_params
+  #   params.require(:item).permit(:name, :content, :price)
+  # end
+
 end

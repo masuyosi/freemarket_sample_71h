@@ -14,6 +14,7 @@
       最大10枚までアップロードできます
     .newitem-container__img-container__wrapper
       = image_tag "icons/icon_camera.png", class: "camera-icon"
+        = @image.image
       .newitem-container__img-container__wrapper__itemimages
 
   -# 商品名・商品の説明
@@ -26,8 +27,8 @@
         %span
           必須
       .newitem-container__body__form--textarea
-        %form
-          %input{class: "itemname", placeholder: "仮置"}
+        %form{action: "/items", method: "post"}
+          %input{name: "name", class: "itemname", placeholder: "仮置"}
     .newitem-container__body__description
       .newitem-container__body__description--text
         %lavel
@@ -35,8 +36,8 @@
         %span
           必須
       .newitem-container__body__description--textarea
-        %form
-          %textarea{class: "description", placeholder: "仮置"}
+        %form{action: "/items", method: "post"}
+          %textarea{name: "content", class: "description", placeholder: "仮置"}
 
   -# カテゴリー・ブランド・商品の状態
   %hr
@@ -51,7 +52,7 @@
           必須
       .newitem-container__newitems-detail__form__category--textarea
         %form
-          %select{class: "categoriesname", placeholder: "選択してください"}
+          %input{class: "categoriesname", placeholder: "選択してください"}
       .newitem-container__newitems-detail__form__brand--text
         %lavel
           ブランド
@@ -68,6 +69,8 @@
       .newitem-container__newitems-detail__form__status--textarea
         %form
           %select{class: "status", placeholder: "選択してください"}
+            - ItemCondition.all.each do |i|
+              %option{value: i.id}#{i.name}
 
   -# 発送
   %hr
@@ -81,9 +84,10 @@
         %span
           必須
       .newitem-container__newitems-ship__form__payment--textarea
-        - 
+        %form
           %select{class: "payment", placeholder: "選択してください"}
-            %option{PostagePayer.order(id: :desc)}
+            - PostagePayer.all.each do |p|
+              %option{value: p.id}#{p.name}
       .newitem-container__newitems-ship__form__region--text
         %lavel
           発送元の地域
@@ -92,6 +96,8 @@
       .newitem-container__newitems-ship__form__region--textarea
         %form
           %select{class: "region", placeholder: "選択してください"}
+            - Prefecture.all.each do |p|
+              %option{value: p.id}#{p.name}
       .newitem-container__newitems-ship__form__days--text
         %lavel
           発送までの日数
@@ -100,6 +106,8 @@
       .newitem-container__newitems-ship__form__days--textarea
         %form
           %select{class: "days", placeholder: "選択してください"}
+            - PreparationDay.all.each do |d|
+              %option{value: d.id}#{d.name}
 
   -# 価格
   %hr
@@ -116,8 +124,8 @@
         .newitem-container__newitems-price__form__container--form
           %span.mark
             ¥
-          %form
-            %input{class: "price", placeholder: "0"}
+          %form{action: "/items", method: "post"}
+            %input{name: "price", class: "price", placeholder: "0"}
     .newitem-container__newitems-price__container
       .newitem-container__newitems-price__container__commition
         %lavel
@@ -131,7 +139,8 @@
         %lavel
           ー
   .newitem-container__exhibit-button
-    =link_to '出品する', "#" ,class: "button-1"
+    %form{action: "/items", method: "post"}
+      %input{type: "submit" ,class: "button-1"}
   .newitem-container__attention
     %p
       禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
