@@ -1,5 +1,6 @@
 .header
-  = image_tag "logo.png", class: "top-logo"
+  = link_to root_path do
+    = image_tag "logo.png", class: "top-logo"
 
 .newitem-container
   .newitem-container__img-container
@@ -50,7 +51,7 @@
           必須
       .newitem-container__newitems-detail__form__category--textarea
         %form
-          %input{class: "categoriesname", placeholder: "仮置"}
+          %select{class: "categoriesname", placeholder: "選択してください"}
       .newitem-container__newitems-detail__form__brand--text
         %lavel
           ブランド
@@ -66,7 +67,7 @@
           必須
       .newitem-container__newitems-detail__form__status--textarea
         %form
-          %input{class: "status", placeholder: "仮置"}
+          %select{class: "status", placeholder: "選択してください"}
 
   -# 発送
   %hr
@@ -80,8 +81,9 @@
         %span
           必須
       .newitem-container__newitems-ship__form__payment--textarea
-        %form
-          %input{class: "payment", placeholder: "仮置"}
+        - 
+          %select{class: "payment", placeholder: "選択してください"}
+            %option{PostagePayer.order(id: :desc)}
       .newitem-container__newitems-ship__form__region--text
         %lavel
           発送元の地域
@@ -89,7 +91,7 @@
           必須
       .newitem-container__newitems-ship__form__region--textarea
         %form
-          %input{class: "region", placeholder: "仮置"}
+          %select{class: "region", placeholder: "選択してください"}
       .newitem-container__newitems-ship__form__days--text
         %lavel
           発送までの日数
@@ -97,7 +99,7 @@
           必須
       .newitem-container__newitems-ship__form__days--textarea
         %form
-          %input{class: "days", placeholder: "仮置"}
+          %select{class: "days", placeholder: "選択してください"}
 
   -# 価格
   %hr
