@@ -1,0 +1,45 @@
+.mypage-contena
+  .mypage-header-inner
+    .mypage-header-top
+      .mypage-header-top__logo
+        = image_tag "logo.png"
+      .mypage-header-top__search-box
+        = form_with url:'#', method: :get, local: true do |f|
+          = f.text_field :name, placeholder: 'お探しの物を教えてください',class: "search_field"
+          = f.submit type: "button", class: "search_btn", value: ""
+          = image_tag "icons/icon-search 1.png"
+
+
+    .mypage-header-nav
+
+      .mypage-header-nav__left-box
+        .mypage-header-nav__left-box__category-box
+          = link_to "#" do
+            %ul.list
+              %li.icon
+                = icon('fas', 'fas fa-list-ul', class: 'icon')
+              %li.sentence
+                ="カテゴリーから探す"
+        .mypage-header-nav__left-box__brands-box
+          = link_to "#" do
+            %ul.list
+              %li.icon
+                = icon('fas', 'fas fa-tags', class: 'icon')
+              %li.sentence
+                ="ブランドから探す"
+
+
+      .mypage-header-nav__right-box
+        .mypage-header-nav__right-box__mypage-box
+          = link_to "#" do
+            %ul.list
+              %li.icon
+                = icon('fas', 'fas fa-home', class: 'icon')
+              %li.sentence
+                ="マイページ"
+
+
+  -# %ul.category
+  -#         %li.
+  -#         = link_to "#" do
+  -#           = icon('fas', 'fas fa-list-ul', class: 'icon')

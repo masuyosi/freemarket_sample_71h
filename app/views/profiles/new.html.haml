@@ -1,7 +1,7 @@
 .login-contena
   .header
     .header-logo
-      = link_to "#" do
+      = link_to root_path do
         .img
           =image_tag"logo.png"
 
@@ -73,8 +73,6 @@
                   = f.text_field :post_cord,equired:true,autofocus: true,placeholder: '仮）全角数字７文字',class:'form-box'
                   %span
                     必須
-
-
                 .actions
                   = f.submit "登録", class:'btn'
   = render partial:"items/footer"

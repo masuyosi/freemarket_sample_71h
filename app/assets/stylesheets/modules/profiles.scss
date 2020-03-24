@@ -106,3 +106,116 @@
     }
   }
 }
+// ここからマイペ
+.mypage-contena{
+  background-color: whitesmoke;
+  height:100vh;
+  width:100%;
+  margin: 0 auto;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+
+  .mypage-header-inner{
+    width: 1020px;
+    .mypage-header-top{
+      background-color: white;
+      height: 50px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 8px;
+      &__logo{
+        height:40px;
+        width: 150px;
+        margin: 0 15px 0;
+        img{
+          height: 35px;
+          width: auto;
+        }
+      }
+      &__search-box{
+        height:40px;
+        width: calc(100% - 150px);
+        padding-bottom: 5px;
+        position: relative;
+        .search_field{
+          height: 40px;
+          width: 85%;
+          padding-left: 10px;
+        }
+        
+        .search_btn{
+          width: 40px;
+          height: 40px;
+          background-color: #3CCACE;
+          position: absolute;
+        }
+        img{
+          height: 30px;
+          width: 30px;
+          position: absolute;
+          top: 4px;
+          right: 28px;
+        }
+      }
+    }
+
+    .mypage-header-nav{
+      background-color: white;
+      height: 50px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: solid 0.5px lightgray;
+      .icon{
+        text-align: center;
+        line-height: 50px;
+        margin-right: 3px;
+        color:#3ccace ;
+      }
+      .sentence{
+        text-align: center;
+        line-height: 50px;
+        color: darkslategrey;
+        font-weight: bold;
+      }
+      a{
+        text-decoration: none;
+      }
+      .list{
+        display: flex;
+        justify-content: center;
+      }
+      .mypage-header-nav__left-box{
+        display: flex;
+        justify-content: space-between;
+        &__category-box{
+          height: 100%;
+          width: 200px;
+          margin-left: 30px;
+        }
+        &__brands-box{
+          height: 100%;
+          width: 200px;
+          margin-left: 30px;
+        }
+      }
+
+      .mypage-header-nav__right-box{
+        display: flex;
+        justify-content: space-between;
+        &__mypage-box{
+          height: 100%;
+          width: 200px;
+          margin-left: 30px;
+          padding-right: 5px;
+          }
+        }
+      }
+    }
+}
+
+// サイドバー
