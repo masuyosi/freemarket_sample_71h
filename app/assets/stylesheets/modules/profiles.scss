@@ -107,12 +107,9 @@
   }
 }
 // ここからマイペ
-.mypage-contena{
-  background-color: whitesmoke;
-  height:100vh;
+.mypage-header-contena{
   width:100%;
   margin: 0 auto;
-  overflow: scroll;
   display: flex;
   justify-content: center;
 
@@ -217,5 +214,49 @@
       }
     }
 }
-
+.mypage-main-contents{
+  background-color: whitesmoke;
+  width:100%;
+  margin: 0 auto;
+  padding:30px;
+  display: flex;
+  
+}
 // サイドバー
+.mypage-sidebar-box{
+  width: 300px;
+
+  .mypage-nav{
+    width: 250px;
+    background-color: white;
+    a{
+      text-decoration: none;
+      color: darkslategrey;
+      :hover {
+        background-color: #3CCACE;
+        }
+    }
+    li{
+      height: 40px;
+      font-size: 13px;
+      line-height: 40px;
+      padding-left: 20px;
+      border-bottom:solid 0.3px lightgray ;
+
+    }
+
+      .icon{
+        float: right;
+        line-height: 40px;
+        margin-right: 3px;
+        color:gray ;
+        padding-right: 5px;
+      }
+    .table-title{
+      padding: 8px 20px 8px;
+      background-color: whitesmoke;
+    }
+  
+  }
+  
+}
