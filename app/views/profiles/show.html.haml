@@ -6,3 +6,10 @@
   
   →各コンテンツ表示
 = render partial:"items/footer-transition"
+.purchase_btn
+  = link_to new_item_path do
+    .purchase_btn__text
+      出品する
+    .purchase_btn__icon
+      = image_tag "icons/icon_camera.png"
+    

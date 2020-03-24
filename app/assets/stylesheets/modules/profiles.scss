@@ -220,6 +220,8 @@
   margin: 0 auto;
   padding:30px;
   display: flex;
+
+  
   
 }
 // サイドバー
@@ -256,7 +258,29 @@
       padding: 8px 20px 8px;
       background-color: whitesmoke;
     }
-  
   }
   
+}
+
+.purchase_btn{
+  background: #3CCACE;
+  height: 120px;
+  width: 120px;
+  text-align: center;
+  align-items: center;
+  border-radius: 4%;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  a{
+  text-decoration: none;
+  }
+  &__text{
+    color: white;
+    padding: 10px 0 10px 0;
+  }
+  &__icon img{
+    height: 54px;
+    width: 54px;
+  }
 }
