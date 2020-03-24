@@ -1,0 +1,90 @@
+.order-container {
+  background-color: $background;
+  &__heading {
+    @include box-layout(100px);
+    text-align: center;
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+  }
+  &__order-detail {
+    @include box-layout(160px, 20px 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__img {
+      margin-right: 40px;
+      img {
+        width: auto;
+        max-height: 80px;
+      }
+    }
+    &__text {
+      font-size: 14px;
+      p {
+        margin-bottom: 10px;
+        span.payment {
+          font-size: 15px;
+          font-weight: 600;
+          margin-right: 10px;
+        }
+        span.payment--postage {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  &__payment {
+    @include box-layout(200px, 40px 170px);
+    &__price {
+      display: flex;
+      justify-content: space-between;
+      lavel {
+        line-height: 18px;
+        font-weight: 600;
+      }
+    }
+    &__line {
+      height: 1px;
+      width: 310px;
+      background-color: #ccc;
+      margin: 30px auto;
+    }
+    &__type {
+      font-size: 13px;
+      .typeOfPayment {
+
+      }
+      .register {
+        a {
+          color: #0099E8;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &__btn {
+    @include box-layout(200px, 80px 0 0 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .button-1 {
+      display: inline-block;
+      text-align: center;
+      width: 320px;
+      line-height: 48px;
+      font-size: 17px;
+      background-color: #ec342c;
+      text-decoration: none;
+      user-select: none;
+      border-radius: 3px;
+      transition: 0.4s ease;
+      color: #fff;
+    }
+    .button-1:hover {
+      background-color: #d5342c;
+      color: #fff;
+    }
+  }
+}
