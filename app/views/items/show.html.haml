@@ -65,6 +65,6 @@
             = link_to "この商品を削除する", item_path, method: :delete
         - else
           .item-buy-btn
-            = link_to "購入画面に進む"
+            = link_to "購入画面に進む", new_order_path
 = render partial: 'items/app_banner'
 = render partial: 'items/footer'
