@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.where("name LIKE ?", "%#{params[:name]}%")
+    @item = Item.all
   end
 
   def new
@@ -13,14 +13,17 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @items = Item.all
-    @image = Image.find(params[:id])
-    @images = Image.all
+    # @image = Image.find(params[:id])
+    # @images = Image.all
   end
 
-  def new
+  def edit
   end
 
-  def create
+  def update
   end
   
+  def destroy
+
+  end
 end

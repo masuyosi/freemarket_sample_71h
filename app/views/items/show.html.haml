@@ -1,3 +1,4 @@
+= render partial: 'items/header'
 .main
   .main__showmain
     .main__showmain__content
@@ -57,3 +58,13 @@
               %tr
                 %th 発送日の目安
                 %td 4-7で発送
+        - if user_signed_in? && current_user.id == @item.seller_id
+          .item-buy-btn
+            = link_to "商品の編集", edit_item_path
+          .item-buy-btn
+            = link_to "この商品を削除する", item_path, method: :delete
+        - else
+          .item-buy-btn
+            = link_to "購入画面に進む"
+= render partial: 'items/app_banner'
+= render partial: 'items/footer'
