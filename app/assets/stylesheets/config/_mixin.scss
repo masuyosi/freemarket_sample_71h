@@ -20,12 +20,12 @@
   background-color: #eeecec;
 }
 
-@mixin box-layout($height: 280px) {
+@mixin box-layout($height: 280px, $padding: 40px) {
   width: 650px;
   height: $height;
   background-color:#fcfcfc;
   margin: 0 auto;
-  padding: 40px;
+  padding: $padding;
 }
 
 @mixin form-layout($height: 48px, $width: 570px) {
