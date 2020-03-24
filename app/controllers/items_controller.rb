@@ -13,8 +13,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @items = Item.all
-    # @image = Image.find(params[:id])
-    # @images = Image.all
   end
 
   def edit
