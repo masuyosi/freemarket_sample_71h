@@ -12,6 +12,7 @@
 - has_one :profile dependent: :destroy
 - has_one :address dependent: :destroy
 - has_one :card dependent: :destroy
+- has_many :orders dependent: :destroy
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -96,6 +97,7 @@ active_hashにて都道府県を追加
 - belongs_to_active_hash :postage_payer
 - belongs_to_active_hash :preparation_day
 - belongs_to_active_hash :item_condition
+- has_one :order
 
 ## reference型を使用
   下記をマイグレーションファイルに追加して作成
@@ -149,4 +151,13 @@ active_hashにて配送負担者を追加
 active_hashにて配送日数を追加
 ### Association
 - has_many :items
-t
+
+## ordersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item

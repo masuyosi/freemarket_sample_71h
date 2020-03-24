@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :items, exept: [:index]
   resources :profiles,only: [:new,:create]
+  resources :orders, only: [:new, :create]
 end

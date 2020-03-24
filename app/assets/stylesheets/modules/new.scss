@@ -1,68 +1,10 @@
-$background: #f4f4f4;
-
-* {
-  box-sizing: border-box;
-}
-
-body{
-  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-}
-
-@mixin container-color {
-  background-color: #eeecec;
-}
-
-@mixin box-layout($height: 280px) {
-  width: 650px;
-  height: $height;
-  background-color:#fcfcfc;
-  margin: 0 auto;
-  padding: 40px;
-}
-
-@mixin form-layout($height: 48px, $width: 570px) {
-  width: $width;
-  height: $height;
-  padding: 16px;
-  font-size: 14px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-@mixin subtitle ($color: #000) {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4em;
-  color: $color;
-}
-
-@mixin box-optional-or-required($background-color: #ff0211) {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.4em;
-  padding: 0 4px;
-  margin: 0 0 0 8px;
-  border-radius: 2px;
-  background-color: $background-color;
-  color: #fff;
-}
-
-hr{
+hr {
   height: 2px;
   width: 650px;
   color: $background;
   margin: 0;
   border: none;
 }
-
-@mixin text {
-  font-size: 14px;
-  line-height: 65px;
-  margin: 10px 0;
-}
-
-
 
 .header {
   width: 100%;
