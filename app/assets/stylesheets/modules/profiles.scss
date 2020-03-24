@@ -112,6 +112,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  border-bottom: solid 0.5px lightgray;
 
   .mypage-header-inner{
     width: 1020px;
@@ -166,7 +167,6 @@
       text-align: center;
       display: flex;
       justify-content: space-between;
-      border-bottom: solid 0.5px lightgray;
       .icon{
         text-align: center;
         line-height: 50px;
@@ -216,71 +216,82 @@
 }
 .mypage-main-contents{
   background-color: whitesmoke;
-  width:100%;
-  margin: 0 auto;
   padding:30px;
-  display: flex;
+  .mypage-main-content-inner{
+    display: flex;
+    justify-content: center;
+    margin: auto;
 
-  
-  
-}
+    .main-box{
+      height: 100%;
+      width: 700px;
+      background-color: #fff;
+    }
+
 // サイドバー
-.mypage-sidebar-box{
-  width: 300px;
-
-  .mypage-nav{
-    width: 250px;
-    background-color: white;
-    a{
-      text-decoration: none;
-      color: darkslategrey;
-      :hover {
-        background-color: #3CCACE;
+    .mypage-sidebar-box{
+      margin-right: 40px;
+      .mypage-nav{
+        width: 250px;
+        background-color: white;
+        a{
+          text-decoration: none;
+          color: darkslategrey;
+          :hover {
+            background-color: #3CCACE;
+            }
         }
-    }
-    li{
-      height: 40px;
-      font-size: 13px;
-      line-height: 40px;
-      padding-left: 20px;
-      border-bottom:solid 0.3px lightgray ;
+        li{
+          height: 40px;
+          font-size: 13px;
+          line-height: 40px;
+          padding-left: 20px;
+          border-bottom:solid 0.3px lightgray ;
 
-    }
+        }
 
-      .icon{
-        float: right;
-        line-height: 40px;
-        margin-right: 3px;
-        color:gray ;
-        padding-right: 5px;
+          .icon{
+            float: right;
+            line-height: 40px;
+            margin-right: 3px;
+            color:gray ;
+            padding-right: 5px;
+          }
+        .table-title{
+          padding: 8px 20px 8px;
+          background-color: whitesmoke;
+        }
       }
-    .table-title{
-      padding: 8px 20px 8px;
-      background-color: whitesmoke;
+      
     }
-  }
-  
+    }
+    }
+
+    .purchase_btn{
+      background: #3CCACE;
+      height: 120px;
+      width: 120px;
+      text-align: center;
+      align-items: center;
+      border-radius: 4%;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      a{
+      text-decoration: none;
+      }
+      &__text{
+        color: white;
+        padding: 10px 0 10px 0;
+      }
+      &__icon img{
+        height: 54px;
+        width: 54px;
+      }
 }
 
-.purchase_btn{
-  background: #3CCACE;
-  height: 120px;
-  width: 120px;
-  text-align: center;
-  align-items: center;
-  border-radius: 4%;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  a{
-  text-decoration: none;
-  }
-  &__text{
-    color: white;
-    padding: 10px 0 10px 0;
-  }
-  &__icon img{
-    height: 54px;
-    width: 54px;
-  }
+// マイペトップアイコン
+.mypage-user-icon{
+  height: 140px;
+  background-color: pink;
 }

@@ -2,9 +2,14 @@
 
 
 .mypage-main-contents
-  = render "side-bar"
-  
-  →各コンテンツ表示
+  .mypage-main-content-inner
+    = render "side-bar"
+    .main-box
+      →各コンテンツ表示
+      (以下renderあてはめます)
+      = render "mypage-top"
+
+
 = render partial:"items/app_banner"
 = render partial:"items/footer"
 .purchase_btn
