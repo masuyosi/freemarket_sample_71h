@@ -1,8 +1,10 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "config/color";
+@import "config/mixin";
 @import "modules/new";
 @import "modules/items";
 @import "modules/profiles";
 @import "modules/users";
-
+@import "modules/order";
