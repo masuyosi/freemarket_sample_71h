@@ -62,15 +62,7 @@ hr{
   margin: 10px 0;
 }
 
-#fee{
-  margin-right: 30px;
-  font-size: 20px;
-}
 
-#profit{
-  margin-right: 30px;
-  font-size: 20px;
-}
 
 .header {
   width: 100%;
@@ -90,7 +82,6 @@ hr{
   &__img-container {
     @include box-layout;
     padding: 40px;
-    height: 400px;
     &__title {
       lavel {
         @include subtitle;
@@ -103,37 +94,21 @@ hr{
       font-size: 14px;
       margin: 8px 0 0 0;
     }
-    #newitem-container__image__box {
+    &__wrapper {
       width: 570px;
       height: 130px;
       margin: 10px 0 0 0;
       background-color: #eeecec;
-      // display: flex;
-      // justify-content: center;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      position: relative;
-      label{
-        padding-left: 275px;
-        margin-top: 50px;
-        display: block;
+      .camera-icon{
+        width: 20px;
+        height: 18px;
       }
-      #previews{
-        display: flex;
-        padding: 0 5px;
-      }
-      .js-file_group{
-      }
-      .js-file{
-        // display: none;
-      }
-      #item_images_attributes_0_src{
-        display: none;
-      }
-    }
-    .camera-icon{
-      width: 20px;
-      height: 18px;
+      &__itemimages {
 
+      }
     }
   }
 // 商品の名前と説明
