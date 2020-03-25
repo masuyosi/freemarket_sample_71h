@@ -1,1 +1,29 @@
- 
+-# 新規登録画面・googleかfaceかメールか選ぶとこ
+
+.login-contena
+  .header
+    .header-logo
+      .img
+        =image_tag"logo.png"
+
+
+  .login-contents
+    .login-panel
+      .login-panel__new
+        %p.txt 新規会員登録
+        
+      .login-panel__create
+        .list-box
+          .list-box__mail
+            = link_to new_profile_path do
+              ="メールアドレスで登録する"
+          .list-box__facebook
+            = link_to "#" do
+              ="facebookで登録する"
+          .list-box__google
+            = link_to "#" do
+              ="googleで登録する"
+
+
+
+  = render partial:"items/footer-transition"
