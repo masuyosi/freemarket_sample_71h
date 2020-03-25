@@ -1,29 +1,27 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
+
   end
 
   def new
-    # @item = Item.new
-    # @image = Image.find(params[:id])
+    @item = Item.new
+    @item.images.new
+    # @item.build_brand
   end
 
   def create
-    # @item = Item.create
-    # redirect_to root_path
+    Item.create(item_params)
   end
 
   def show
     @item = Item.find(params[:id])
     @items = Item.all
-    @image = Image.find(params[:id])
-    @images = Image.all
   end
   
-  # private
+  private
 
-  # def item_params
-  #   params.require(:item).permit(:name, :content, :price)
-  # end
-
+  def item_params
+    params.require(:item).permit(:name, :content, :price, :item_condition_id, :prefecture_id, :postage_payer_id, :preparation_day_id, images_attributes: [:src])
+  end
 end
