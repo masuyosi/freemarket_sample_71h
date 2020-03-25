@@ -117,7 +117,7 @@
               .login_btn{
                 height:40px;
                 width: 300px;
-                background-color:#3CCACE;
+                background-color:$emerald-blue;
                 color: white;
                 line-height: 40px;
               }
@@ -126,7 +126,7 @@
               font-size: small;
               a{
                 text-decoration: none;
-                color:#3CCACE;
+                color:$emerald-blueCACE;
               }
             }
           }
@@ -159,7 +159,7 @@
             height: 40px;
             width: 300px;
             margin-top: 16px;
-            background-color: #3CCACE;
+            background-color: $emerald-blue;
             line-height: 40px;
             a{
               text-decoration: none;

@@ -95,7 +95,7 @@
               .btn{
                 height:40px;
                 width: 300px;
-                background-color:#3CCACE;
+                background-color:$emerald-blue;
                 color: white;
                 line-height: 40px;
               }
@@ -147,7 +147,7 @@
         .search_btn{
           width: 40px;
           height: 40px;
-          background-color: #3CCACE;
+          background-color:$emerald-blue;
           position: absolute;
         }
         img{
@@ -171,7 +171,7 @@
         text-align: center;
         line-height: 50px;
         margin-right: 3px;
-        color:#3ccace ;
+        color:$emerald-blue ;
       }
       .sentence{
         text-align: center;
@@ -239,7 +239,7 @@
           text-decoration: none;
           color: darkslategrey;
           :hover {
-            background-color: #3CCACE;
+            background-color:$emerald-blue;
             }
         }
         li{
@@ -273,7 +273,7 @@
     }
 
     .purchase_btn{
-      background: #3CCACE;
+      background:$emerald-blue;
       height: 120px;
       width: 120px;
       text-align: center;
