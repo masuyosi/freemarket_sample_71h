@@ -149,3 +149,4 @@ active_hashにて配送負担者を追加
 active_hashにて配送日数を追加
 ### Association
 - has_many :items
+t
