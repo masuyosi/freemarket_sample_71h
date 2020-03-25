@@ -2,7 +2,8 @@
   .mypage-header-inner
     .mypage-header-top
       .mypage-header-top__logo
-        = image_tag "logo.png"
+        = link_to root_path do
+          = image_tag "logo.png"
       .mypage-header-top__search-box
         = form_with url:'#', method: :get, local: true do |f|
           = f.text_field :name, placeholder: 'お探しの物を教えてください',class: "search_field"
