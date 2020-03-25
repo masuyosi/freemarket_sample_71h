@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :items, exept: [:index]
-  resources :profiles,only: [:new,:create,:show]
+  resources :profiles,only: [:new,:create]
+    resources :profiles do
+      collection do
+        get 'logout'
+      end
+    end
   resources :orders, only: [:new, :create]
+
 end

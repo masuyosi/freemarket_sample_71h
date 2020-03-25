@@ -1,0 +1,16 @@
+= render 'header'
+
+.mypage-main-contents
+  .mypage-main-content-inner
+    = render "side-bar"
+    .main-box
+      .logout-inner
+        .logout-box
+          .logout-btn
+            = link_to destroy_user_session_path, method: :delete do
+              = "ログアウト"
+              
+= render partial:"items/app_banner"
+= render partial:"items/footer"
+
+

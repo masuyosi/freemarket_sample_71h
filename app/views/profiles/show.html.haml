@@ -7,8 +7,12 @@
     .main-box
       →各コンテンツ表示
       (以下renderあてはめます)
-      = render "mypage-top"
-
+ 
+      .mypage-user-icon
+        .mypage-user
+          アカウント詳細ページ
+        .user-icon
+          （＾ω＾）
 
 = render partial:"items/app_banner"
 = render partial:"items/footer"
@@ -18,4 +22,4 @@
       出品する
     .purchase_btn__icon
       = image_tag "icons/icon_camera.png"
-    
+
