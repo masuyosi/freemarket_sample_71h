@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_071443) do
+ActiveRecord::Schema.define(version: 2020_03_25_061303) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "brand", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_brands_on_item_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -26,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_03_20_071443) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "image", null: false
+    t.text "src", null: false
     t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,7 +42,15 @@ ActiveRecord::Schema.define(version: 2020_03_20_071443) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "image_id"
+    t.bigint "postage_payer_id"
+    t.bigint "prefecture_id"
+    t.bigint "preparation_day_id"
+    t.bigint "item_condition_id"
     t.index ["image_id"], name: "index_items_on_image_id"
+    t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
+    t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
