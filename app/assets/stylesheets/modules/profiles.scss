@@ -234,6 +234,7 @@
       .mypage-nav{
         width: 250px;
         background-color: white;
+        
         a{
           text-decoration: none;
           color: darkslategrey;
@@ -247,6 +248,10 @@
           line-height: 40px;
           padding-left: 20px;
           border-bottom:solid 0.3px lightgray ;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all  0.3s ease;
 
         }
 
@@ -294,4 +299,11 @@
 .mypage-user-icon{
   height: 140px;
   background-color: pink;
+  padding: 20px;
+  text-align: center;
+  .mypage-user{
+  }
+  .user-icon{
+  }
+
 }
