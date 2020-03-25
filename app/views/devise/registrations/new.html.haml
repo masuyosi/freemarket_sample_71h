@@ -1,11 +1,5 @@
-.login-contena
-  .header
-    .header-logo
-      = link_to "#" do
-        .img
-          =image_tag"logo.png"
-
-
+  = render partial:"items/header-transition"
+  
   .profile-contents
     .profile-panel
       .profile-panel__registration 
@@ -87,7 +81,6 @@
                   = a.text_field :post_cord,required:true,autofocus: true,placeholder: '仮）全角数字７文字',class:'form-box'
                   %span
                     必須
-                -# =binding.pry
                 .actions
                 = f.submit "登録", class:'btn'
   = render partial:"items/footer"

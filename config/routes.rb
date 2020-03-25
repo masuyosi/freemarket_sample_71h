@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   }
   root 'items#index'
 
-  resources :items, only: [:new,:create, :show]
   resources :users,only: [:new,:create]
+  resources :items, exept: [:index]
+  resources :profiles,only: [:new,:create]
+  resources :orders, only: [:new, :create]
 end
