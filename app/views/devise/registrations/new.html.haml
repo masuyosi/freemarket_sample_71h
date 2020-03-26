@@ -31,6 +31,8 @@
                 .field__input
                   = f.label :確認用パスワード
                   = f.password_field :password_confirmation,required:true,autocomplete: "off",placeholder: '7文字以上の半角英数字',class:'form-box'
+                  %span
+                    必須
               = f.fields_for :profile do |i|    
                 .field__input
                   = i.label :名前
