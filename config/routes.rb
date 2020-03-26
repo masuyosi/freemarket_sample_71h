@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   root 'items#index'
   resources :users,only: [:new,:create]
-  resources :items, exept: [:new, :create, :show]
+  resources :items, only: [:new, :create, :show, :edit, :update]
   resources :profiles,only: [:new,:create]
     resources :profiles do
       collection do

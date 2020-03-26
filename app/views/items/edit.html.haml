@@ -1,0 +1,130 @@
+.header
+  = link_to root_path do
+    = image_tag "logo.png", class: "top-logo"
+.newitem-container
+  = form_for @item do |f|
+    .newitem-container__img-container
+      .newitem-container__img-container__title
+        .newitem-container__img-container__title--text
+          %lavel
+            出品画像
+          %span
+            必須
+      .newitem-container__img-container__text
+        最大5枚までアップロードできます
+      #newitem-container__image__box
+        -# #previews
+        -#   - if @item.persisted?
+        -#     - @item.images.each_with_index do |image, i|
+        -#       = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+        = f.fields_for :images do |i|
+          .js-file_group{"data-index" => "image.index"}
+            %label.label
+              = image_tag "icons/icon_camera.png", class: "camera-icon"
+              = i.file_field :src, class: 'js-file'
+
+    %hr
+    .newitem-container__body
+      .newitem-container__body__form
+        .newitem-container__body__form--text
+          %lavel
+            商品名
+          %span
+            必須
+        .newitem-container__body__form--textarea
+          = f.text_field :name, class: "itemname", required: true, placeholder: "商品名を入力してください"
+      .newitem-container__body__description
+        .newitem-container__body__description--text
+          %lavel
+            商品の説明
+          %span
+            必須
+        .newitem-container__body__description--textarea
+          = f.text_area :content, class: "description", required: true, placeholder: "商品の説明を入力してください"
+
+    %hr
+    .newitem-container__newitems-detail
+      .newitem-container__newitems-detail__title
+        商品の詳細
+      .newitem-container__newitems-detail__form
+        .newitem-container__newitems-detail__form__category--text
+          %lavel
+            カテゴリー
+          %span
+            必須
+        .newitem-container__newitems-detail__form__category--textarea
+          %input{class: "categoriesname", placeholder: "選択してください"}
+        .newitem-container__newitems-detail__form__brand--text
+          %lavel
+            ブランド
+          %span
+            任意
+        .newitem-container__newitems-detail__form__brand--textarea
+          = f.text_field :brand, class: "brandname", placeholder: "入力してください"
+        .newitem-container__newitems-detail__form__status--text
+          %lavel
+            商品の状態
+          %span
+            必須
+        .newitem-container__newitems-detail__form__status--textarea
+          = f.select :item_condition_id, ItemCondition.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
+    %hr
+    .newitem-container__newitems-ship
+      .newitem-container__newitems-ship__title
+        配送について
+      .newitem-container__newitems-ship__form
+        .newitem-container__newitems-ship__form__payment--text
+          %lavel
+            配送料の負担
+          %span
+            必須
+        .newitem-container__newitems-ship__form__payment--textarea
+          = f.select :postage_payer_id, PostagePayer.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
+        .newitem-container__newitems-ship__form__region--text
+          %lavel
+            発送元の地域
+          %span
+            必須
+        .newitem-container__newitems-ship__form__region--textarea
+          = f.select :prefecture_id, Prefecture.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
+        .newitem-container__newitems-ship__form__days--text
+          %lavel
+            発送までの日数
+          %span
+            必須
+        .newitem-container__newitems-ship__form__days--textarea
+          = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
+        .newitem-container__hidden
+          = f.text_field :item_situation_id, class: "item_situ", value: "1"
+          
+    %hr
+    .newitem-container__newitems-price
+      .newitem-container__newitems-price__title
+        価格（¥300〜9,999,999）
+      .newitem-container__newitems-price__form
+        .newitem-container__newitems-price__form__container
+          .newitem-container__newitems-price__form__container--text
+            %lavel
+              販売価格
+            %span
+              必須
+          .newitem-container__newitems-price__form__container--form
+            %span.mark
+              ¥
+            = f.text_field :price, id: "price", required: true, placeholder: "0", type: "number"
+      .newitem-container__newitems-price__container
+        .newitem-container__newitems-price__container__commition
+          %lavel
+            販売手数料（10%）
+          %lavel#fee
+        .newitem-container__newitems-price__container__line
+        .newitem-container__newitems-price__container__profit
+          %lavel
+            販売利益
+          %lavel#profit
+    .newitem-container__exhibit-button
+      = f.submit class: "button-1", value: "商品情報を変更する"
+    .newitem-container__attention
+      %p
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+= render partial:"items/footer-transition"
