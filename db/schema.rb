@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2020_03_25_084430) do
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "images"
-  add_foreign_key "profiles", "users"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
+  add_foreign_key "profiles", "users"
 end
