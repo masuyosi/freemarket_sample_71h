@@ -31,16 +31,14 @@
 
 
       .mypage-header-nav__right-box
-        .mypage-header-nav__right-box__mypage-box
-          = link_to "#" do
-            %ul.list
-              %li.icon
-                = icon('fas', 'fas fa-home', class: 'icon')
-              %li.sentence
-                ="マイページ"
-                -# - if user_signed_in? 
-                -#   = link_to "マイページ", show_profiles_path
-                -#   = link_to "ログアウト", destroy_user_session_path, method: :delete
-                -# -# - else
-                -# -#   = link_to "ログイン", new_sessions_path
-                -# -#   = link_to "新規登録", new_registration_path
+        .mypage-header-nav__right-box__mypage-box 
+          - if user_signed_in?
+            = icon('fas', 'fas fa-shopping-cart', class: 'icon')
+            = link_to "新規出品", new_item_path
+            = icon('fas', 'fas fa-home', class: 'icon')
+            = link_to "マイページ",logout_profiles_path
+          - else
+            = icon('fas', 'fas fa-home', class: 'icon')
+            = link_to "ログイン", new_user_session_path
+            = icon('fas', 'fas fa-paw', class: 'icon')
+            = link_to "新規登録", new_user_registration_path
