@@ -195,3 +195,28 @@ kid_event.children.create([{name: "お宮参り用品"}, {name: "お食い初め
                            {name: "その他"}])
 kid_other.children.create([{name: "母子手帳用品"}, {name: "その他"}])
 kid.save
+
+
+
+
+20.times do |index|
+  no = index + 1
+  user = User.create(
+    nickname:           "user#{no}",
+    email:  "email#{no}@example.com",
+    password:               "password#{no}",
+    password_confirmation:  "password#{no}",
+  )
+  user.save!
+end
+
+20.times do |index|
+  no = index + 1
+  user = User.create(
+    nickname:           "user#{no}",
+    email:  "email#{no}@example.com",
+    password:               "password#{no}",
+    password_confirmation:  "password#{no}",
+  )
+  user.save!
+end
