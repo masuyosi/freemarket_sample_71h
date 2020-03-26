@@ -23,16 +23,20 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
+
   process resize_to_fit: [100, 100]
+
   #
   # def scale(width, height)
   #   # do something
   # end
+
   if Rails.env.development? || Rails.env.test?
     storage :file
   else
     storage :fog
   end
+
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process resize_to_fit: [50, 50]
