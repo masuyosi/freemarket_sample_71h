@@ -8,5 +8,11 @@ Rails.application.routes.draw do
   resources :users,only: [:new,:create]
   resources :items, exept: [:index]
   resources :profiles,only: [:new,:create]
+    resources :profiles do
+      collection do
+        get 'logout'
+      end
+    end
   resources :orders, only: [:new, :create]
+
 end

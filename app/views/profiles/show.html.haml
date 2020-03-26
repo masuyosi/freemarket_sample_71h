@@ -1,0 +1,25 @@
+= render "header"
+
+
+.mypage-main-contents
+  .mypage-main-content-inner
+    = render "side-bar"
+    .main-box
+      →各コンテンツ表示
+      (以下各ページrenderあてはめ予定)
+ 
+      .mypage-user-icon
+        .mypage-user
+          アカウント詳細ページ仮置き
+        .user-icon
+          仮置き
+
+= render partial:"items/app_banner"
+= render partial:"items/footer"
+.purchase_btn
+  = link_to new_item_path do
+    .purchase_btn__text
+      出品する
+    .purchase_btn__icon
+      = image_tag "icons/icon_camera.png"
+

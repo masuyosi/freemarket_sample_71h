@@ -20,8 +20,7 @@ class ItemsController < ApplicationController
 
   def update
   end
-  
-  def destroy
 
+  def destroy
   end
 end

@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+
  def new
   @profile = Profile.new
  end
@@ -6,6 +7,13 @@ class ProfilesController < ApplicationController
  def create
   Profile.create
   redirect_to root_path
+ end
+
+ def show
+       # @user = User.find(params[:id])
+ end
+
+ def logout
  end
 
  private
