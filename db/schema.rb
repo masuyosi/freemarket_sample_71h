@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_111448) do
+ActiveRecord::Schema.define(version: 2020_03_26_114539) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture", null: false
     t.string "city", null: false
     t.integer "post_cord", null: false
     t.string "house_number", null: false
-    t.string "first_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -59,13 +58,11 @@ ActiveRecord::Schema.define(version: 2020_03_26_111448) do
     t.bigint "item_condition_id", null: false
     t.string "brand"
     t.bigint "item_situation_id"
-    t.bigint "user_id"
     t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
     t.index ["item_situation_id"], name: "index_items_on_item_situation_id"
     t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -101,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_111448) do
     t.datetime "updated_at", null: false
     t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
   add_foreign_key "addresses", "users"
