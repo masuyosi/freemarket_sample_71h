@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_061303) do
+ActiveRecord::Schema.define(version: 2020_03_26_040214) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "brand", null: false
@@ -41,13 +41,14 @@ ActiveRecord::Schema.define(version: 2020_03_25_061303) do
     t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "image_id"
-    t.bigint "postage_payer_id"
-    t.bigint "prefecture_id"
-    t.bigint "preparation_day_id"
-    t.bigint "item_condition_id"
-    t.index ["image_id"], name: "index_items_on_image_id"
+    t.bigint "postage_payer_id", null: false
+    t.bigint "prefecture_id", null: false
+    t.bigint "preparation_day_id", null: false
+    t.bigint "item_condition_id", null: false
+    t.string "brand"
+    t.bigint "item_situation_id"
     t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
+    t.index ["item_situation_id"], name: "index_items_on_item_situation_id"
     t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
@@ -73,5 +74,4 @@ ActiveRecord::Schema.define(version: 2020_03_25_061303) do
   end
 
   add_foreign_key "images", "items"
-  add_foreign_key "items", "images"
 end

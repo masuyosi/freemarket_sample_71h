@@ -72,6 +72,7 @@ hr{
   font-size: 20px;
 }
 
+
 .header {
   width: 100%;
   height: 128px;
@@ -86,6 +87,9 @@ hr{
 }
 // 画像登録
 .newitem-container {
+  &__hidden{
+    display: none;
+  }
   background-color: $background;
   &__img-container {
     @include box-layout;
@@ -108,8 +112,6 @@ hr{
       height: 130px;
       margin: 10px 0 0 0;
       background-color: #eeecec;
-      // display: flex;
-      // justify-content: center;
       align-items: center;
       position: relative;
       label{
@@ -120,11 +122,6 @@ hr{
       #previews{
         display: flex;
         padding: 0 5px;
-      }
-      .js-file_group{
-      }
-      .js-file{
-        // display: none;
       }
       #item_images_attributes_0_src{
         display: none;

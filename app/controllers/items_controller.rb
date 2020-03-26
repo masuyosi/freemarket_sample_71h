@@ -7,11 +7,15 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    # @item.build_brand
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.create(item_params)
+    if @item.save
+      redirect_to root_path
+      flash[:notice] = "出品しました"
+    else
+    end
   end
 
   def show
@@ -22,6 +26,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :content, :price, :item_condition_id, :prefecture_id, :postage_payer_id, :preparation_day_id, images_attributes: [:src])
+    params.require(:item).permit(:name, :content, :price, :item_condition_id,
+    :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, 
+    :item_situation_id, images_attributes: [:src])
   end
 end

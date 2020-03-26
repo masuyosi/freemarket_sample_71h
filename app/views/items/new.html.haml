@@ -11,7 +11,7 @@
           %span
             必須
       .newitem-container__img-container__text
-        最大10枚までアップロードできます
+        最大5枚までアップロードできます
       #newitem-container__image__box
         #previews
           - if @item.persisted?
@@ -33,7 +33,7 @@
           %span
             必須
         .newitem-container__body__form--textarea
-          = f.text_field :name, class: "itemname", placeholder: "商品名を入力してください"
+          = f.text_field :name, class: "itemname", required: true, placeholder: "商品名を入力してください"
       .newitem-container__body__description
         .newitem-container__body__description--text
           %lavel
@@ -41,7 +41,7 @@
           %span
             必須
         .newitem-container__body__description--textarea
-          = f.text_area :content, class: "description", placeholder: "商品の説明を入力してください"
+          = f.text_area :content, class: "description", required: true, placeholder: "商品の説明を入力してください"
 
     -# カテゴリー・ブランド・商品の状態
     %hr
@@ -62,14 +62,14 @@
           %span
             任意
         .newitem-container__newitems-detail__form__brand--textarea
-          -# = f.text_field :brand, class: "brandname", placeholder: "入力してください"
+          = f.text_field :brand, class: "brandname", placeholder: "入力してください"
         .newitem-container__newitems-detail__form__status--text
           %lavel
             商品の状態
           %span
             必須
         .newitem-container__newitems-detail__form__status--textarea
-          = f.select :item_condition_id, ItemCondition.all.map{|o| [o.name, o.id]}
+          = f.select :item_condition_id, ItemCondition.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
     %hr
     .newitem-container__newitems-ship
       .newitem-container__newitems-ship__title
@@ -81,22 +81,24 @@
           %span
             必須
         .newitem-container__newitems-ship__form__payment--textarea
-          = f.select :postage_payer_id, PostagePayer.all.map{|o| [o.name, o.id]}
+          = f.select :postage_payer_id, PostagePayer.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
         .newitem-container__newitems-ship__form__region--text
           %lavel
             発送元の地域
           %span
             必須
         .newitem-container__newitems-ship__form__region--textarea
-          = f.select :prefecture_id, Prefecture.all.map{|o| [o.name, o.id]}
+          = f.select :prefecture_id, Prefecture.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
         .newitem-container__newitems-ship__form__days--text
           %lavel
             発送までの日数
           %span
             必須
         .newitem-container__newitems-ship__form__days--textarea
-          = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}
-
+          = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
+        .newitem-container__hidden
+          = f.text_field :item_situation_id, class: "item_situ", value: "1"
+          
     -# 価格
     %hr
     .newitem-container__newitems-price
@@ -112,7 +114,7 @@
           .newitem-container__newitems-price__form__container--form
             %span.mark
               ¥
-            = f.text_field :price, id: "price", placeholder: "0", type: "number"
+            = f.text_field :price, id: "price", required: true, placeholder: "0", type: "number"
       .newitem-container__newitems-price__container
         .newitem-container__newitems-price__container__commition
           %lavel
