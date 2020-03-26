@@ -1,21 +1,87 @@
 .login-contena
-  .header
-    .header-logo
-      .img
-        =image_tag asset_path("logo.png")
-  .login-contents
-    .login-panel
-      .login-panel__new
-        %p.txt 新規会員登録
-      .login-panel__create
-        .list-box
-          .list-box__mail
-            = link_to new_profile_path do
-              ="メールアドレスで登録する"
-          .list-box__facebook
-            = link_to "#" do
-              ="facebookで登録する"
-          .list-box__google
-            = link_to "#" do
-              ="googleで登録する"
-  = render partial:"items/footer-transition"
+  = render partial:"items/header-transition"
+
+  .profile-contents
+    .profile-panel
+      .profile-panel__registration 
+        %p.txt 会員情報入力
+
+      .profile-panel__form
+        .profile-panel__form__inner
+          .profile-list-box
+            = form_for(@user, url: user_registration_path)  do |f|      
+              .field
+                %p.text
+                  ="お名前"
+                .field__input
+                  = f.label :ニックネーム
+                  = f.text_field :nickname,required: true,autofocus: true,placeholder: '仮）フリマ花子',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = f.label :メールアドレス
+                  = f.email_field :email,required:true,placeholder: 'PC、携帯どちらでも可',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = f.label :パスワード
+                  = f.password_field :password,required:true,autocomplete: "off",placeholder: '7文字以上の半角英数字',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = f.label :確認用パスワード
+                  = f.password_field :password_confirmation,required:true,autocomplete: "off",placeholder: '7文字以上の半角英数字',class:'form-box'
+              = f.fields_for :profile do |i|    
+                .field__input
+                  = i.label :名前
+                  = i.text_field :family_name,required:true,placeholder: '例）山田',class:'form-box'
+                  = i.text_field :first_name,required:true,placeholder: '例）杏',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = i.label :カナ
+                  = i.text_field :family_name_kana,required:true,placeholder: '例）ヤマダ（全角）',class:'form-box'
+                  = i.text_field :first_name_kana,required:true,placeholder: '例）アン（全角）',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = i.label :生年月日（年）
+                  = i.number_field :birth_year,required:true,placeholder: '例)１９９０ 全角',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = i.label :生年月日（月）
+                  = i.number_field :birth_month,required:true,placeholder: '例) 全角',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = i.label :生年月日（日）
+                  = i.number_field :birth_day,required:true,placeholder: '例)10 全角',class:'form-box'
+                  %span
+                    必須
+                %p.text
+                  ="住所"
+              = f.fields_for :address do |a|
+                .field__input
+                  = a.label :県
+                  = a.text_field :prefecture,required:true, autofocus: true,placeholder: '仮）東京都',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = a.label :市、区
+                  = a.text_field :city,equired:true,rautofocus: true,placeholder: '仮）千代田区',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = a.label :番地
+                  = a.text_field :house_number,required:true, autofocus: true,placeholder: '仮）○○町○番',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = a.label :郵便番号
+                  = a.text_field :post_cord,required:true,autofocus: true,placeholder: '仮）全角数字７文字',class:'form-box'
+                  %span
+                    必須
+                .actions
+                = f.submit "登録", class:'btn'
+  = render partial:"items/footer"
