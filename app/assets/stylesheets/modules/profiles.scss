@@ -285,16 +285,10 @@
   background-color: pink;
   padding: 20px;
   text-align: center;
-  .mypage-user{
-  }
-  .user-icon{
-  }
 }
 
 
 // ログアウト画面コンテナ
-
-
 .logout-inner{
   background-color: white;
   padding: 64px;
@@ -315,11 +309,11 @@
           text-decoration: none;
           color: white;
           -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all  0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all  0.3s ease;
         } 
-        :hover {
+        a:hover {
           background-color:gray;
         }
     }
