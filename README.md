@@ -84,20 +84,22 @@ active_hashにて都道府県を追加
 |postage_payer|integer|null: false, foreign_key: true|
 |prefecture|integer|null: false, foreign_key: true|
 |preparation_day|integer|null: false, foreign_key: true|
+|item_situation|integer|null: false, foreign_key: true|
 |user|integer|null: false, foreign_key: true|
 |category|integer|null: false, foreign_key: true|
-|brand|integer|null: false, foreign_key: true|
+|brand|string||
 
 ### Association
 - belongs_to :user
 - has_many :images
 - belongs_to :category
-- belongs_to :brand
 - belongs_to_active_hash :item_condition
 - belongs_to_active_hash :postage_payer
 - belongs_to_active_hash :preparation_day
-- belongs_to_active_hash :item_condition
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :item_situation
 - has_one :order
+
 
 ## reference型を使用
   下記をマイグレーションファイルに追加して作成
@@ -110,7 +112,7 @@ active_hashにて都道府県を追加
   ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|url|text||
+|src|text||
 |item|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
@@ -152,6 +154,13 @@ active_hashにて配送日数を追加
 ### Association
 - has_many :items
 
+## item_situationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+active_hashにて状態を追加
+### Association
+- has_many :items
+
 ## ordersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -161,3 +170,4 @@ active_hashにて配送日数を追加
 ### Association
 - belongs_to :user
 - belongs_to :item
+
