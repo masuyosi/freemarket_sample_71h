@@ -20,10 +20,6 @@ $(function(){
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
 
-  // $("#newitem-container__image__box").on("click", function (e) {
-  //   $(`.js-file:last`).trigger("click");
-  // });
-
   $('#newitem-container__image__box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
