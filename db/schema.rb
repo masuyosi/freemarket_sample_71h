@@ -10,8 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-　
 ActiveRecord::Schema.define(version: 2020_03_26_100100) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -19,7 +17,6 @@ ActiveRecord::Schema.define(version: 2020_03_26_100100) do
     t.string "city", null: false
     t.integer "post_cord", null: false
     t.string "house_number", null: false
-    t.string "first_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -93,18 +90,14 @@ ActiveRecord::Schema.define(version: 2020_03_26_100100) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["nickname"], name: "index_users_on_nickname", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
-
-  add_foreign_key "items", "images"
-
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
   add_foreign_key "profiles", "users"
