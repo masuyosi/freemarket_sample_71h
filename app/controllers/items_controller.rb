@@ -25,10 +25,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
-
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    @item.image.update(item_params)
+    flash[:notice] = "商品情報を更新しました"
+    redirect_to item_path(item.id)
   end
 
   def destroy
