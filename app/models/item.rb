@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   validates :images, presence: true
   belongs_to :user, foreign_key: 'user_id'
   belongs_to :category
-  
+
   def image_search
     @image = Image.find(params[:id])
   end
