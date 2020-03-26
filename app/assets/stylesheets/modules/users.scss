@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+
+body{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+
 .login-contena{
   background-color: whitesmoke;
   height:100vh;
@@ -31,11 +37,9 @@
   .login-contents{
     display: flex;
     justify-content: center;
-
     .login-panel{
       background-color:white;
       width: 450px;
-
       .new-account{
         height: 140px;
         width: 100%;
@@ -69,7 +73,6 @@
         text-align: center;
         line-height: 40px;
         margin-bottom: 15px;
-
         .list-box{
           text-align: center;
 
@@ -104,16 +107,13 @@
         align-items: center;
         text-align: center;
         padding: 30px 0 50px;
-
         &__inner {
           height: 100%;
           width: 400px;
           background-color: white;
           text-align: center;
-
           .field{
             text-align: center;
-
             &__input{
               height: 40px;
               width: 100%;
@@ -123,31 +123,27 @@
                 width: 300px;
               }
             }
-
             .actions{
               height: 40px;
               width: 100%;
               .login_btn{
                 height:40px;
                 width: 300px;
-                background-color:#3CCACE;
+                background-color:$emerald-blue;
                 color: white;
                 line-height: 40px;
               }
             }
             .forget-password{
               font-size: small;
-
               a{
                 text-decoration: none;
-                color:#3CCACE;
+                color:$emerald-blue;
               }
             }
           }
         }
       }
-
-
       &__new {
         height: 140px;
         width: 100%;
@@ -168,16 +164,14 @@
         text-align: center;
         line-height: 40px;
         padding: 30px 0 50px;
-
         .list-box{
           text-align: center;
           padding: 30px 0 50px;
-
           &__mail{
             height: 40px;
             width: 300px;
             margin-top: 16px;
-            background-color: #3CCACE;
+            background-color: $emerald-blue;
             line-height: 40px;
             a{
               text-decoration: none;
@@ -205,10 +199,9 @@
               text-decoration: none;
               color: black;
             }
-
         }
       }
     }
   }
- } 
+ }
 }

@@ -90,3 +90,6 @@ gem 'active_hash'
 gem 'recaptcha', require: "recaptcha/rails"
 
 gem 'jquery-rails'
+
+gem 'payjp'
+

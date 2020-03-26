@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage_payer
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :prefecture
+  has_one :order
 
   validates_associated :images
   validates :images, presence: true

@@ -1,9 +1,9 @@
 .login-contena
   .header
     .header-logo
-      = link_to "#" do
+      = link_to root_path do
         .img
-          =image_tag"logo.png"
+          =image_tag asset_path("logo.png")
 
 
   .profile-contents
@@ -37,8 +37,20 @@
                   = f.text_field :family_name_kana,required:true,placeholder: '例）ヤマダ',class:'form-box'
                   = f.text_field :first_name_kana,required:true,placeholder: '例）アン',class:'form-box'
                 .field__input
-                  = f.label :生年月日
-                  != sprintf(f.date_select(:birthday,required:true, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+                  = f.label :生年月日（年）
+                  = f.text_field :birth_year,required:true,placeholder: '例）１９９０ 全角',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = f.label :生年月日（月）
+                  = f.text_field :birth_month,required:true,placeholder: '例）1 全角',class:'form-box'
+                  %span
+                    必須
+                .field__input
+                  = f.label :生年月日（日）
+                  = f.text_field :birth_day,required:true,placeholder: '例）10 全角',class:'form-box'
+                  %span
+                    必須
                 %p.text
                   ="住所"
 
@@ -54,8 +66,8 @@
                 .field__input
                   = f.label :郵便番号
                   = f.text_field :post_cord,equired:true,autofocus: true,placeholder: '仮）全角数字７文字',class:'form-box'
-
-
+                  %span
+                    必須
                 .actions
                   = f.submit "登録", class:'btn'
   = render partial:"items/footer"

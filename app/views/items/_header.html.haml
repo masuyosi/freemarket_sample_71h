@@ -3,12 +3,12 @@
     .header_box__main
       .icon
         = link_to root_path do
-          = image_tag "logo.png"
+          = image_tag asset_path("logo.png")
       .search_box
         = form_with url:'#', method: :get, local: true do |f|
           = f.text_field :name, class: "search_field"
           = f.submit type: "button", class: "search_btn", value: ""
-          = image_tag "icons/icon-search 1.png"
+          = image_tag asset_path("icons/icon-search 1.png")
     .header_box__nav
       .lists_left
         .list_left__category
@@ -21,4 +21,4 @@
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "list_right__btn__right"
         - else
           = link_to "ログイン", new_user_session_path, class: "list_right__btn__left"
-          = link_to "新規登録", new_user_registration_path, class: "list_right__btn__right"
+          = link_to "新規登録", new_user_path, class: "list_right__btn__right"

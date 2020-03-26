@@ -3,4 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :nickname, presence: true
+  
+  has_many :orders, dependent: :destroy
+  has_one :profile 
+  has_one :address
+  accepts_nested_attributes_for :address, :profile 
+            
 end

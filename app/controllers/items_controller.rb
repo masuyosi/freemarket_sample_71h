@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
+    @item = Item.all
 
   end
 
@@ -22,9 +23,18 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @items = Item.all
   end
-  
-  private
 
+  def edit
+
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  private
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,
     :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, 
