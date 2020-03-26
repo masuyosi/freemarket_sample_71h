@@ -89,7 +89,10 @@ gem 'active_hash'
 
 gem 'recaptcha', require: "recaptcha/rails"
 
+gem 'bcrypt', '~>3.1.7'
+
 gem 'jquery-rails'
 
 gem 'payjp'
+
 

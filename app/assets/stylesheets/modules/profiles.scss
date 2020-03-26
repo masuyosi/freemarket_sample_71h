@@ -1,4 +1,4 @@
-
+　
 * {
   box-sizing: border-box;
 }
@@ -28,6 +28,10 @@
       }
     }
   }
+  .field_with_errors {
+  display: contents;
+}
+
   .profile-contents{
     display: flex;
     justify-content: center;
