@@ -38,11 +38,6 @@
 |city|string|null: false|
 |house_number|string|null: false|
 |post_cord|integer(7)|null: false|
-|phone_number|integer|null: false, unique: true|
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_name_kana|string|null: false|
-|first_name_kana|string|null: false|
 |user|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -88,7 +83,6 @@ active_hashにて都道府県を追加
 |user|integer|null: false, foreign_key: true|
 |category|integer|null: false, foreign_key: true|
 |brand|string||
-
 ### Association
 - belongs_to :user
 - has_many :images
@@ -129,7 +123,6 @@ active_hashにて都道府県を追加
 |Column|Type|Options|
 |------|----|-------|
 |brand|string|null: false|
-
 ### Association
 - has_many :items
 

@@ -62,11 +62,13 @@ ActiveRecord::Schema.define(version: 2020_03_27_030445) do
     t.string "brand"
     t.bigint "item_situation_id"
     t.index ["image_id"], name: "index_items_on_image_id"
+    t.bigint "user_id"
     t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
     t.index ["item_situation_id"], name: "index_items_on_item_situation_id"
     t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,11 +86,11 @@ ActiveRecord::Schema.define(version: 2020_03_27_030445) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "family_name_kana"
     t.string "first_name_kana"
-    t.integer "birth_year"
-    t.integer "birth_month"
-    t.integer "birth_day"
+    t.string "family_name_kana"
+    t.string "birth_year"
+    t.string "birth_month"
+    t.string "birth_day"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -102,7 +104,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_030445) do
     t.datetime "updated_at", null: false
     t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
   add_foreign_key "addresses", "users"

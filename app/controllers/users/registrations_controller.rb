@@ -14,18 +14,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    
     @user = User.new(user_params)
-    @user.save
-    # binding.pry
-    sign_in @user
-    redirect_to root_path
+    if @user.save
+      sign_in @user
+      redirect_to root_path
+    else
+      render :new
+    end
     
   end
 
   private
   def user_params
-    params.require(:user).permit(:nickname, :email, :password, address_attributes:[:id, :prefecture, :city, :house_number, :post_cord ],profile_attributes:[:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day])
+    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, address_attributes:[:id, :prefecture, :city, :house_number, :post_cord ],profile_attributes:[:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day])
     # params.require(:profile).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day)
     # params.require(:address).permit(:prefecture, :city, :house_number, :post_cord)
   end
