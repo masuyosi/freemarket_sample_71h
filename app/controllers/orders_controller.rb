@@ -9,9 +9,5 @@ class OrdersController < ApplicationController
 end
 
 
- 
 
-  # -if items.buyer_id.present? 
-  #   .items-box_photo__sold
-  #     .items-box_photo__sold__inner
-  #       SOLD
+
