@@ -17,9 +17,9 @@ class ItemsController < ApplicationController
       flash[:notice] = "出品しました"
     end
     if @item.update(seller_id: current_user.id)
-
+      flash[:notice] = "出品しました"
     else
-      
+      flash[:notice] = "出品に失敗しました"
     end
   end
 
