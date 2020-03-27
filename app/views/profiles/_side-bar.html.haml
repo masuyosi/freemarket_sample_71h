@@ -2,7 +2,7 @@
   .mypage-nav
     .list
       %ul.list
-        = link_to "#" do
+        = link_to profile_path(current_user) do
           %li.mypage
             = "マイページ"
             = icon('fas', 'fas fa-angle-right', class: 'icon')
@@ -18,7 +18,7 @@
           %li.like
             ="いいね"
             = icon('fas', 'fas fa-angle-right', class: 'icon')
-        = link_to "#" do
+        = link_to new_item_path do
           %li.sale
             ="出品する"
             = icon('fas', 'fas fa-angle-right', class: 'icon')
