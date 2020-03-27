@@ -15,9 +15,12 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
       flash[:notice] = "出品しました"
-    else
     end
-    @item.update(seller_id: current_user.id)
+    if @item.update(seller_id: current_user.id)
+
+    else
+      
+    end
   end
 
   def show
@@ -33,6 +36,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.image.update(item_params)
+    
     flash[:notice] = "商品情報を更新しました"
     redirect_to item_path(item.id)
   end
