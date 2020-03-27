@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
     const html = `<div data-index="${num}" class="js-file_group">
@@ -38,21 +38,33 @@ $(function(){
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
+  function calcTotal(){
+    var result = 0.1 * $('#price').val();
+    var total = parseInt(result);
+    $('#fee').text("¥" + total);
+    var total2 = $('#price').val() - total;
+    $('#profit').text("¥" + total2);
+  }
+  $(function() {
+    $('input[type="number"]').on('keyup change', function() {
+      calcTotal();
+    });
+  });
 });
 
 
 
  
 
-function calcTotal(){
-    var result = 0.1 * $('#price').val();
-    var total = parseInt(result);
-    $('#fee').text("¥" + total);
-    var total2 = $('#price').val() - total;
-    $('#profit').text("¥" + total2);
-}
-$(function() {
-  $('input[type="number"]').on('keyup change', function() {
-    calcTotal();
-  });
-});
+// function calcTotal(){
+//     var result = 0.1 * $('#price').val();
+//     var total = parseInt(result);
+//     $('#fee').text("¥" + total);
+//     var total2 = $('#price').val() - total;
+//     $('#profit').text("¥" + total2);
+// }
+// $(function() {
+//   $('input[type="number"]').on('keyup change', function() {
+//     calcTotal();
+//   });
+// });
