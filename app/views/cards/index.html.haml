@@ -1,0 +1,45 @@
+= render  partial:"items/header"
+.mypage-main-contents
+  .mypage-main-content-inner
+    = render  partial:"profiles/side-bar"
+    .main-box
+      .user-cards-content
+        .user-cards-content__head
+          支払い情報
+        .user-cards-content__inner
+          .user-cards-content__inner__section
+            クレジットカード一覧
+            - if @card.present?
+                %ul.right-container__card
+                  %li
+                    .users-card
+                      %figure
+                        = render 'shared/card-images'
+                      .users-card__num
+                        = "************" + @card.last4
+                      = "0#{@card.exp_month} / #{@card.exp_year.to_s.slice(0..1).to_i}"
+                      .users-card__exp
+                        = link_to users_card_delete_path, method: :delete do
+                          削除する
+              - else
+                .right-single-content
+                  = link_to card_registration_users_path,class: "btn-default btn-red add-credit-card__link" do
+                    %i.fa.fa-credit-card.add-credit-card__icon
+                    クレジットカードを追加する
+
+            
+          .user-cards-content__inner__help
+            = link_to "#" do
+              = "支払い方法について"
+
+
+
+= render partial:"items/app_banner"
+= render partial:"items/footer"
+.purchase_btn
+  = link_to new_item_path do
+    .purchase_btn__text
+      出品する
+    .purchase_btn__icon
+      = image_tag "icons/icon_camera.png"
+

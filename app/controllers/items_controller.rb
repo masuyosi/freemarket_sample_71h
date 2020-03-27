@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
     @item = Item.all
+    @images = Image.all.includes(:item)
+    
 
   end
 

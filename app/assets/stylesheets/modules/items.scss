@@ -230,7 +230,7 @@
     }
   }
   .pickup_product{
-    height: 600px;
+    height: 850px;
     padding: 30px 0;
     .pickup_product__header{
       padding-top: 30px;
@@ -245,29 +245,30 @@
       padding-bottom: 30px;
     }
     .pickup_product__box{
-      width: 80%;
       padding: 30px;
       margin: 0 auto;
-      .item_lists{
-        display: flex;
-        justify-content: space-around;
-        .item_list{
-          height: 300px;
-          width: 300px;
-          .item_list__image img{
-            height: 220px;
+      width: 1000px;
+        .item_lists{
+          float: left;
+          .item_list{
+            height: 300px;
             width: 300px;
-            object-fit: cover;
-          }
-          .item_list__name{
-            padding: 10px 0 10px 20px;
-          }
-          .item_list__price{
-            padding: 10px 0 10px 20px;
+            margin: 0 1px 0;
+            .item_list__image img{
+              height: 220px;
+              width: 300px;
+              object-fit: cover;
+            }
+            .item_list__name{
+              padding: 10px 0 10px 20px;
+            }
+            .item_list__price{
+              padding: 10px 0 10px 20px;
+            }
           }
         }
       }
-    }
+    
   }
 }
 
