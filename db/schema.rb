@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_062813) do
+ActiveRecord::Schema.define(version: 2020_03_27_030445) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture", null: false
     t.string "city", null: false
     t.integer "post_cord", null: false
     t.string "house_number", null: false
-    t.string "first_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -85,6 +84,11 @@ ActiveRecord::Schema.define(version: 2020_03_26_062813) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "family_name_kana"
+    t.string "first_name_kana"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -96,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_062813) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -17,11 +17,13 @@ class ItemsController < ApplicationController
       flash[:notice] = "出品しました"
     else
     end
+    @item.update(seller_id: current_user.id)
   end
 
   def show
     @item = Item.find(params[:id])
     @items = Item.all
+    @images = Image.all
   end
 
   def edit
