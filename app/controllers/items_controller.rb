@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
-    @item = Item.all
-
+    @items = Item.all.order("created_at DESC")
+    @images = Image.all.includes(:item)
   end
 
   def new
