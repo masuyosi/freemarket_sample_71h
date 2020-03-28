@@ -7,7 +7,3 @@ class OrdersController < ApplicationController
     @item.update( buyer_id: current_user.id)
   end
 end
-
-
-
-
