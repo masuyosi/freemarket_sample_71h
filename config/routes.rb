@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       end
     end
   resources :orders, only: [:new, :create]
-  resources :cards, only: [:index,:new, :destroy]
+  resources :cards, only: [:new, :show,:create] do
+    collection do
+      post 'delete', to: 'cards#delete'
+    end
+  end
 
 end
