@@ -247,13 +247,12 @@
     .pickup_product__box{
       padding: 30px;
       margin: 0 auto;
-      width: 1000px;
+        width: 1000px;
         .item_lists{
           float: left;
           .item_list{
             height: 300px;
             width: 300px;
-            margin: 0 1px 0;
             .item_list__image img{
               height: 220px;
               width: 300px;
@@ -265,10 +264,28 @@
             .item_list__price{
               padding: 10px 0 10px 20px;
             }
+            .item_list__photo__sold{
+              width: 0;
+              height: 0;
+              border-top: 60px solid #ea352d ;
+              border-right: 60px solid transparent;
+              border-bottom: 60px solid transparent;
+              border-left: 60px solid #ea352d ;
+              z-index:100;
+              position: relative;
+              top:-298px;
+              &__inner{
+                transform: rotate(-45deg);
+                font-size: 28px;
+                margin:-35px 0px 0px -55px;
+                color: #fff;
+                letter-spacing: 2px;
+                font-weight: 600;
+              }
+            }
           }
         }
       }
-    
   }
 }
 
@@ -437,6 +454,8 @@ ul li{
           line-height: 1.5;
           font-size: 18px;
           margin-bottom: 30px;
+          word-wrap: break-word;
+          text-align: left;
         }
         &__table {
           margin-bottom: 20px;
@@ -476,7 +495,7 @@ ul li{
             }
           }
         }
-        .item-buy-btn {
+        .item-btn {
           font-size: 24px;
           background-color: red;
           line-height: 60px;
@@ -486,10 +505,13 @@ ul li{
             color: #fff;
             text-decoration: none;
             font-weight: 600;
+            display: block;
           }
+        }
+        .item-btn:hover {
+          box-shadow: 0 0 10px red;
         }
       }
     }
   }
 }
-
