@@ -17,6 +17,10 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
       flash[:notice] = "出品しました"
+    if @item.update(seller_id: current_user.id)
+      flash[:notice] = "出品しました"
+    else
+      flash[:notice] = "出品に失敗しました"
     end
   end
 

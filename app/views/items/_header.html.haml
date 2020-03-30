@@ -36,7 +36,7 @@
             = icon('fas', 'fas fa-shopping-cart', class: 'icon')
             = link_to "新規出品", new_item_path
             = icon('fas', 'fas fa-home', class: 'icon')
-            = link_to "マイページ",logout_profiles_path
+            = link_to "マイページ",profile_path(current_user)
           - else
             = icon('fas', 'fas fa-home', class: 'icon')
             = link_to "ログイン", new_user_session_path
