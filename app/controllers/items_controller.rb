@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :new, :create]
 
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
       flash[:notice] = "出品しました"
+    end
     if @item.update(seller_id: current_user.id)
       flash[:notice] = "出品しました"
     else
@@ -56,6 +57,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,
     :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, :category_id,
-    :item_situation_id, images_attributes: [:src]).merge(user_id: current_user.id)
+    :item_situation_id, images_attributes: [:src]).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 end
