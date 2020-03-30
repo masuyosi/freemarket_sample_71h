@@ -36,7 +36,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @images = Image.all.includes(:item)
   end
 
   def update
