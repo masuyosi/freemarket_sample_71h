@@ -98,8 +98,6 @@
             必須
         .newitem-container__newitems-ship__form__days--textarea
           = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
-        .newitem-container__hidden
-          = f.text_field :item_situation_id, class: "item_situ", value: "1"
     -# 価格
     %hr
     .newitem-container__newitems-price

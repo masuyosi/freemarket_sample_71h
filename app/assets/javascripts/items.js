@@ -3,11 +3,7 @@ $(document).on('turbolinks:load', ()=> {
   //DataTransferオブジェクトで、データを格納する箱を作る
   var dataBox = new DataTransfer();
   //querySelectorでfile_fieldを取得
-  // if(dataBox === null){
   var file_field = document.querySelector('input[type=file]')
-  // }else{
-  // dataBox.remove()
-  // };
   //fileが選択された時に発火するイベント
   $('#img-file').change(function(){
     //選択したfileのオブジェクトをpropで取得
@@ -45,8 +41,6 @@ $(document).on('turbolinks:load', ()=> {
       };
       //image-box__containerのクラスを変更し、CSSでドロップボックスの大きさを変えてやる。
       $('#image-box__container').attr('class', `item-num-${num}`)
-      if (dataBox === null) console.log("hello")
-      if (dataBox === undefined) console.log("hi")
     });
   });
   $(document).on("click", '.item-image__operetion--delete', function(){
