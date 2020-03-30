@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+
   before_action :move_to_index, except: [:index, :show, :new, :create]
+
 
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
@@ -59,4 +61,8 @@ class ItemsController < ApplicationController
     :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, :category_id,
     :item_situation_id, images_attributes: [:src]).merge(user_id: current_user.id, seller_id: current_user.id)
   end
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
 end
