@@ -18,8 +18,7 @@
             = image_tag asset_path("#{image.object.src}")
             = image.file_field :src
             %br
-        -# - @item.images.length.upto(4) do |i|
-        -#   %input{name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_src", type: "file"}
+        
     %hr
     .newitem-container__body
       .newitem-container__body__form
@@ -50,7 +49,7 @@
           %span
             必須
         .newitem-container__newitems-detail__form__category--textarea
-          %input{class: "categoriesname", placeholder: "選択してください"}
+          = f.select :category_id, options_from_collection_for_select(Category.all.limit(13), :id, :name)
         .newitem-container__newitems-detail__form__brand--text
           %lavel
             ブランド
