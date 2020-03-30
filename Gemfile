@@ -99,6 +99,6 @@ gem 'ancestry'
 
 group :tools do
   gem 'squasher', '>= 0.6.0'
-  gem 'capistrano'
+  # gem 'capistrano'
   gem 'rubocop'
 end

@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2020_03_30_161258) do
     t.text "content", null: false
     t.integer "price", null: false
     t.integer "seller_id"
-    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "postage_payer_id", null: false
@@ -61,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_161258) do
     t.string "brand"
     t.bigint "item_situation_id"
     t.bigint "user_id"
+    t.integer "buyer_id"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
