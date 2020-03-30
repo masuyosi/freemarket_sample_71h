@@ -89,7 +89,7 @@
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   %section.pickup_product
     .pickup_product__header
-      ピックアップカテゴリー 
+      ピックアップカテゴリー
     .pickup_product__title
       新規商品一覧
     .pickup_product__box
@@ -100,15 +100,15 @@
               = link_to item_path(item.id) do
                 - @images.each do |i|
                   - if item.id == i.item_id
-                    = image_tag "#{i.src}"
+                    = image_tag asset_path("#{i.src}")
             .item_list__name
               = item.name
             .item_list__price
               = item.price
-              -if item.buyer_id.present? 
+              -if item.buyer_id.present?
                 .item_list__photo__sold
                   .item_list__photo__sold__inner
-                    SOLD             
+                    SOLD
 = render "app_banner"
 = render "footer"
 .purchase_btn
@@ -124,4 +124,3 @@
         出品する
       .purchase_btn__icon
         = image_tag asset_path("icons/icon_camera.png")
-      

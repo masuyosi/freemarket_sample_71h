@@ -1,6 +1,6 @@
 .header
   = link_to root_path do
-    = image_tag "logo.png", class: "top-logo"
+    = image_tag asset_path("logo.png"), class: "top-logo"
 .newitem-container
   = form_for @item do |f|
     .edititem-container__img-container
@@ -15,7 +15,7 @@
       #edititem-container__image__box
         .edit__image__box
           = f.fields_for :images do |image|
-            = image_tag "#{image.object.src}"
+            = image_tag asset_path("#{image.object.src}")
             = image.file_field :src
             %br
         

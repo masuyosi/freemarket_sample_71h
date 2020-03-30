@@ -9,7 +9,7 @@
             .itembox__itembody--pic
               - @images.each do |i|
                 - if @item.id == i.item_id
-                  = image_tag "#{i.src}"
+                  = image_tag asset_path("#{i.src}")
               %ul
                 %li
                   = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size: "75×75"
