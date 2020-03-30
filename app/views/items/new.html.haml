@@ -12,16 +12,14 @@
             必須
       .newitem-container__img-container__text
         最大5枚までアップロードできます
-      #newitem-container__image__box
-        #previews
-          - if @item.persisted?
-            - @item.images.each_with_index do |image, i|
-              = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
-        = f.fields_for :images do |i|
-          .js-file_group{"data-index" => "image.index"}
-            %label.label
-              = image_tag "icons/icon_camera.png", class: "camera-icon"
-              = i.file_field :src, class: 'js-file'
+      .newitem-container__image__box
+        #image-box-1
+          .item-num-0#image-box__container
+            = f.fields_for :images do |i|
+              .input-area
+                = i.file_field :image, type: 'file', name: "item[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+                %label{for: "img-file"}
+                  = image_tag "icons/icon_camera.png", class: "camera-icon"
 
     -# 商品名・商品の説明
     %hr
@@ -55,7 +53,11 @@
           %span
             必須
         .newitem-container__newitems-detail__form__category--textarea
-          %input{class: "categoriesname", placeholder: "選択してください"}
+          -# %input{class: "categoriesname", placeholder: "選択してください"}
+          = f.select :category_id, options_from_collection_for_select(Category.all.limit(13), :id, :name)
+          -# = f.fields_for :items_categories do |category|
+            -# %div
+              -# = category.select :category_id, options_from_collection_for_select(Category.all.limit(13), :id, :name)
         .newitem-container__newitems-detail__form__brand--text
           %lavel
             ブランド
@@ -98,7 +100,6 @@
           = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
         .newitem-container__hidden
           = f.text_field :item_situation_id, class: "item_situ", value: "1"
-          
     -# 価格
     %hr
     .newitem-container__newitems-price

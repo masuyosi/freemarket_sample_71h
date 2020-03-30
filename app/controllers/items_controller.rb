@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
+
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
     @items = Item.all.order("created_at DESC")
@@ -8,14 +10,15 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def create
     @item = Item.create(item_params)
+
     if @item.save
       redirect_to root_path
       flash[:notice] = "出品しました"
-    end
     if @item.update(seller_id: current_user.id)
       flash[:notice] = "出品しました"
     else
@@ -31,14 +34,19 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @images = Image.all.includes(:item)
   end
 
   def update
     @item = Item.find(params[:id])
-    @item.image.update(item_params)
-    
-    flash[:notice] = "商品情報を更新しました"
-    redirect_to item_path(item.id)
+    @item.update(item_params)
+    if @item.save
+      flash[:notice] = "商品情報を更新しました"
+      redirect_to root_path
+    else
+      flash[:notice] = "商品情報を更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
@@ -47,7 +55,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,
-    :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, 
+    :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, :category_id,
     :item_situation_id, images_attributes: [:src]).merge(user_id: current_user.id)
   end
 end

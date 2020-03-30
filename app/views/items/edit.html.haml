@@ -3,25 +3,21 @@
     = image_tag "logo.png", class: "top-logo"
 .newitem-container
   = form_for @item do |f|
-    .newitem-container__img-container
-      .newitem-container__img-container__title
-        .newitem-container__img-container__title--text
+    .edititem-container__img-container
+      .edittem-container__img-container__title
+        .edititem-container__img-container__title--text
           %lavel
             出品画像
           %span
             必須
-      .newitem-container__img-container__text
+      .edititem-container__img-container__text
         最大5枚までアップロードできます
-      #newitem-container__image__box
-        -# #previews
-        -#   - if @item.persisted?
-        -#     - @item.images.each_with_index do |image, i|
-        -#       = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
-        = f.fields_for :images do |i|
-          .js-file_group{"data-index" => "image.index"}
-            %label.label
-              = image_tag "icons/icon_camera.png", class: "camera-icon"
-              = i.file_field :src, class: 'js-file'
+      #edititem-container__image__box
+        .edit__image__box
+          = f.fields_for :images do |image|
+            = image_tag "#{image.object.src}"
+            = image.file_field :src
+            %br
 
     %hr
     .newitem-container__body

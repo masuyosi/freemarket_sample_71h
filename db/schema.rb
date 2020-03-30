@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_102215) do
+ 
+
+ActiveRecord::Schema.define(version: 2020_03_30_042212) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture", null: false
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_102215) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "category", null: false
+    t.string "name", null: false
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,20 +53,23 @@ ActiveRecord::Schema.define(version: 2020_03_27_102215) do
     t.string "name", null: false
     t.text "content", null: false
     t.integer "price", null: false
+    t.integer "seller_id", null: false
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "image_id"
-    t.integer "seller_id"
-    t.integer "buyer_id"
     t.bigint "postage_payer_id", null: false
     t.bigint "prefecture_id", null: false
     t.bigint "preparation_day_id", null: false
     t.bigint "item_condition_id", null: false
     t.string "brand"
     t.bigint "item_situation_id"
-    t.index ["image_id"], name: "index_items_on_image_id"
     t.bigint "user_id"
+ 
     t.integer "buyer_id"
+ 
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+ 
     t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
     t.index ["item_situation_id"], name: "index_items_on_item_situation_id"
     t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
