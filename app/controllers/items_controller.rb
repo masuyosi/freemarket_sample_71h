@@ -34,8 +34,13 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    flash[:notice] = "商品情報を更新しました"
-    redirect_to root_path
+    if @item.save
+      flash[:notice] = "商品情報を更新しました"
+      redirect_to root_path
+    else
+      flash[:notice] = "商品情報を更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
