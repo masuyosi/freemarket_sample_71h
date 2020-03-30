@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
       flash[:notice] = "出品しました"
-    else
     end
   end
 
@@ -29,13 +28,14 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @images = Image.all.includes(:item)
   end
 
   def update
     @item = Item.find(params[:id])
-    @item.images.update(item_params)
+    @item.update(item_params)
     flash[:notice] = "商品情報を更新しました"
-    redirect_to item_path(item.id)
+    redirect_to root_path
   end
 
   def destroy
@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,
     :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, 
-    :item_situation_id, images_attributes: [:src]).merge(user_id: current_user.id)
+    :item_situation_id, images_attributes: [:id, :src]).merge(user_id: current_user.id)
   end
 
   def move_to_index

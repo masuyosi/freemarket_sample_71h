@@ -58,32 +58,109 @@ hr {
       font-size: 14px;
       margin: 8px 0 0 0;
     }
-    #newitem-container__image__box {
-      width: 570px;
-      height: 130px;
+    .newitem-container__image__box {
+      width: 580px;
+      height: 150px;
       margin: 10px 0 0 0;
       background-color: #eeecec;
       align-items: center;
+      text-align: center;
       position: relative;
       label{
-        padding-left: 275px;
-        margin-top: 50px;
+        // padding-left: 275px;
+        margin-top: 60px;
         display: block;
       }
-      #previews{
+      #image-box-1{
         display: flex;
         padding: 0 5px;
       }
-      #item_images_attributes_0_src{
-        display: none;
+      .item-num-0{
+        width: 100%;
+      }
+      .item-num-1{
+        width: 491px;
+      }
+      .item-num-2{
+        width: 363px;
+      }
+      .item-num-3{
+        width: 234px;
+      }
+      .item-num-4{
+        width: 106px;
       }
     }
     .camera-icon{
       width: 20px;
       height: 18px;
-
     }
   }
+  .edititem-container__img-container{
+    @include box-layout;
+    padding: 40px;
+    height: 600px;
+    &__title {
+      lavel {
+        @include subtitle;
+      }
+      span {
+        @include box-optional-or-required;
+      }
+    }
+    &__text {
+      font-size: 14px;
+      margin: 8px 0 0 0;
+    }
+    #edititem-container__image__box {
+      width: 580px;
+      // height: 150px;
+      margin: 10px 0 0 0;
+      padding: 20px 0 0 20px;
+      background-color: #eeecec;
+      display: flex;
+    }
+    .newitem-container__image__box {
+      width: 580px;
+      height: 150px;
+      margin: 10px 0 0 0;
+      background-color: #eeecec;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      label{
+        // padding-left: 275px;
+        margin-top: 60px;
+        display: block;
+      }
+      #image-box-1{
+        // display: flex;
+        padding: 0 5px;
+      }
+      .item-num-0{
+        width: 100%;
+      }
+      .item-num-1{
+        width: 491px;
+      }
+      .item-num-2{
+        width: 363px;
+      }
+      .item-num-3{
+        width: 234px;
+      }
+      .item-num-4{
+        width: 106px;
+      }
+    }
+    .camera-icon{
+      width: 20px;
+      height: 18px;
+      margin-bottom: 20px;
+    }
+  }
+
+
 // 商品の名前と説明
   &__body {
     @include box-layout(380px);
