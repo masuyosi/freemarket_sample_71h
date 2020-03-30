@@ -1,6 +1,6 @@
 .header
   = link_to root_path do
-    = image_tag "logo.png", class: "top-logo"
+    = image_tag asset_path("logo.png"), class: "top-logo"
 .newitem-container
   = form_for @item do |f|
     .newitem-container__img-container
@@ -19,7 +19,7 @@
               .input-area
                 = i.file_field :image, type: 'file', name: "item[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
-                  = image_tag "icons/icon_camera.png", class: "camera-icon"
+                  = image_tag asset_path("icons/icon_camera.png"), class: "camera-icon"
 
     -# 商品名・商品の説明
     %hr

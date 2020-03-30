@@ -3,13 +3,13 @@
 
   .profile-contents
     .profile-panel
-      .profile-panel__registration 
+      .profile-panel__registration
         %p.txt 会員情報入力
 
       .profile-panel__form
         .profile-panel__form__inner
           .profile-list-box
-            = form_for(@user, url: user_registration_path)  do |f|      
+            = form_for(@user, url: user_registration_path)  do |f|
               .field
                 %p.text
                   ="お名前"
@@ -33,7 +33,7 @@
                   = f.password_field :password_confirmation,required:true,autocomplete: "off",placeholder: '上記と同様',class:'form-box'
                   %span
                     必須
-              = f.fields_for :profile do |i|    
+              = f.fields_for :profile do |i|
                 .field__input
                   = i.label :名前
                   = i.text_field :family_name,required:true,placeholder: '山田',class:'form-box'
