@@ -151,6 +151,9 @@
         padding-top: 10px;
         span{
           color: $emerald-blue;
+          background-color: #F8F8F8;
+          font-size: 24px;
+          color: #3CCACE;
         }
       }
       .list__text{
@@ -441,6 +444,8 @@ ul li{
             font-size: 46px;
             font-weight: bold;
             margin: 0 10px 0 0;
+            background-color: #fff;
+            color: #000;
           }
           &__pricedetail {
             font-size: 16px;
