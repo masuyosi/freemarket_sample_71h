@@ -11,4 +11,6 @@ class Item < ApplicationRecord
 
   validates_associated :images
   validates :images, presence: true
+
+  belongs_to :category
 end
