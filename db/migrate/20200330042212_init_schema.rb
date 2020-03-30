@@ -34,7 +34,7 @@ class InitSchema < ActiveRecord::Migration[5.2]
       t.string "name", null: false
       t.text "content", null: false
       t.integer "price", null: false
-      t.integer "seller_id", null: false
+      t.integer "seller_id"
       t.integer "buyer_id"
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
