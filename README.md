@@ -164,3 +164,4 @@ active_hashにて状態を追加
 - belongs_to :user
 - belongs_to :item
 
+tt
