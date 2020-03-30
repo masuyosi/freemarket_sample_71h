@@ -133,7 +133,7 @@
           position: absolute;
           top: 0px;
           left: 0px;
-          background-color: #3CCACE;
+          background-color: $emerald-blue;
           color: white;
           text-align: center;
           line-height: 55px;
@@ -150,7 +150,7 @@
         font-weight: bold;
         padding-top: 10px;
         span{
-          color: #3CCACE;
+          color: $emerald-blue;
         }
       }
       .list__text{
@@ -345,7 +345,7 @@
 }
 
 .purchase_btn{
-  background: #3CCACE;
+  background: $emerald-blue;
   height: 120px;
   width: 120px;
   text-align: center;
@@ -436,6 +436,8 @@ ul li{
           line-height: 1.5;
           font-size: 18px;
           margin-bottom: 30px;
+          word-wrap: break-word;
+          text-align: left;
         }
         &__table {
           margin-bottom: 20px;
@@ -467,7 +469,7 @@ ul li{
                   border: 1px solid #DEDEDE;
                   font-size: 14px;
                   a {
-                    color: #3CCACE;
+                    color: $emerald-blue;
                     text-decoration: none;
                   }
                 }
@@ -475,7 +477,7 @@ ul li{
             }
           }
         }
-        .item-buy-btn {
+        .item-btn {
           font-size: 24px;
           background-color: red;
           line-height: 60px;
@@ -485,7 +487,11 @@ ul li{
             color: #fff;
             text-decoration: none;
             font-weight: 600;
+            display: block;
           }
+        }
+        .item-btn:hover {
+          box-shadow: 0 0 10px red;
         }
       }
     }

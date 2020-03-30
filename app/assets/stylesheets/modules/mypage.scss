@@ -1,0 +1,233 @@
+// ヘッダー
+.mypage-header-contena{
+  width:100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border-bottom: solid 0.5px lightgray;
+
+  .mypage-header-inner{
+    width: 1020px;
+    .mypage-header-top{
+      background-color: white;
+      height: 50px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 8px;
+      &__logo{
+        height:40px;
+        width: 150px;
+        margin: 0 15px 0;
+        img{
+          height: 35px;
+          width: auto;
+        }
+      }
+      &__search-box{
+        height:40px;
+        width: calc(100% - 150px);
+        padding-bottom: 5px;
+        position: relative;
+        .search_field{
+          height: 40px;
+          width: 85%;
+          padding-left: 10px;
+        }
+        
+        .search_btn{
+          width: 40px;
+          height: 40px;
+          background-color:$emerald-blue;
+          position: absolute;
+        }
+        img{
+          height: 30px;
+          width: 30px;
+          position: absolute;
+          top: 4px;
+          right: 28px;
+        }
+      }
+    }
+
+    .mypage-header-nav{
+      background-color: white;
+      height: 50px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      .icon{
+        text-align: center;
+        line-height: 50px;
+        margin-right: 3px;
+        color:$emerald-blue ;
+      }
+      .sentence{
+        text-align: center;
+        line-height: 50px;
+      }
+      a{
+        text-decoration: none;
+        color: darkslategrey;
+        font-weight: bold;
+        transition: 0.2s ;
+      }
+      a:hover{
+        color: #12acf6;
+      }
+  
+      .list{
+        display: flex;
+        justify-content: center;
+      }
+      .mypage-header-nav__left-box{
+        display: flex;
+        justify-content: space-between;
+        &__category-box{
+          height: 100%;
+          width: 200px;
+          margin-left: 30px;
+        }
+        &__brands-box{
+          height: 100%;
+          width: 200px;
+          margin-left: 30px;
+        }
+      }
+
+      .mypage-header-nav__right-box{
+        &__mypage-box{
+          margin:0 30px 0;
+          }
+        }
+      }
+    }
+}
+
+// メインコンテンツ
+.mypage-main-contents{
+  background-color:$background;
+  padding:30px;
+  .mypage-main-content-inner{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+
+    .main-box{
+      height: 100%;
+      width: 700px;
+      background-color: #fff;
+    }
+
+  // サイドバー
+    .mypage-sidebar-box{
+      margin-right: 40px;
+      .mypage-nav{
+        width: 250px;
+        background-color: white;
+        
+        a{
+          text-decoration: none;
+          color: darkslategrey;
+          :hover {
+            background-color:$emerald-blue;
+            }
+        }
+        li{
+          height: 40px;
+          font-size: 13px;
+          line-height: 40px;
+          padding-left: 20px;
+          border-bottom:solid 0.3px lightgray ;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all  0.3s ease;
+        }
+
+          .icon{
+            float: right;
+            line-height: 40px;
+            margin-right: 3px;
+            color:gray ;
+            padding-right: 5px;
+          }
+        .table-title{
+          padding: 8px 20px 8px;
+          background-color: whitesmoke;
+        }
+      }
+      
+    }
+    }
+    }
+
+
+    // 出品ボタン
+
+    .purchase_btn{
+      background:$emerald-blue;
+      height: 120px;
+      width: 120px;
+      text-align: center;
+      align-items: center;
+      border-radius: 4%;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      a{
+      text-decoration: none;
+      }
+      &__text{
+        color: white;
+        padding: 10px 0 10px 0;
+      }
+      &__icon img{
+        height: 54px;
+        width: 54px;
+      }
+}
+
+// マイペトップアイコン
+.mypage-user-icon{
+  height: 140px;
+  background-color: pink;
+  padding: 20px;
+  text-align: center;
+}
+
+
+// ログアウト画面コンテナ
+.logout-inner{
+  background-color: white;
+  padding: 64px;
+  
+  .logout-box{
+    height: 50px;
+    .logout-btn{
+        max-width: 320px;
+        height: 50px;
+        background-color: #ea352d;
+        
+        margin: auto;
+        text-align: center;
+        line-height: 50px;
+        
+        a{
+          display: block;
+          text-decoration: none;
+          color: white;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all  0.3s ease;
+        } 
+        a:hover {
+          background-color:gray;
+        }
+    }
+  }
+}
