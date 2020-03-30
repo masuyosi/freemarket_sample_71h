@@ -1,5 +1,5 @@
 .user-cards-content{
-  .user-cards-content__head{
+  &__head{
     height: 50px;
     padding: 10px 20px;
     text-align: center;
@@ -7,61 +7,34 @@
     font-size: 20px;
     border-bottom: solid 0.3px lightgray;
   }
-  .user-cards-content__inner{
-    height: 350px;
-    padding: 64px;
-
-    .user-cards-content__inner__section{
-      text-align: center;
-      font-weight: bold; 
-      padding: 15px 0 30px 0;
-    }
-    .user-cards-content__inner__help{
-      color: darkslategrey;
-      text-align: right;
-      border-top:solid 0.3px lightgray;
-      a{
-        text-decoration: none;
-        color: darkslategrey;
-      }
-      
-    }
-    .right-single-content{
-      a{
-        text-decoration: none;
-        color: $emerald-blue;
-      }
-    }
-  }
 }
+
     // クレカ情報確認 show
-
-
-    .user-cards-content__inner{
+  .credit-card{
+    &__inner{
       text-align: center;
       padding: 20px 0 20px;
-    }
-    .text{
-      padding-bottom: 15px;
-      font-weight: bold;
-    }
-    .card-info{
-      padding: 30px 0 0;
-    }
-
-    .delete{
-      height: 30px;
-      width: 80px;
-      border:solid 0,5px red;
-      color: red;
-      background-color: white;
-      font-size: 13px;
+      .text{
+        padding: 15px 0 15px;
+        font-weight: bold;
+      }
+      .card-info{
+        padding: 30px 0 0;
       
+        .delete{
+          height: 30px;
+          width: 80px;
+          border:solid 0,5px red;
+          color: red;
+          background-color: white;
+          font-size: 15px;
+        }
+      }
     }
-    
-    .user-cards-content__help{
+    &__help{
       height: 100px;
       padding: 0 30px 0;
+      margin-top: 20px;
       line-height: 100px;;
       color: darkslategrey;
       text-align: right;
@@ -71,44 +44,46 @@
         color: $emerald-blue;
       }
     }
+  }
 
 
 
 // ーークレカ情報入力 card new--
-
-.credit-card__inner{
-  margin: auto;
-  width: 300px;
-  padding: 20px 0 20px;
-  
-  .label{
-    height: 20px;
-    width: 40px;
-    font-weight: bold;
-  }
-  .input-number{
-    height: 50px;
-    width: 300px;
-    margin-bottom: 15px;
-  }
-  .input-expire{
-    height: 50px;
-    width: 100px;
-    margin-bottom: 15px;
-  }
-  .content-bottom{
-    padding-top: 20px;
+.credit-card{
+  &__inner{
     margin: auto;
-    text-align: center;
-    .add-btn{
-      display: inline-block;
-      font-size: 15px; 
+    width: 300px;
+    padding: 20px 0 20px;
+    
+    .label{
+      height: 20px;
+      width: 40px;
+      font-weight: bold;
+    }
+    .input-number{
+      height: 50px;
+      width: 300px;
+      margin-bottom: 15px;
+    }
+    .input-expire{
+      height: 50px;
+      width: 100px;
+      margin-bottom: 15px;
+    }
+    .content-bottom{
+      padding-top: 20px;
+      margin: auto;
       text-align: center;
-      cursor: pointer;
-      padding: 15px 119px; 
-      background: $emerald-blue;
-      color:white;
-      line-height: 1em;
+      .add-btn{
+        display: inline-block;
+        font-size: 15px; 
+        text-align: center;
+        cursor: pointer;
+        padding: 15px 119px; 
+        background: $emerald-blue;
+        color:white;
+        line-height: 1em;
+      }
     }
   }
 }

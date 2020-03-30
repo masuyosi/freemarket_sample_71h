@@ -8,14 +8,14 @@
       .user-cards-content
         .user-cards-content__head
           クレジットカード情報入力
+
       .credit-card
         .credit-card__inner
-
           = form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
             %label.label カード番号
             %span 必須
             %br
-            = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+            = text_field_tag "number", "", class: "input-number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
             %br
             %label.label 有効期限
             %br
@@ -52,7 +52,7 @@
             %label.label セキュリティコード
             %span 必須
             %br
-            = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc",class: "number"
+            = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc",class: "input-number"
             .content-bottom
               #card_token
               = submit_tag "追加する", id: "token_submit",class:"add-btn"

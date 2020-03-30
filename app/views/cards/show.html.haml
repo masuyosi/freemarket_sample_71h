@@ -8,8 +8,9 @@
       .user-cards-content
         .user-cards-content__head
           支払い方法
-      
-        .user-cards-content__inner
+          
+      .credit-card
+        .credit-card__inner
           .text
             登録クレジットカード情報
           .card-info
@@ -22,7 +23,7 @@
               %input{ type: "hidden", name: "card_id", value: "" }
               %br
               %button.delete 削除する
-        .user-cards-content__help
+        .credit-card__help
           = link_to "#" do
             = "支払い方法について"
 
