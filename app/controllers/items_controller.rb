@@ -55,6 +55,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
+    flash[:notice] = "削除が完了しました"
     redirect_to root_path
   end
 
