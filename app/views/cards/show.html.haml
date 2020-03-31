@@ -1,0 +1,42 @@
+= render  partial:"items/header"
+
+.mypage-main-contents
+  .mypage-main-content-inner
+    = render  partial:"profiles/side-bar"
+
+    .main-box
+      .user-cards-content
+        .user-cards-content__head
+          支払い方法
+          
+      .credit-card
+        .credit-card__inner
+          .text
+            登録クレジットカード情報
+          .card-info
+            = "**** **** **** " + @default_card_information.last4
+            %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+            = form_tag(card_path, method: :delete, id: 'charge-form',  name: "inputForm") do
+              %input{ type: "hidden", name: "card_id", value: "" }
+              %br
+              %button.delete 削除する
+        .credit-card__help
+          = link_to "#" do
+            = "支払い方法について"
+
+
+
+
+
+= render partial:"items/app_banner"
+= render partial:"items/footer"
+.purchase_btn
+  = link_to new_item_path do
+    .purchase_btn__text
+      出品する
+    .purchase_btn__icon
+      = image_tag "icons/icon_camera.png"
+

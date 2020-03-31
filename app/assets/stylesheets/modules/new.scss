@@ -119,36 +119,8 @@ hr {
       background-color: #eeecec;
       display: flex;
     }
-    .newitem-container__image__box {
-      width: 580px;
-      height: 150px;
-      margin: 10px 0 0 0;
-      background-color: #eeecec;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      label{
-        margin-top: 60px;
-        display: block;
-      }
-      #image-box-1{
-        padding: 0 5px;
-      }
-      .item-num-0{
-        width: 100%;
-      }
-      .item-num-1{
-        width: 491px;
-      }
-      .item-num-2{
-        width: 363px;
-      }
-      .item-num-3{
-        width: 234px;
-      }
-      .item-num-4{
-        width: 106px;
-      }
+    .edititem__add__image{
+      padding-top: 20px;
     }
     .camera-icon{
       width: 20px;

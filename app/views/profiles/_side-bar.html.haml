@@ -59,7 +59,7 @@
           %li.address
             ="発送元・お届け先変更"
             = icon('fas', 'fas fa-angle-right', class: 'icon')
-        = link_to "#" do
+        = link_to card_path(current_user.id) do
           %li.pay
             ="支払い方法"
             = icon('fas', 'fas fa-angle-right', class: 'icon')

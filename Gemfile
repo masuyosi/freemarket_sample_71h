@@ -95,7 +95,11 @@ gem 'jquery-rails'
 
 gem 'payjp'
 
+
+gem 'dotenv-rails'
+
 gem 'ancestry'
+
 
 group :tools do
   gem 'squasher', '>= 0.6.0'
