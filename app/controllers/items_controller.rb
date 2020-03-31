@@ -42,7 +42,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @images = Image.all.includes(:item)
   end
 
   def update
@@ -58,6 +57,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    flash[:notice] = "削除が完了しました"
+    redirect_to root_path
   end
 
   def get_category_children

@@ -18,7 +18,10 @@
             = image_tag asset_path("#{image.object.src}")
             = image.file_field :src
             %br
-        
+      .edititem__add__image
+        - @item.images.length.upto(4) do |i|
+          %input{type: "file", name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_src"}
+
     %hr
     .newitem-container__body
       .newitem-container__body__form
@@ -90,8 +93,6 @@
             必須
         .newitem-container__newitems-ship__form__days--textarea
           = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
-        .newitem-container__hidden
-          = f.text_field :item_situation_id, class: "item_situ", value: "1"
           
     %hr
     .newitem-container__newitems-price
