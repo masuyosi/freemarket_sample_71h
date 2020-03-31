@@ -53,11 +53,11 @@
           %span
             必須
         .newitem-container__newitems-detail__form__category--textarea
-          -# %input{class: "categoriesname", placeholder: "選択してください"}
+          %input{class: "categoriesname", placeholder: "選択してください"}
           = f.select :category_id, options_from_collection_for_select(Category.all.limit(13), :id, :name)
-          -# = f.fields_for :items_categories do |category|
-            -# %div
-              -# = category.select :category_id, options_from_collection_for_select(Category.all.limit(13), :id, :name)
+          = f.fields_for :items_categories do |category|
+            %div
+              = category.select :category_id, options_from_collection_for_select(Category.all.limit(13), :id, :name)
         .newitem-container__newitems-detail__form__brand--text
           %lavel
             ブランド

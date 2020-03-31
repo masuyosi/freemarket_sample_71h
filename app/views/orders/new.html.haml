@@ -34,6 +34,8 @@
           =icon('fa', 'plus-circle')
           %span<>
           登録してください
+        = form_tag(action: :purchase, method: :post) do
+          %script.payjp-button{"data-key" => ENV["PAYJP_KEY"], :src => "https://checkout.pay.jp", :type => "text/javascript"}
     .order-container__payment__line
     .order-container__payment__type
       .address
