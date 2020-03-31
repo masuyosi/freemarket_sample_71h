@@ -129,30 +129,17 @@ active_hashにて都道府県を追加
 ## item_conditionsテーブル
 |Column|Type|Options|
 |------|----|-------|
-active_hashにて状態を追加
-### Association
-- has_many :items
+|name|string||
 
 ## postage_payersテーブル
 |Column|Type|Options|
 |------|----|-------|
-active_hashにて配送負担者を追加
-### Association
-- has_many :items
+|name|string||
 
 ## preparation_daysテーブル
 |Column|Type|Options|
 |------|----|-------|
-active_hashにて配送日数を追加
-### Association
-- has_many :items
-
-## item_situationsテーブル
-|Column|Type|Options|
-|------|----|-------|
-active_hashにて状態を追加
-### Association
-- has_many :items
+|name|string||
 
 ## ordersテーブル
 |Column|Type|Options|
