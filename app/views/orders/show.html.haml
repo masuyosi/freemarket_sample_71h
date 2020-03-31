@@ -30,12 +30,12 @@
       .typeOfPayment
         支払い方法
       .register
-        =link_to "#" do
+        =link_to new_card_path do
           =icon('fa', 'plus-circle')
           %span<>
           登録してください
-        = form_tag(action: :purchase, method: :post) do
-          %script.payjp-button{"data-key" => ENV["PAYJP_KEY"], :src => "https://checkout.pay.jp", :type => "text/javascript"}
+          
+        
     .order-container__payment__line
     .order-container__payment__type
       .address
@@ -46,6 +46,7 @@
           %span<>
           登録してください
   .order-container__btn
-    =link_to '購入する', "#" ,class: "button-1"
+    = form_tag(action: :purchase, method: :post) do
+      %script.payjp-button{"data-key" => ENV["PAYJP_KEY"], :src => "https://checkout.pay.jp", :type => "text/javascript"},class: "button-1"
 
 = render partial:"items/footer-transition"
