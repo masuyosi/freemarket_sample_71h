@@ -113,6 +113,10 @@ select {
       padding: 20px 0 0 20px;
       background-color: #eeecec;
       display: flex;
+      img{
+        width: 100px;
+        height: 80px;
+      }
     }
     .edititem__add__image{
       padding-top: 20px;
