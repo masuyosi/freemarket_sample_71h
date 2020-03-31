@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
     @items = Item.all
     @images = Image.all
     @category = Category.find((@item).category_id)
+    # @user = User.find()
   end
 
   def edit
