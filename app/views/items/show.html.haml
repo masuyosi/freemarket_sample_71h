@@ -7,16 +7,21 @@
           = @item.name
           .itembox__itembody
             .itembox__itembody--pic
-              - @images.each do |i|
-                - if @item.id == i.item_id
-                  = image_tag asset_path("#{i.src}")
+              = image_tag asset_path("#{@item.images.first.src}")
               %ul
                 %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size: "75×75"
+                  - if @item.images.count >= 2
+                    = image_tag asset_path("#{@item.images.second.src}"), size: "100×100"
                 %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", size: "75×75"
+                  - if @item.images.count >= 3
+                    = image_tag asset_path("#{@item.images.third.src}"), size: "75×75"
                 %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", size: "75×75"
+                  - if @item.images.count >= 4
+                    = image_tag asset_path("#{@item.images.fourth.src}"), size: "75×75"
+                %li
+                  - if @item.images.count >= 5
+                    = image_tag asset_path("#{@item.images.fifth.src}"), size: "75×75"
+
           .itembox__itemprice
             %span
               &yen

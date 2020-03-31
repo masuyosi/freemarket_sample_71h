@@ -99,13 +99,11 @@
           %li.item_list
             .item_list__image
               = link_to item_path(item.id) do
-                - @images.each do |i|
-                  - if item.id == i.item_id
-                    = image_tag asset_path("#{i.src}")
+                = image_tag asset_path("#{item.images.first.src}")
             .item_list__name
               = item.name
             .item_list__price
-              = item.price
+              ¥ #{item.price}
               -if item.buyer_id.present?
                 .item_list__photo__sold
                   .item_list__photo__sold__inner

@@ -5,8 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
-    @items = Item.all.order("created_at DESC")
-    @images = Image.all.includes(:item)
+    @items = Item.all.order("created_at DESC").limit(6)
   end
 
   def new
@@ -17,12 +16,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    if @item.save
-      redirect_to root_path
-      flash[:notice] = "出品しました"
-    end
     if @item.update(seller_id: current_user.id)
       flash[:notice] = "出品しました"
+      redirect_to root_path
     else
       flash[:notice] = "出品に失敗しました"
     end
