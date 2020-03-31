@@ -53,7 +53,14 @@
           %span
             必須
         .newitem-container__newitems-detail__form__category--textarea
+
+          %input{class: "categoriesname", placeholder: "選択してください"}
           = f.select :category_id, @category_parent_array, {prompt:"---"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: '', required: true }
+          = f.fields_for :items_categories do |category|
+            %div
+              = category.select :category_id, options_from_collection_for_select(Category.all.limit(13), :id, :name)
+
+
         .newitem-container__newitems-detail__form__brand--text
           %lavel
             ブランド
@@ -110,7 +117,7 @@
             %span.mark
               ¥
             = f.text_field :price, id: "price", required: true, placeholder: "0", type: "number"
-              
+
       .newitem-container__newitems-price__container
         .newitem-container__newitems-price__container__commition
           %lavel
