@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only:[:show,:create,:purchase]
+
   def show
     @item = Item.find(params[:id])
   end
@@ -18,5 +20,11 @@ class OrdersController < ApplicationController
     else 
       flash[:notice] = "支払いが失敗しました"
     end
+  end
+
+  private
+
+  def set_order
+    @item = Item.find(params[:id])
   end
 end
