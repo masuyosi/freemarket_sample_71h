@@ -37,6 +37,10 @@
                 %tr
                   %th カテゴリー
                   %td
+                    = @category.root.name
+                    %br
+                    = @category.parent.name
+                    %br
                     = @category.name
                 %tr
                   %th ブランド
