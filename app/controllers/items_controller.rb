@@ -86,6 +86,14 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def brands_index
+    @items = Item.all
+  end
+
+  def brands
+    @items = Item.all
+  end
+  
   private
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,
