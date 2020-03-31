@@ -6,12 +6,6 @@ hr {
   border: none;
 }
 
-@mixin text {
-  font-size: 14px;
-  line-height: 65px;
-  margin: 10px 0;
-}
-
 #fee{
   margin-right: 30px;
   font-size: 20px;
@@ -20,6 +14,10 @@ hr {
 #profit{
   margin-right: 30px;
   font-size: 20px;
+}
+
+select {
+  @include form-layout;
 }
 
 
@@ -144,10 +142,8 @@ hr {
       }
       &--textarea {
         margin-top: 8px;
-        form {
-          input.itemname {
-            @include form-layout;
-          }
+        input.itemname {
+          @include form-layout;
         }
       }
     }
@@ -163,17 +159,15 @@ hr {
       }
       &--textarea {
         margin-top: 8px;
-        form {
-          textarea.description {
-            @include form-layout(150px);
-          }
+        textarea.description {
+          @include form-layout(150px);
         }
       }
     }
   }
 // 商品のカテゴリー・ブランド・商品の状態
   &__newitems-detail {
-    @include box-layout(430px);
+    @include box-layout(100%);
     &__title {
       @include subtitle(#888);
     }
@@ -190,10 +184,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.categoriesname {
-              @include form-layout;
-            }
+          input.listing-select-wrapper__box--select {
+            @include form-layout;
           }
         }
       }
@@ -209,10 +201,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.brandname {
-              @include form-layout;
-            }
+          input.brandname {
+            @include form-layout;
           }
         }
       }
@@ -228,10 +218,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.status {
-              @include form-layout;
-            }
+          input.status {
+            @include form-layout;
           }
         }
       }
@@ -256,10 +244,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.payment {
-              @include form-layout;
-            }
+          input.payment {
+            @include form-layout;
           }
         }
       }
@@ -275,10 +261,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.region {
-              @include form-layout;
-            }
+          input.region {
+            @include form-layout;
           }
         }
       }
@@ -294,10 +278,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.days {
-              @include form-layout;
-            }
+          input.days {
+            @include form-layout;
           }
         }
       }
@@ -332,11 +314,9 @@ hr {
             margin-right: 5px;
             font-size: 14px;
           }
-          form {
-            input.price {
-              @include form-layout($width: 285px);
-              text-align: right;
-            }
+          input.price {
+            @include form-layout($width: 285px);
+            text-align: right;
           }
         }
       }
