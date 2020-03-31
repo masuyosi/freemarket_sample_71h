@@ -12,6 +12,12 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+    collection do
+      get 'brands_index'
+    end
+    member do
+      get 'brands'
+    end
   end
 
   resources :profiles,only: [:new,:create]

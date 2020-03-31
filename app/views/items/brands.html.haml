@@ -1,0 +1,27 @@
+= render "header"
+.brands-index
+  %ul.brand_lists
+    - brands = []
+    - @items.each do |i|
+      - brands << i.brand
+    - brands.uniq.each do |brand|
+      %li.brand_list
+        - item = Item.find_by(brand: brand)
+        = link_to brands_item_path(item.id) do
+          = brand
+.brands-main
+  .brands-main__title
+    一覧
+  .brands-main__items
+    - @items.each do |i|
+      .brands-main__item
+        - if Item.find(params[:id]).brand == i.brand
+          = link_to item_path(i.id) do
+            = image_tag asset_path("#{i.images.first.src}")
+            = i.name
+            = i.price
+
+    
+      
+= render "app_banner"
+= render "footer"
