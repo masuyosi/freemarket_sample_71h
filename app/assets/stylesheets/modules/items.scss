@@ -517,6 +517,14 @@ ul li{
         .item-btn:hover {
           box-shadow: 0 0 10px red;
         }
+        .disabled-btn {
+          font-size: 24px;
+          background-color: gray;
+          line-height: 60px;
+          margin-top: 16px;
+          text-align: center;
+          color: #fff;
+        }
       }
     }
   }
