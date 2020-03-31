@@ -6,12 +6,15 @@ class ItemsController < ApplicationController
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
     @items = Item.all.order("created_at DESC").limit(6)
+    @images = Image.all.includes(:item)
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def new
     @item = Item.new
     @item.images.new
     @parents = Category.all.order("id ASC").limit(13)
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
   def create
@@ -28,6 +31,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @items = Item.all
     @images = Image.all
+    @category = Category.find((@item).category_id)
   end
 
   def edit
@@ -51,6 +55,16 @@ class ItemsController < ApplicationController
     @item.destroy
     flash[:notice] = "削除が完了しました"
     redirect_to root_path
+  end
+
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   private
