@@ -13,8 +13,8 @@ Rails.application.routes.draw do
         get 'logout'
       end
     end
-  resources :orders, only: [:new, :create]do
-    collection do
+  resources :orders, only: [:new, :create,:show]do
+    member do
       post 'purchase'
     end
   end

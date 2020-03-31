@@ -1,0 +1,51 @@
+= render partial:"items/header-transition"
+
+.order-container
+  .order-container__heading
+    %h2
+      購入内容の確認
+  -# カテゴリー・ブランド・商品の状態
+  %hr
+  .order-container__order-detail
+    .order-container__order-detail__img
+      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png"
+    .order-container__order-detail__text
+      %p
+        商品名
+      %p
+        %span.payment
+          = @item.name
+        %span.payment--postage
+          (税込) 送料込み
+  -# 価格
+  %hr
+  .order-container__payment
+    .order-container__payment__price
+      %lavel
+        支払い金額
+      %lavel
+        = @item.price
+    .order-container__payment__line
+    .order-container__payment__type
+      .typeOfPayment
+        支払い方法
+      .register
+        =link_to "#" do
+          =icon('fa', 'plus-circle')
+          %span<>
+          登録してください
+        = form_tag(action: :purchase, method: :post) do
+          %script.payjp-button{"data-key" => ENV["PAYJP_KEY"], :src => "https://checkout.pay.jp", :type => "text/javascript"}
+    .order-container__payment__line
+    .order-container__payment__type
+      .address
+        配送先
+      .register
+        =link_to "#" do
+          =icon('fa', 'plus-circle')
+          %span<>
+          登録してください
+  .order-container__btn
+    =link_to '購入する', "#" ,class: "button-1"
+
+= render partial:"items/footer-transition"
