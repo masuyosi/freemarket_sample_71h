@@ -16,9 +16,6 @@ hr {
   font-size: 20px;
 }
 
-select {
-  @include form-layout;
-}
 
 .header {
   width: 100%;
@@ -181,8 +178,9 @@ select {
         }
         &--textarea {
           margin-top: 8px;
-          input.listing-select-wrapper__box--select {
+          select.listing-select-wrapper__box--select {
             @include form-layout;
+            margin-bottom: 8px;
           }
         }
       }
@@ -215,7 +213,7 @@ select {
         }
         &--textarea {
           margin-top: 8px;
-          input.status {
+          select.status {
             @include form-layout;
           }
         }
@@ -241,7 +239,7 @@ select {
         }
         &--textarea {
           margin-top: 8px;
-          input.payment {
+          select.payment {
             @include form-layout;
           }
         }
@@ -258,7 +256,7 @@ select {
         }
         &--textarea {
           margin-top: 8px;
-          input.region {
+          select.region {
             @include form-layout;
           }
         }
@@ -275,7 +273,7 @@ select {
         }
         &--textarea {
           margin-top: 8px;
-          input.days {
+          select.days {
             @include form-layout;
           }
         }

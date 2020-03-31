@@ -67,7 +67,7 @@
           %span
             必須
         .newitem-container__newitems-detail__form__status--textarea
-          = f.select :item_condition_id, ItemCondition.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
+          = f.select :item_condition_id, ItemCondition.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {class: 'status', required: true}
     %hr
     .newitem-container__newitems-ship
       .newitem-container__newitems-ship__title
@@ -79,21 +79,21 @@
           %span
             必須
         .newitem-container__newitems-ship__form__payment--textarea
-          = f.select :postage_payer_id, PostagePayer.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
+          = f.select :postage_payer_id, PostagePayer.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {class: 'payment', required: true}
         .newitem-container__newitems-ship__form__region--text
           %lavel
             発送元の地域
           %span
             必須
         .newitem-container__newitems-ship__form__region--textarea
-          = f.select :prefecture_id, Prefecture.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
+          = f.select :prefecture_id, Prefecture.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {class: 'region', required: true}
         .newitem-container__newitems-ship__form__days--text
           %lavel
             発送までの日数
           %span
             必須
         .newitem-container__newitems-ship__form__days--textarea
-          = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
+          = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {class: 'days', required: true}
     -# 価格
     %hr
     .newitem-container__newitems-price
