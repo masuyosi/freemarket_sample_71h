@@ -72,8 +72,11 @@
             = link_to "商品の編集", edit_item_path
           .item-btn
             = link_to "この商品を削除する", item_path, method: :delete
-        - else
+        - elsif user_signed_in?
           .item-btn
             = link_to "購入画面に進む", new_order_path
+        - else
+          .item-btn
+            = link_to "会員登録画面に進む", new_user_registration_path
 = render partial: 'items/app_banner'
 = render partial: 'items/footer'
