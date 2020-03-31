@@ -1,6 +1,6 @@
 .header
   = link_to root_path do
-    = image_tag "logo.png", class: "top-logo"
+    = image_tag asset_path("logo.png"), class: "top-logo"
 .newitem-container
   = form_for @item do |f|
     .edititem-container__img-container
@@ -15,11 +15,13 @@
       #edititem-container__image__box
         .edit__image__box
           = f.fields_for :images do |image|
-            = image_tag "#{image.object.src}"
+            = image_tag asset_path("#{image.object.src}")
             = image.file_field :src
             %br
-        -# - @item.images.length.upto(4) do |i|
-        -#   %input{name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_src", type: "file"}
+      .edititem__add__image
+        - @item.images.length.upto(4) do |i|
+          %input{type: "file", name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_src"}
+
     %hr
     .newitem-container__body
       .newitem-container__body__form
@@ -50,7 +52,7 @@
           %span
             必須
         .newitem-container__newitems-detail__form__category--textarea
-          %input{class: "categoriesname", placeholder: "選択してください"}
+          = f.select :category_id, options_from_collection_for_select(Category.all.limit(13), :id, :name)
         .newitem-container__newitems-detail__form__brand--text
           %lavel
             ブランド
@@ -91,8 +93,6 @@
             必須
         .newitem-container__newitems-ship__form__days--textarea
           = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
-        .newitem-container__hidden
-          = f.text_field :item_situation_id, class: "item_situ", value: "1"
           
     %hr
     .newitem-container__newitems-price

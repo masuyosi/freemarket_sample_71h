@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
   root 'items#index'
   resources :users,only: [:new,:create]
-  resources :items, only: [:new, :create, :show, :edit, :update]
+  resources :items, only: [:new, :create, :show, :edit, :destroy, :update]
   resources :profiles,only: [:new,:create]
     resources :profiles do
       collection do

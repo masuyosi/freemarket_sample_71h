@@ -1,6 +1,6 @@
 .header
   = link_to root_path do
-    = image_tag "logo.png", class: "top-logo"
+    = image_tag asset_path("logo.png"), class: "top-logo"
 .newitem-container
   = form_for @item do |f|
     .newitem-container__img-container
@@ -19,7 +19,7 @@
               .input-area
                 = i.file_field :image, type: 'file', name: "item[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
                 %label{for: "img-file"}
-                  = image_tag "icons/icon_camera.png", class: "camera-icon"
+                  = image_tag asset_path("icons/icon_camera.png"), class: "camera-icon"
 
     -# 商品名・商品の説明
     %hr
@@ -98,8 +98,6 @@
             必須
         .newitem-container__newitems-ship__form__days--textarea
           = f.select :preparation_day_id, PreparationDay.all.map{|o| [o.name, o.id]}, {prompt: "選択してください"}, {required: true}
-        .newitem-container__hidden
-          = f.text_field :item_situation_id, class: "item_situ", value: "1"
     -# 価格
     %hr
     .newitem-container__newitems-price
