@@ -6,12 +6,6 @@ hr {
   border: none;
 }
 
-@mixin text {
-  font-size: 14px;
-  line-height: 65px;
-  margin: 10px 0;
-}
-
 #fee{
   margin-right: 30px;
   font-size: 20px;
@@ -21,7 +15,6 @@ hr {
   margin-right: 30px;
   font-size: 20px;
 }
-
 
 
 .header {
@@ -67,7 +60,6 @@ hr {
       text-align: center;
       position: relative;
       label{
-        // padding-left: 275px;
         margin-top: 60px;
         display: block;
       }
@@ -118,6 +110,10 @@ hr {
       padding: 20px 0 0 20px;
       background-color: #eeecec;
       display: flex;
+      img{
+        width: 100px;
+        height: 80px;
+      }
     }
     .edititem__add__image{
       padding-top: 20px;
@@ -144,10 +140,8 @@ hr {
       }
       &--textarea {
         margin-top: 8px;
-        form {
-          input.itemname {
-            @include form-layout;
-          }
+        input.itemname {
+          @include form-layout;
         }
       }
     }
@@ -163,17 +157,15 @@ hr {
       }
       &--textarea {
         margin-top: 8px;
-        form {
-          textarea.description {
-            @include form-layout(150px);
-          }
+        textarea.description {
+          @include form-layout(150px);
         }
       }
     }
   }
 // 商品のカテゴリー・ブランド・商品の状態
   &__newitems-detail {
-    @include box-layout(430px);
+    @include box-layout(100%);
     &__title {
       @include subtitle(#888);
     }
@@ -190,10 +182,9 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.categoriesname {
-              @include form-layout;
-            }
+          select.listing-select-wrapper__box--select {
+            @include form-layout;
+            margin-bottom: 8px;
           }
         }
       }
@@ -209,10 +200,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.brandname {
-              @include form-layout;
-            }
+          input.brandname {
+            @include form-layout;
           }
         }
       }
@@ -228,10 +217,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.status {
-              @include form-layout;
-            }
+          select.status {
+            @include form-layout;
           }
         }
       }
@@ -256,10 +243,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.payment {
-              @include form-layout;
-            }
+          select.payment {
+            @include form-layout;
           }
         }
       }
@@ -275,10 +260,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.region {
-              @include form-layout;
-            }
+          select.region {
+            @include form-layout;
           }
         }
       }
@@ -294,10 +277,8 @@ hr {
         }
         &--textarea {
           margin-top: 8px;
-          form {
-            input.days {
-              @include form-layout;
-            }
+          select.days {
+            @include form-layout;
           }
         }
       }
@@ -332,11 +313,9 @@ hr {
             margin-right: 5px;
             font-size: 14px;
           }
-          form {
-            input.price {
-              @include form-layout($width: 285px);
-              text-align: right;
-            }
+          input.price {
+            @include form-layout($width: 285px);
+            text-align: right;
           }
         }
       }

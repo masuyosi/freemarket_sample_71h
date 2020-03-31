@@ -27,7 +27,8 @@
               %li.icon
                 = icon('fas', 'fas fa-tags', class: 'icon')
               %li.sentence
-                ="ブランドから探す"
+                =link_to brands_index_items_path do
+                  = "ブランドから探す"
 
 
       .mypage-header-nav__right-box

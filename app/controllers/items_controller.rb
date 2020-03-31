@@ -1,28 +1,27 @@
 class ItemsController < ApplicationController
 
-  before_action :move_to_index, except: [:index, :show, :new, :create]
+  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :brands]
 
 
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order("created_at DESC").limit(6)
     @images = Image.all.includes(:item)
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def new
     @item = Item.new
     @item.images.new
     @parents = Category.all.order("id ASC").limit(13)
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
   def create
     @item = Item.create(item_params)
-    if @item.save
-      redirect_to root_path
-      flash[:notice] = "出品しました"
-    end
     if @item.update(seller_id: current_user.id)
       flash[:notice] = "出品しました"
+      redirect_to root_path
     else
       flash[:notice] = "出品に失敗しました"
     end
@@ -32,10 +31,30 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @items = Item.all
     @images = Image.all
+    @category = Category.find((@item).category_id)
   end
 
   def edit
     @item = Item.find(params[:id])
+
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
 
   def update
@@ -57,6 +76,24 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+  def brands_index
+    @items = Item.all
+  end
+
+  def brands
+    @items = Item.all
+  end
+  
   private
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,

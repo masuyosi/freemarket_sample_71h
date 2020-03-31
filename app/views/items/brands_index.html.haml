@@ -1,0 +1,14 @@
+= render "header"
+.brands-index
+  %ul.brand_lists
+    - brands = []
+    - @items.each do |i|
+      - brands << i.brand
+    - brands.uniq.each do |brand|
+      %li.brand_list
+        - item = Item.find_by(brand: brand)
+        = link_to brands_item_path(item.id) do
+          = brand
+
+= render "app_banner"
+= render "footer"
