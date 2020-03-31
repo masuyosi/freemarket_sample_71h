@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 2020_03_30_161259) do
     t.index ["item_id"], name: "index_brands_on_item_id"
   end
 
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
@@ -60,9 +68,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_161259) do
     t.string "brand"
     t.bigint "item_situation_id"
     t.bigint "user_id"
-    t.integer "buyer_id"
     t.bigint "category_id"
-    t.integer "seller_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
     t.index ["item_situation_id"], name: "index_items_on_item_situation_id"

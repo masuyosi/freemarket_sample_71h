@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_many :seller_ids, foreign_key: "seller_id", class_name: "Items"
   has_many :buyer_idss, foreign_key: "buyer_id", class_name: "Items"
   has_many :items, dependent: :destroy
+  has_one :card
 end
