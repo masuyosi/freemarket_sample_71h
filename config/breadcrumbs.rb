@@ -26,3 +26,7 @@ crumb :items do
   link "商品情報", item_path,@item
   parent :root
 end
+
+crumb :category do
+  link "商品カテゴリ", categories_index_items_path
+end
