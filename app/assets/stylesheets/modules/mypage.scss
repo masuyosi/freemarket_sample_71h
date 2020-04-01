@@ -280,10 +280,23 @@
 
 // マイペトップアイコン
 .mypage-user-icon{
-  height: 140px;
-  background-color: pink;
-  padding: 20px;
   text-align: center;
+  position: relative;
+  .mypage-user{
+    font-weight: bold;
+    font-size: 20px;
+    color: darkslategrey;
+    position: absolute;
+    top: 160px;
+    left: 260px;
+    }
+  img{
+    padding: 20px 0 20px;
+    width: 500px;
+    height: auto;
+    filter: opacity(70%);
+    
+  }
 }
 
 
