@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :brands]
+  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :categories_index, :brands]
 
 
   def index
