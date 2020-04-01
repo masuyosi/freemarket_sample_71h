@@ -1,6 +1,5 @@
-.header
-  = link_to root_path do
-    = image_tag asset_path("logo.png"), class: "top-logo"
+= render "header-transition";
+
 .newitem-container
   = form_for @item, remote: true do |f|
     .newitem-container__img-container
