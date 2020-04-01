@@ -348,7 +348,7 @@
 }
 
 .footer{
-  height: 350px;
+  height: 320px;
   width: 100%;
   background-color: black;
   .contents{
@@ -356,10 +356,11 @@
     display: flex;
     justify-content: space-around;
     text-align: center;
-    height: 200px;
+    height: 180px;
     width: 60%;
     margin: 0 auto;
     padding: 60px 0 0 50px;
+    font-size: 13px;
     .content{
       .content_head{
         font-weight: bold;
