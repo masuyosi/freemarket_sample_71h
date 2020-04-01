@@ -93,7 +93,7 @@ class ItemsController < ApplicationController
   def brands
     @items = Item.all
   end
-  
+
   private
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,
