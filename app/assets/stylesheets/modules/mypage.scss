@@ -214,10 +214,13 @@
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   margin-bottom: 3px;
   font-size: 13px;
-  padding-left: 290px;
+  text-align: center;
   ul {
+    display: block;
     width: 1000px;
     display: flex;
+    background-color: #12acf6;
+    list-style-type: none;
     li {
       margin-right: 12px;
       span {
@@ -377,6 +380,8 @@
   .breadcrumbs{
     display: flex;
     justify-content: center;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    margin-bottom: 3px;
     .breadcrumb-inner{
       height: 40px;
       line-height: 40px;
