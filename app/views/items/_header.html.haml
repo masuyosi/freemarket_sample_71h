@@ -15,12 +15,24 @@
 
       .mypage-header-nav__left-box
         .mypage-header-nav__left-box__category-box
-          = link_to "#" do
-            %ul.list
-              %li.icon
+          %ul.list
+            %li.icon
+              =link_to '#' do
                 = icon('fas', 'fas fa-list-ul', class: 'icon')
-              %li.sentence
                 ="カテゴリーから探す"
+              %ul.category1
+                - @parents.each do |parent|
+                  %li.parent__list
+                    = link_to parent.name
+                    %ul.category2
+                      - parent.children.each do |child|
+                        %li.child__list
+                          =link_to child.name
+                          %ul.category3
+                            - child.children.each do |grandchild|
+                              %li.grandchild__list
+                                = link_to grandchild.name
+
         .mypage-header-nav__left-box__brands-box
           = link_to "#" do
             %ul.list
@@ -32,7 +44,7 @@
 
 
       .mypage-header-nav__right-box
-        .mypage-header-nav__right-box__mypage-box 
+        .mypage-header-nav__right-box__mypage-box
           - if user_signed_in?
             = icon('fas', 'fas fa-shopping-cart', class: 'icon')
             = link_to "新規出品", new_item_path
