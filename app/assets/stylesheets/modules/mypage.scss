@@ -318,3 +318,21 @@
     }
   }
 }
+
+  .breadcrumbs{
+    display: flex;
+    justify-content: center;
+    .breadcrumb-inner{
+      height: 40px;
+      line-height: 40px;
+      width: 950px;
+      padding: 0 15px 0;
+      color: $emerald-blue;
+      font-weight: bold;
+      a{
+        text-decoration: none;
+        color:  darkslategrey;
+      }
+  }
+}
+  
