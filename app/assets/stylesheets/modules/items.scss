@@ -71,6 +71,29 @@
   }
 }
 
+// ヘッダーパンくず
+.breadcrumbs{
+  display: flex;
+  justify-content: center;
+  .breadcrumb-inner{
+    height: 40px;
+    line-height: 40px;
+    width: 950px;
+    padding: 0 15px 0;
+    color: $emerald-blue;
+    font-weight: bold;
+    font-size: 13px;
+    a{
+      text-decoration: none;
+      color:  darkslategrey;
+    }
+}
+}
+
+
+
+
+
 .main{
   width: 100vw;
   .main_visual{
