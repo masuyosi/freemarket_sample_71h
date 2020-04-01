@@ -1,0 +1,33 @@
+=render "header"
+=render "subHeader"
+
+.category
+  .category__container
+    .category__container__mainHeading
+      カテゴリー一覧
+    .category__container__tagWrapper
+      - @parents.each do |parent|
+        = link_to categories_index_items_path(anchor: "parent#{parent.id}") do
+          .categoryTag
+            = parent.name
+    -# ここから　親のカテゴリ名
+    .category__container__parentCategoryContainer
+      - @parents.each do |parent|
+        .parentCategoryHeader{id: "parent#{parent.id}"}
+          = parent.name
+        -# ここから　子のカテゴリ名
+        .parentCategoryBody
+          = link_to "#" do
+            %p.all すべて
+          - parent.children.each do |child|
+            .parentCategoryBody__child
+              = child.name
+            -# ここから　孫のカテゴリ名
+            .parentCategoryBody__grandchild
+              .parentCategoryBody__grandchild__box--all
+                = link_to "すべて", "#"
+              - child.children.each do |grandchild|
+                .parentCategoryBody__grandchild__box
+                  = link_to "#" do
+                    = grandchild.name
+

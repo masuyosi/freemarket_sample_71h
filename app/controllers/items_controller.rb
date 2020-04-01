@@ -86,6 +86,10 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def categories_index
+    # binding.pry
+  end
+
   def brands_index
     @items = Item.all
   end
