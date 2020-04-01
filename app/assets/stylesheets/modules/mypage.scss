@@ -100,15 +100,18 @@
                 }
               }
               ul.category1{
+                font-family: "Source Sans Pro";
                 display: none;
-                box-sizing: border-box;
                 background-color: rgb(255, 255, 255);
                 box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-                width: 224px;
+                width: 200px;
+                line-height: 50px;
                 list-style: none;
                 text-align: center;
                 cursor: pointer;
                 text-align: center;
+                font-size: 12px;
+                font-weight: 5;
                 li{
                   &:hover {
                   background-color: #ea352d;
@@ -122,10 +125,10 @@
                     bottom: 0px;
                     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
                     display: none;
-                    left: 224px;
+                    left: 200px;
                     position: absolute;
-                    top: 44px;
-                    width: 224px;
+                    top: 50px;
+                    width: 200px;
                     cursor: pointer;
                     text-align: center;
                     li.child__list {
