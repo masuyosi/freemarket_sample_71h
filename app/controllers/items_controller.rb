@@ -1,19 +1,17 @@
 class ItemsController < ApplicationController
 
-  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :categories_index, :brands]
+  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :brands, :categories_index, :categories]
 
 
   def index
     @items = Item.where("name LIKE ?", "%#{params[:name]}%")
     @items = Item.all.order("created_at DESC").limit(6)
     @images = Image.all.includes(:item)
-    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def new
     @item = Item.new
     @item.images.new
-    @parents = Category.all.order("id ASC").limit(13)
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
@@ -87,7 +85,11 @@ class ItemsController < ApplicationController
   end
 
   def categories_index
-    # binding.pry
+  end
+
+  def categories
+    @category = Category.all.find(params[:id])
+    @items = Item.all.order("created_at DESC")
   end
 
   def brands_index
@@ -104,6 +106,7 @@ class ItemsController < ApplicationController
     :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, :category_id,
     :item_situation_id, images_attributes: [:src, :id]).merge(user_id: current_user.id, seller_id: current_user.id)
   end
+
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
