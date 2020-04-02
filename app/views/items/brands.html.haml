@@ -11,15 +11,17 @@
           = brand
 .brands-main
   .brands-main__title
-    一覧
+    #{@item.brand}の商品一覧
   .brands-main__items
     - @items.each do |i|
-      .brands-main__item
+      .brands-main__items__box
         - if Item.find(params[:id]).brand == i.brand
           = link_to item_path(i.id) do
             = image_tag asset_path("#{i.images.first.src}")
-            = i.name
-            = i.price
+            %label.brand_label
+              = i.name
+              %br
+              ¥ #{i.price}
 
     
       

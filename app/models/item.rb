@@ -14,4 +14,13 @@ class Item < ApplicationRecord
   validates :images, presence: true
 
   belongs_to :category
+
+  def self.search(search)
+    if search
+      Item.where('name LIKE(?)', "%#{search}%")
+      Item.where('content LIKE(?)', "%#{search}%")
+    else
+      Item.all.order("created_at DESC").limit(6)
+    end
+  end
 end
