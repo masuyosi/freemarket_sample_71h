@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :brands, :search]
+  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :categories_index, :brands, :search]
 
 
   def index
@@ -83,6 +83,10 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+  def categories_index
+    # binding.pry
   end
 
   def brands_index

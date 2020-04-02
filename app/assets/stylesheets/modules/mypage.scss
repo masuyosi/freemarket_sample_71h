@@ -1,25 +1,27 @@
+.select {
+  font-weight: 600;
+}
+
 // ヘッダー
 .mypage-header-contena{
   width:100%;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   border-bottom: solid 0.5px lightgray;
 
   .mypage-header-inner{
-    width: 1020px;
+    width: 1000px;
     .mypage-header-top{
       background-color: white;
       height: 50px;
       width: 100%;
       text-align: center;
       display: flex;
-      justify-content: space-between;
       padding-top: 8px;
       &__logo{
         height:40px;
         width: 150px;
-        margin: 0 15px 0;
+        margin-left: 15px;
         img{
           height: 35px;
           width: auto;
@@ -34,11 +36,16 @@
           height: 40px;
           width: 85%;
           padding-left: 10px;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+          border: 1px solid #ccc;
         }
         .search_btn{
           width: 40px;
           height: 40px;
           background-color:$emerald-blue;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
           position: absolute;
         }
         img{
@@ -53,20 +60,21 @@
 
     .mypage-header-nav{
       background-color: white;
-      height: 50px;
+      height: 40px;
       width: 100%;
-      text-align: center;
+      text-align: left;
       display: flex;
       justify-content: space-between;
+      font-size: 13px;
       .icon{
-        text-align: center;
-        line-height: 50px;
+        text-align: left;
+        line-height: 40px;
         margin-right: 3px;
         color:$emerald-blue ;
       }
       .sentence{
-        text-align: center;
-        line-height: 50px;
+        text-align: left;
+        line-height: 40px;
       }
       a{
         text-decoration: none;
@@ -80,18 +88,21 @@
       .list{
         display: flex;
         justify-content: center;
+        text-align: left;
       }
       .mypage-header-nav__left-box{
         display: flex;
-        justify-content: space-between;
+        justify-content: start;
         &__category-box{
           height: 100%;
-          width: 200px;
+          width: 150px;
           margin-left: 30px;
           ul.list {
-            li.icon{
+            position: relative;
+            li.category-icon{
               position: absolute;
               z-index: 5;
+              left: 0;
               a{
                 span{
                 &:hover {
@@ -100,21 +111,19 @@
                 }
               }
               ul.category1{
-                font-family: "Source Sans Pro";
                 display: none;
                 background-color: rgb(255, 255, 255);
                 box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-                width: 200px;
+                width: 210px;
                 line-height: 50px;
                 list-style: none;
                 text-align: center;
                 cursor: pointer;
                 text-align: center;
-                font-size: 12px;
-                font-weight: 5;
-                li{
+                font-size: 11px;
+                li.parent__list {
                   &:hover {
-                  background-color: #ea352d;
+                  background-color: $emerald-blue;
                   a {
                     color: #fff;
                   }
@@ -125,14 +134,18 @@
                     bottom: 0px;
                     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
                     display: none;
-                    left: 200px;
+                    left: 210px;
+                    line-height: 30px;
                     position: absolute;
-                    top: 50px;
-                    width: 200px;
+                    top: 40px;
+                    width: 210px;
                     cursor: pointer;
                     text-align: center;
                     li.child__list {
                       background-color: rgb(255, 255, 255);
+                      &:hover {
+                        background-color: #e6e6e6;
+                      }
                       a{
                         color:#000;
                       }
@@ -142,10 +155,10 @@
                         bottom: 0px;
                         box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
                         display: none;
-                        left: 224px;
+                        left: 210px;
                         position: absolute;
                         top: 0px;
-                        width: 320px;
+                        width: 270px;
                         cursor: pointer;
                         text-align: center;
                         li.grandchild__list{
@@ -156,7 +169,7 @@
                         }
                         li{
                           &:hover {
-                          background-color: #ea352d;
+                          background-color: #e6e6e6;
                           a {
                             color: #fff;
                           }
@@ -180,8 +193,7 @@
         }
         &__brands-box{
           height: 100%;
-          width: 200px;
-          margin-left: 30px;
+          width: 150px;
         }
       }
 
@@ -192,6 +204,44 @@
         }
       }
     }
+}
+
+// サブヘッダー（カテゴリーとブランド）
+.subHeader {
+  line-height: 45px;
+  background-color: #fff;
+  border-bottom: solid 0.5px lightgray;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  margin-bottom: 3px;
+  font-size: 13px;
+  text-align: center;
+  ul {
+    display: block;
+    width: 1000px;
+    display: flex;
+    background-color: #12acf6;
+    list-style-type: none;
+    li {
+      margin-right: 12px;
+      span {
+        margin-right: 12px;
+        a {
+          text-decoration: none;
+          color: #000;
+        }
+        a:hover {
+          color: #888;
+          text-decoration: underline;
+          text-decoration-color: #888;
+        }
+      }
+      .angle-right {
+        font-size: 12px;
+        color: #888;
+        text-rendering: auto;
+      }
+    }
+  }
 }
 
 // メインコンテンツ
@@ -215,7 +265,6 @@
       .mypage-nav{
         width: 250px;
         background-color: white;
-        
         a{
           text-decoration: none;
           color: darkslategrey;
@@ -247,7 +296,6 @@
           background-color: whitesmoke;
         }
       }
-      
     }
     }
     }
@@ -280,10 +328,23 @@
 
 // マイペトップアイコン
 .mypage-user-icon{
-  height: 140px;
-  background-color: pink;
-  padding: 20px;
   text-align: center;
+  position: relative;
+  .mypage-user{
+    font-weight: bold;
+    font-size: 20px;
+    color: darkslategrey;
+    position: absolute;
+    top: 160px;
+    left: 260px;
+    }
+  img{
+    padding: 20px 0 20px;
+    width: 500px;
+    height: auto;
+    filter: opacity(70%);
+    
+  }
 }
 
 
@@ -291,18 +352,15 @@
 .logout-inner{
   background-color: white;
   padding: 64px;
-  
   .logout-box{
     height: 50px;
     .logout-btn{
         max-width: 320px;
         height: 50px;
         background-color: #ea352d;
-        
         margin: auto;
         text-align: center;
         line-height: 50px;
-        
         a{
           display: block;
           text-decoration: none;
@@ -311,10 +369,32 @@
           -moz-transition: all 0.3s ease;
           -o-transition: all 0.3s ease;
           transition: all  0.3s ease;
-        } 
+        }
         a:hover {
           background-color:gray;
         }
+    }
+  }
+}
+
+// パンくず
+
+.breadcrumbs{
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  margin-bottom: 3px;
+  .breadcrumb-inner{
+    height: 40px;
+    line-height: 40px;
+    width: 950px;
+    padding: 0 15px 0;
+    color: $emerald-blue;
+    font-weight: bold;
+    font-size: 13px;
+    a{
+      text-decoration: none;
+      color:  darkslategrey;
     }
   }
 }
