@@ -11,14 +11,13 @@
             = button_tag "", type: "submit", name: nil, class: "search_btn"
             = image_tag asset_path("icons/icon-search 1.png") 
 
-
     .mypage-header-nav
 
       .mypage-header-nav__left-box
         .mypage-header-nav__left-box__category-box
           %ul.list
-            %li.icon
-              =link_to '#' do
+            %li.category-icon
+              =link_to categories_index_items_path do
                 = icon('fas', 'fas fa-list-ul', class: 'icon')
                 ="カテゴリーから探す"
               %ul.category1
