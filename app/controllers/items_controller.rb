@@ -1,10 +1,9 @@
 class ItemsController < ApplicationController
 
-  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :brands]
+  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :brands, :search]
 
 
   def index
-    @items = Item.where("name LIKE ?", "%#{params[:name]}%")
     @items = Item.all.order("created_at DESC").limit(6)
     @images = Image.all.includes(:item)
     @parents = Category.all.order("id ASC").limit(13)
@@ -92,6 +91,12 @@ class ItemsController < ApplicationController
 
   def brands
     @items = Item.all
+    @item = Item.find(params[:id])
+  end
+
+  def search
+    @items = Item.search(params[:keyword])
+    @keyword = :keyword
   end
 
   private

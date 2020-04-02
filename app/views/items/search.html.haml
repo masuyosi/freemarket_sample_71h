@@ -1,0 +1,25 @@
+= render "header"
+.search-main
+  .search-main__result
+    - if @items.length > 0
+      #{params[:keyword]}の検索結果
+      %br #{@items.length}件の商品が見つかりました
+    - else
+      #{params[:keyword]}の検索結果
+      %br 該当する商品がありません。キーワードをかえて検索してください
+  - @items.each do |i|
+    .search-main__item
+      .search-main__item__image
+        = link_to item_path(i.id) do
+          = image_tag asset_path("#{i.images.first.src}")
+
+      .search-main__item__name
+        = i.name
+      .search-main__item__price
+        ¥ #{i.price}
+      -if i.buyer_id.present?
+        .sold-icon
+          .sold-icon__inner
+            SOLD
+= render "app_banner"
+= render "footer"

@@ -5,10 +5,11 @@
         = link_to root_path do
           = image_tag asset_path("logo.png")
       .mypage-header-top__search-box
-        = form_with url:'#', method: :get, local: true do |f|
-          = f.text_field :name, placeholder: 'お探しの物を教えてください',class: "search_field"
-          = f.submit type: "button", class: "search_btn", value: ""
-          = image_tag asset_path("icons/icon-search 1.png") 
+        = form_tag(search_items_path, method: :get) do
+          = text_field_tag :keyword, '', class: "search_field", placeholder: 'お探しの物を教えてください'
+          %label
+            = button_tag "", type: "submit", name: nil, class: "search_btn"
+            = image_tag asset_path("icons/icon-search 1.png") 
 
 
     .mypage-header-nav

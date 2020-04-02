@@ -1,8 +1,36 @@
 .brands-index{
   width: 100vw;
-  height: 300px;
+  // height: 300px;
+  .brand_lists{
+    padding: 30px 20px;
+    .brand_list{
+      a{
+        text-decoration: none;
+        color: #0099e8;
+      }
+    }
+  }
 }
 .brands-main{
   width: 100vw;
-  height: 700px;
+  text-align: center;
+  &__title{
+    font-size: 40px;
+  }
+  &__items{
+    display: flex;
+    padding: 30px 20px;
+    &__box img{
+      width: 200px;
+      height: 200px;
+    }
+    .brand_label{
+      display: block;
+      width: 200px;
+    }
+    a{
+      text-decoration: none;
+      color: #0099e8;
+    }
+  }
 }
