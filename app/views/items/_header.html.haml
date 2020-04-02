@@ -23,15 +23,15 @@
               %ul.category1
                 - @parents.each do |parent|
                   %li.parent__list
-                    = link_to parent.name
+                    = link_to parent.name, categories_item_path(parent.id)
                     %ul.category2
                       - parent.children.each do |child|
                         %li.child__list
-                          =link_to child.name
+                          =link_to child.name, categories_item_path(child.id)
                           %ul.category3
                             - child.children.each do |grandchild|
                               %li.grandchild__list
-                                = link_to grandchild.name
+                                = link_to grandchild.name, categories_item_path(grandchild.id)
 
         .mypage-header-nav__left-box__brands-box
           = link_to "#" do

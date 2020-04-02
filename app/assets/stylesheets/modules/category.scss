@@ -4,6 +4,8 @@
   height: 100%;
   padding-top: 35px;
   padding-bottom: 35px;
+
+  // カテゴリー一覧
   &__container {
     margin: 0 auto;
     width: 650px;
@@ -78,6 +80,73 @@
               padding: 3px;
               width: 260px;
               display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // カテゴリーの中身一覧（レディース一覧など）
+  &__wrapper {
+    width: 950px;
+    height: 100vh;
+    margin: 0 auto;
+    &__header {
+      display: inline-block;
+      font-size: 13px;
+      min-width: 1em;
+      padding: 0 1em 3px 0;
+      a {
+        color: #12acf6;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #5fc6f5;
+        text-decoration: underline;
+        text-decoration-color: #5fc6f5;
+      }
+    }
+    &__title {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 20px 3px;
+    }
+    &__body {
+      .item_lists{
+        float: left;
+        .item_list{
+          height: 300px;
+          width: 300px;
+          .item_list__image img{
+            height: 220px;
+            width: 300px;
+            object-fit: cover;
+          }
+          .item_list__name{
+            padding: 10px 0 10px 20px;
+          }
+          .item_list__price{
+            padding: 10px 0 10px 20px;
+          }
+          .item_list__photo__sold{
+            width: 0;
+            height: 0;
+            border-top: 60px solid #ea352d ;
+            border-right: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 60px solid #ea352d ;
+            z-index:100;
+            position: relative;
+            top:-290px;
+            right: 20px;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 28px;
+              margin:-35px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 2px;
+              font-weight: 600;
             }
           }
         }
