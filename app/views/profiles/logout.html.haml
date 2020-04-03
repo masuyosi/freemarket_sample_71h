@@ -5,12 +5,12 @@
 
 
 .mypage-main-contents
-  .mypage-main-content-inner
+  .mypage-main-contents__inner
     = render "side-bar"
-    .main-box
+    .mypage-main-contents__inner__main-box
       .logout-inner
-        .logout-box
-          .logout-btn
+        .logout-inner__box
+          .logout-inner__box__btn
             = link_to destroy_user_session_path, method: :delete do
               = "ログアウト"
               
