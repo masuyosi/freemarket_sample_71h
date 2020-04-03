@@ -303,13 +303,18 @@
     height: 40px;
     line-height: 40px;
     width: 950px;
-    padding: 0 15px 0;
+    padding: 0 5px 0;
     color: $emerald-blue;
     font-weight: bold;
     font-size: 13px;
     a{
       text-decoration: none;
       color:  darkslategrey;
+      font-weight: lighter;
+      margin-right: 5px;
+    }
+    span {
+      margin-left: 5px;
     }
   }
 }
