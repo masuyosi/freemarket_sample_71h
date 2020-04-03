@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name, :id)
   end
 
   def create
@@ -108,7 +108,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,
-    :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, :category_id,
+    :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, :category_id, :child_id,
     :item_situation_id, images_attributes: [:src, :id]).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 
