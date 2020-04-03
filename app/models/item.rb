@@ -9,6 +9,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :item_situation
   has_one :order
   belongs_to :user
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
 
   validates_associated :images
   validates :images, presence: true
