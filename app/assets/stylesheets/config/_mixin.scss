@@ -113,3 +113,22 @@
     }
   }
 }
+
+@mixin button($width: 320px, $line-height: 48px, $background-color: #ec342c) {
+  display: inline-block;
+  text-align: center;
+  width: $width;
+  line-height: $line-height;
+  font-size: 17px;
+  background-color: $background-color;
+  text-decoration: none;
+  user-select: none;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  color: #fff;
+}
+
+@mixin button-hover {
+  background-color: #d5342c;
+  color: #fff;
+}

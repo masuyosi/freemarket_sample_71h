@@ -72,9 +72,9 @@
                     = @item.preparation_day.name
         - if user_signed_in? && current_user.id == @item.seller_id
           .item-btn
-            = link_to "商品の編集", edit_item_path
-          .item-btn
-            = link_to "この商品を削除する", item_path, method: :delete
+            = link_to "商品の編集", edit_item_path, class: 'item-btn'
+          .item-btn--delete
+            = link_to "この商品を削除する", item_path, class: 'item-btn--delete', method: :delete
         - elsif @item.buyer_id.present?
           .disabled-btn
             売り切れました
