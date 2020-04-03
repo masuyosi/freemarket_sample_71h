@@ -1,0 +1,19 @@
+= render partial: 'items/header'
+.like-main
+  .like-main__title
+    お気に入り商品一覧
+  - @likes.each do |l|
+    - like_items = Item.where(id: l.item_id)
+    - like_items.each do |i|
+      .like-main__item
+        .like-main__item__image
+          = link_to item_path(i.id) do
+            = image_tag asset_path("#{i.images.first.src}")
+        .like-main__item__name
+          = i.name
+        .like-main__item__price
+          ¥ #{i.price}
+        -if i.buyer_id.present?
+          .sold-icon
+            .sold-icon__inner
+              SOLD

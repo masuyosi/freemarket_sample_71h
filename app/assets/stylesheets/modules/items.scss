@@ -299,12 +299,12 @@
               border-left: 60px solid #ea352d ;
               z-index:100;
               position: relative;
-              top:-290px;
+              top:-295px;
               right: 20px;
               &__inner{
                 transform: rotate(-45deg);
-                font-size: 28px;
-                margin:-35px 0px 0px -55px;
+                font-size: 25px;
+                margin:-30px 0px 0px -55px;
                 color: #fff;
                 letter-spacing: 2px;
                 font-weight: 600;
@@ -551,4 +551,15 @@ ul li{
       }
     }
   }
+}
+
+.like__button{
+  background: linear-gradient(to right, #feb400, #FFE300);
+  line-height: 42px;
+  color: #6d3701;
+  font-size: 14px;
+  display: inline-block;
+  padding: 0 18px;
+  border-radius: 100px;
+  font-weight: bold;
 }

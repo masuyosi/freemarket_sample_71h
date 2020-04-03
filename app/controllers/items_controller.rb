@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all.order("created_at DESC").limit(6)
     @images = Image.all.includes(:item)
+    
   end
 
   def new
@@ -29,6 +30,7 @@ class ItemsController < ApplicationController
     @items = Item.all
     @images = Image.all
     @category = Category.find((@item).category_id)
+    @like = Like.all
   end
 
   def edit
