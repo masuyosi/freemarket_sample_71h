@@ -1,9 +1,13 @@
-.like-link{id: "like-link-#{@item.id}"}
-  - if current_user.likes.find_by(item_id: @item.id)
-    = link_to unlike_path(@item.id), method: :delete, remote: true do
-      .like__button
-        ❤️#{@item.likes.count}
-  - else
-    = link_to like_path(@item.id), method: :post, remote: true do
-      .like__button
-        ♡️#{@item.likes.count}
+- if user_signed_in?
+  .like-link{id: "like-link-#{@item.id}"}
+    - if current_user.likes.find_by(item_id: @item.id)
+      = link_to unlike_path(@item.id), method: :delete, remote: true do
+        .like__button
+          ❤️#{@item.likes.count}
+    - else
+      = link_to like_path(@item.id), method: :post, remote: true do
+        .like__button
+          ♡️#{@item.likes.count}
+- else
+  .like__button
+    ♡️#{@item.likes.count}
