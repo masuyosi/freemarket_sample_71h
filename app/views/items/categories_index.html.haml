@@ -19,7 +19,7 @@
           = parent.name
         -# ここから　子のカテゴリ名
         .parentCategoryBody
-          = link_to "#" do
+          = link_to categories_item_path(parent.id) do
             %p.all すべて
           - parent.children.each do |child|
             .parentCategoryBody__child
@@ -27,11 +27,10 @@
             -# ここから　孫のカテゴリ名
             .parentCategoryBody__grandchild
               .parentCategoryBody__grandchild__box--all
-                = link_to "すべて", "#"
+                = link_to "すべて", categories_item_path(child.id)
               - child.children.each do |grandchild|
                 .parentCategoryBody__grandchild__box
-                  = link_to "#" do
-                    = link_to grandchild.name, categories_item_path(grandchild.id)
+                  = link_to grandchild.name, categories_item_path(grandchild.id)
 
 =render "app_banner"
 =render "footer"
