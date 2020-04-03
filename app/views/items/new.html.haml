@@ -52,7 +52,7 @@
           %span
             必須
         .newitem-container__newitems-detail__form__category--textarea
-          = f.select :category_id, @category_parent_array, {prompt:"---"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: 'item[parent_id]', required: true }
+          = f.select :category_id, options_for_select(@category_parent_array), {prompt: "---"}, {class: 'listing-select-wrapper__box--select', id: 'parent_category', name: 'item[parent_id]', required: true }
         .newitem-container__newitems-detail__form__brand--text
           %lavel
             ブランド
