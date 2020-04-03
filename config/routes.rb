@@ -39,4 +39,8 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
+
+  post   '/like/:item_id' => 'likes#like',   as: 'like'
+  delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
+  get   '/likes' => 'likes#index',   as: 'like_index'
 end

@@ -70,6 +70,10 @@
                   %th 発送日の目安
                   %td
                     = @item.preparation_day.name
+                %tr
+                  %th お気に入り
+                  %td
+                    = render partial: 'likes/like'
         - if user_signed_in? && current_user.id == @item.seller_id
           .item-btn
             = link_to "商品の編集", edit_item_path, class: 'item-btn'
