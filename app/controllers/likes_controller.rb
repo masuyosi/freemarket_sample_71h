@@ -4,7 +4,6 @@ class LikesController < ApplicationController
   def index
     @items = Item.all
     @likes = Like.where(user_id: current_user.id)
-    # @like = Like.where(item_id: i.id)
   end
 
   def like
