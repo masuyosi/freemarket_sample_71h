@@ -8,10 +8,9 @@
   display: flex;
   justify-content: center;
   border-bottom: solid 0.5px lightgray;
-
-  .mypage-header-inner{
+  &__inner{
     width: 1000px;
-    .mypage-header-top{
+    &__top{
       background-color: white;
       height: 50px;
       width: 100%;
@@ -90,7 +89,7 @@
         justify-content: center;
         text-align: left;
       }
-      .mypage-header-nav__left-box{
+      &__left-box{
         display: flex;
         justify-content: start;
         &__category-box{
@@ -198,7 +197,7 @@
         }
       }
 
-      .mypage-header-nav__right-box{
+      &__right-box{
         &__mypage-box{
           margin:0 30px 0;
           }
@@ -207,58 +206,51 @@
     }
 }
 
-// サブヘッダー（カテゴリーとブランド）
-.subHeader {
-  line-height: 45px;
-  background-color: #fff;
-  border-bottom: solid 0.5px lightgray;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  margin-bottom: 3px;
-  font-size: 13px;
-  text-align: center;
-  ul {
-    display: block;
-    width: 1000px;
-    display: flex;
-    background-color: #12acf6;
-    list-style-type: none;
-    li {
-      margin-right: 12px;
-      span {
-        margin-right: 12px;
-        a {
-          text-decoration: none;
-          color: #000;
-        }
-        a:hover {
-          color: #888;
-          text-decoration: underline;
-          text-decoration-color: #888;
-        }
-      }
-      .angle-right {
-        font-size: 12px;
-        color: #888;
-        text-rendering: auto;
-      }
-    }
-  }
-}
-
 // メインコンテンツ
 .mypage-main-contents{
   background-color:$background;
   padding:30px;
-  .mypage-main-content-inner{
+  &__inner{
     display: flex;
     justify-content: center;
     margin: auto;
-
-    .main-box{
+    &__main-box{
       height: 100%;
       width: 700px;
       background-color: #fff;
     }
+    // ログアウト画面コンテナ
+      .logout-inner{
+        background-color: white;
+        padding: 64px;
+        &__box{
+          height: 50px;
+          &__btn{
+              max-width: 320px;
+              height: 50px;
+              background-color: #ea352d;
+              margin: auto;
+              text-align: center;
+              line-height: 50px;
+              a{
+                display: block;
+                text-decoration: none;
+                color: white;
+                -webkit-transition: all 0.3s ease;
+                -moz-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                transition: all  0.3s ease;
+              }
+              a:hover {
+                background-color:gray;
+              }
+          }
+        }
+    }
+
+
+
+
 
   // サイドバー
     .mypage-sidebar-box{
@@ -301,9 +293,35 @@
     }
     }
 
+// ヘッダーパンくず
+.breadcrumbs{
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  margin-bottom: 3px;
+  &__inner{
+    height: 40px;
+    line-height: 40px;
+    width: 950px;
+    padding: 0 5px 0;
+    color: $emerald-blue;
+    font-weight: bold;
+    font-size: 13px;
+    a{
+      text-decoration: none;
+      color:  darkslategrey;
+      font-weight: lighter;
+      margin-right: 5px;
+    }
+    span {
+      margin-left: 5px;
+    }
+  }
+}
+
+
 
     // 出品ボタン
-
     .purchase_btn{
       background:$emerald-blue;
       height: 120px;
@@ -331,7 +349,7 @@
 .mypage-user-icon{
   text-align: center;
   position: relative;
-  .mypage-user{
+  &__user{
     font-weight: bold;
     font-size: 20px;
     color: darkslategrey;
@@ -344,58 +362,6 @@
     width: 500px;
     height: auto;
     filter: opacity(70%);
-    
   }
 }
 
-
-// ログアウト画面コンテナ
-.logout-inner{
-  background-color: white;
-  padding: 64px;
-  .logout-box{
-    height: 50px;
-    .logout-btn{
-        max-width: 320px;
-        height: 50px;
-        background-color: #ea352d;
-        margin: auto;
-        text-align: center;
-        line-height: 50px;
-        a{
-          display: block;
-          text-decoration: none;
-          color: white;
-          -webkit-transition: all 0.3s ease;
-          -moz-transition: all 0.3s ease;
-          -o-transition: all 0.3s ease;
-          transition: all  0.3s ease;
-        }
-        a:hover {
-          background-color:gray;
-        }
-    }
-  }
-}
-
-// パンくず
-
-.breadcrumbs{
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  margin-bottom: 3px;
-  .breadcrumb-inner{
-    height: 40px;
-    line-height: 40px;
-    width: 950px;
-    padding: 0 15px 0;
-    color: $emerald-blue;
-    font-weight: bold;
-    font-size: 13px;
-    a{
-      text-decoration: none;
-      color:  darkslategrey;
-    }
-  }
-}

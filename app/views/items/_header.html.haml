@@ -1,10 +1,10 @@
 .mypage-header-contena
-  .mypage-header-inner
-    .mypage-header-top
-      .mypage-header-top__logo
+  .mypage-header-contena__inner
+    .mypage-header-contena__inner__top
+      .mypage-header-contena__inner__top__logo
         = link_to root_path do
           = image_tag asset_path("logo.png")
-      .mypage-header-top__search-box
+      .mypage-header-contena__inner__top__search-box
         = form_tag(search_items_path, method: :get) do
           = text_field_tag :keyword, '', class: "search_field", placeholder: 'お探しの物を教えてください'
           %label
@@ -12,7 +12,6 @@
             = image_tag asset_path("icons/icon-search 1.png") 
 
     .mypage-header-nav
-
       .mypage-header-nav__left-box
         .mypage-header-nav__left-box__category-box
           %ul.list

@@ -28,5 +28,11 @@ crumb :items do
 end
 
 crumb :category do
-  link "商品カテゴリ", categories_index_items_path
+  link "カテゴリー一覧", categories_index_items_path
+end
+
+crumb :category_parent do |par|
+  par = Category.all.find(params[:id])
+  link par.name, categories_item_path(par.id)
+  parent :category
 end
