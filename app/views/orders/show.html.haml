@@ -8,7 +8,8 @@
   %hr
   .order-container__order-detail
     .order-container__order-detail__img
-      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png"
+      = image_tag asset_path("#{@item.images.first.src}")
+
     .order-container__order-detail__text
       %p
         商品名
