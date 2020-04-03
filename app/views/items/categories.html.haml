@@ -13,7 +13,7 @@
       の商品一覧
     .category__wrapper__body
       - @items.each do |item|
-        -if @category.ancestry =~ /^(?=.*\/)/
+        - if item.category_id == @category.id
           %ul.item_lists
             %li.item_list
               .item_list__image
@@ -27,23 +27,34 @@
                   .item_list__photo__sold
                     .item_list__photo__sold__inner
                       SOLD
-        -# - else
-        -#   - @category = @category.parent
-        -#     - if item.category_id == @category.id
-        -#       %ul.item_lists
-        -#         %li.item_list
-        -#           .item_list__image
-        -#             = link_to item_path(item.id) do
-        -#               = image_tag asset_path("#{item.images.first.src}")
-        -#           .item_list__name
-        -#             = item.name
-        -#           .item_list__price
-        -#             ¥ #{item.price}
-        -#             -if item.buyer_id.present?
-        -#               .item_list__photo__sold
-        -#                 .item_list__photo__sold__inner
-        -#                   SOLD
-
+        - elsif item.child_id == @category.id
+          %ul.item_lists
+            %li.item_list
+              .item_list__image
+                = link_to item_path(item.id) do
+                  = image_tag asset_path("#{item.images.first.src}")
+              .item_list__name
+                = item.name
+              .item_list__price
+                ¥ #{item.price}
+                -if item.buyer_id.present?
+                  .item_list__photo__sold
+                    .item_list__photo__sold__inner
+                      SOLD
+        - else
+          %ul.item_lists
+            %li.item_list
+              .item_list__image
+                = link_to item_path(item.id) do
+                  = image_tag asset_path("#{item.images.first.src}")
+              .item_list__name
+                = item.name
+              .item_list__price
+                ¥ #{item.price}
+                -if item.buyer_id.present?
+                  .item_list__photo__sold
+                    .item_list__photo__sold__inner
+                      SOLD
 =render "app_banner"
 =render "footer"
 .purchase_btn
