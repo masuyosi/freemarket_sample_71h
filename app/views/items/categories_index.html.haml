@@ -31,7 +31,7 @@
               - child.children.each do |grandchild|
                 .parentCategoryBody__grandchild__box
                   = link_to "#" do
-                    = grandchild.name
+                    = link_to grandchild.name, categories_item_path(grandchild.id)
 
 =render "app_banner"
 =render "footer"
