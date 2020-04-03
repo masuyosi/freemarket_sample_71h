@@ -273,12 +273,15 @@
     .pickup_product__box{
       padding: 30px;
       margin: 0 auto;
-        width: 1000px;
+        width: 1050px;
         .item_lists{
           float: left;
+          background-color: white;
+          margin: 0 10px 15px;
           .item_list{
             height: 300px;
             width: 300px;
+            position: relative;
             .item_list__image img{
               height: 220px;
               width: 300px;
@@ -288,7 +291,15 @@
               padding: 10px 0 10px 20px;
             }
             .item_list__price{
-              padding: 10px 0 10px 20px;
+              padding: 7px 10px 7px 20px;
+              position: absolute;
+              bottom: 90px;
+              border-radius: 0 16px 16px 0;
+              background-color: rgba(0, 0, 0, 0.4);
+
+              font-size: 17px;
+              color: white;
+              
             }
             .item_list__photo__sold{
               width: 0;
@@ -298,9 +309,13 @@
               border-bottom: 60px solid transparent;
               border-left: 60px solid #ea352d ;
               z-index:100;
-              position: relative;
-              top:-290px;
-              right: 20px;
+              position: absolute;
+              top: 0px;
+              left: 0px;
+              
+              // position: relative;
+              // top:-290px;
+              // right: 20px;
               &__inner{
                 transform: rotate(-45deg);
                 font-size: 28px;

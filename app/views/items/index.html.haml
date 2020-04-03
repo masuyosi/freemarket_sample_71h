@@ -104,10 +104,10 @@
               = item.name
             .item_list__price
               ¥ #{item.price}
-              -if item.buyer_id.present?
-                .item_list__photo__sold
-                  .item_list__photo__sold__inner
-                    SOLD
+            -if item.buyer_id.present?
+              .item_list__photo__sold
+                .item_list__photo__sold__inner
+                  SOLD
 = render "app_banner"
 = render "footer"
 .purchase_btn
