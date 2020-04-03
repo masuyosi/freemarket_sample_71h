@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_044126) do
     t.string "name", null: false
     t.text "content", null: false
     t.integer "price", null: false
-    t.integer "seller_id", null: false
+    t.integer "seller_id"
     t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_044126) do
     t.bigint "preparation_day_id", null: false
     t.bigint "item_condition_id", null: false
     t.string "brand"
+    t.bigint "item_situation_id"
     t.bigint "user_id"
     t.bigint "category_id"
     t.bigint "child_id"
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_044126) do
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["child_id"], name: "index_items_on_child_id"
     t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
+    t.index ["item_situation_id"], name: "index_items_on_item_situation_id"
     t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
     t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
