@@ -1,7 +1,8 @@
 class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   validates :nickname, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
@@ -17,4 +18,10 @@ class User < ApplicationRecord
   has_many :buyer_ids, foreign_key: "buyer_id", class_name: "Items"
   has_many :items, dependent: :destroy
   has_one :card
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
 end

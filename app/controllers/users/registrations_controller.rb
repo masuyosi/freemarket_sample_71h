@@ -15,13 +15,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.new(user_params)
+    if session["devise.facebook_data"]
+      @user.uid = session["devise.facebook_data"]["uid"]
+      @user.provider = session["devise.facebook_data"]["provider"]
+      session["devise.facebook_data"].clear
+    end
+    if session["devise.google_data"]
+      @user.uid = session["devise.google_data"]["uid"]
+      @user.provider = session["devise.google_data"]["provider"]
+      session["devise.google_data"].clear
+    end
     if @user.save
       sign_in @user
       redirect_to root_path
     else
       render :new
     end
-    
   end
 
   private

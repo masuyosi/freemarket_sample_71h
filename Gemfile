@@ -106,3 +106,7 @@ group :tools do
   # gem 'capistrano'
   gem 'rubocop'
 end
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2' 

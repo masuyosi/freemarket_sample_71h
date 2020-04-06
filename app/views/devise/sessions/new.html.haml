@@ -15,10 +15,10 @@
       .login-account
         .list-box
           .list-box__facebook
-            = link_to "#" do
+            = link_to user_facebook_omniauth_authorize_path class: "post" do
               ="facebookでログイン"
           .list-box__google
-            = link_to "#" do
+            = link_to user_google_oauth2_omniauth_authorize_path do
               ="googleでログイン"
       .address-login-form
         .address-login-form__inner
