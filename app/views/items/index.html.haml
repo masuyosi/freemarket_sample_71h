@@ -95,19 +95,19 @@
       新規商品一覧
     .pickup_product__box
       - @items.each do |item|
-        %ul.item_lists
-          %li.item_list
-            .item_list__image
-              = link_to item_path(item.id) do
+        = link_to item_path(item.id) do
+          %ul.item_lists
+            %li.item_list
+              .item_list__image
                 = image_tag asset_path("#{item.images.first.src}")
-            .item_list__name
-              = item.name
-            .item_list__price
-              ¥ #{item.price}
-            -if item.buyer_id.present?
-              .item_list__photo__sold
-                .item_list__photo__sold__inner
-                  SOLD
+              .item_list__name
+                = item.name
+              .item_list__price
+                ¥ #{item.price}
+              -if item.buyer_id.present?
+                .item_list__photo__sold
+                  .item_list__photo__sold__inner
+                    SOLD
 = render "app_banner"
 = render "footer"
 .purchase_btn
