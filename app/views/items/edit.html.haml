@@ -52,7 +52,13 @@
           %span
             必須
         .newitem-container__newitems-detail__form__category--textarea
-          = f.select :category, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+          = f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+          .category-wrapper-select#children_wrapper
+            .category-wrapper-select__box
+              = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'listing-select-wrapper__box--select', id: 'child_category'}
+            .category-wrapper-select#grandchildren_wrapper
+              .category-wrapper-select__box
+                = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category'}
         .newitem-container__newitems-detail__form__brand--text
           %lavel
             ブランド
