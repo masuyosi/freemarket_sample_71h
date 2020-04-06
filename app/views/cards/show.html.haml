@@ -1,10 +1,13 @@
 = render  partial:"items/header"
+- breadcrumb :cardshow
+= render "layouts/breadcrumbs"
+
 
 .mypage-main-contents
-  .mypage-main-content-inner
+  .mypage-main-contents__inner
     = render  partial:"profiles/side-bar"
 
-    .main-box
+    .mypage-main-contents__inner__main-box
       .user-cards-content
         .user-cards-content__head
           支払い方法

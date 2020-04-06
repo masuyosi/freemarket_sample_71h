@@ -1,4 +1,7 @@
 = render partial: 'items/header'
+- breadcrumb :items
+= render "layouts/breadcrumbs"
+
 .main
   .main__showmain
     .main__showmain__content
@@ -10,6 +13,9 @@
               = image_tag asset_path("#{@item.images.first.src}"), class: "show_img_main"
               %ul
                 %li
+                  - if @item.images.count >= 1
+                    = image_tag asset_path("#{@item.images.first.src}"), class: "show_img"
+                %li
                   - if @item.images.count >= 2
                     = image_tag asset_path("#{@item.images.second.src}"), class: "show_img"
                 %li
@@ -18,9 +24,6 @@
                 %li
                   - if @item.images.count >= 4
                     = image_tag asset_path("#{@item.images.fourth.src}"), class: "show_img"
-                %li
-                  - if @item.images.count >= 5
-                    = image_tag asset_path("#{@item.images.fifth.src}"), class: "show_img"
 
           .itembox__itemprice
             %span
@@ -42,11 +45,14 @@
                 %tr
                   %th カテゴリー
                   %td
-                    = @category.root.name
+                    =link_to categories_item_path(@category.root.id) do
+                      = @category.root.name
                     %br
-                    = @category.parent.name
+                    =link_to categories_item_path(@category.parent.id) do
+                      = @category.parent.name
                     %br
-                    = @category.name
+                    =link_to categories_item_path(@category.id) do
+                      = @category.name
                 %tr
                   %th ブランド
                   %td
@@ -67,20 +73,24 @@
                   %th 発送日の目安
                   %td
                     = @item.preparation_day.name
+                %tr
+                  %th お気に入り
+                  %td
+                    = render partial: 'likes/like'
         - if user_signed_in? && current_user.id == @item.seller_id
           .item-btn
-            = link_to "商品の編集", edit_item_path
-          .item-btn
-            = link_to "この商品を削除する", item_path, method: :delete
+            = link_to "商品の編集", edit_item_path, class: 'item-btn'
+          .item-btn--delete
+            = link_to "この商品を削除する", item_path, class: 'item-btn--delete', method: :delete
         - elsif @item.buyer_id.present?
           .disabled-btn
             売り切れました
         - elsif user_signed_in?
           .item-btn
-            = link_to "購入画面に進む", order_path(@item.id)
+            = link_to "購入画面に進む", order_path(@item.id), class: 'item-btn'
         - else
           .item-btn
-            = link_to "会員登録画面に進む", new_user_registration_path
+            = link_to "会員登録画面に進む", new_user_registration_path, class: 'item-btn'
 
 = render partial: 'items/app_banner'
 = render partial: 'items/footer'

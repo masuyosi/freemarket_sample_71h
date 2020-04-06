@@ -1,0 +1,72 @@
+=render "header"
+- breadcrumb :category_parent
+= render "layouts/breadcrumbs"
+
+.category
+  .category__wrapper
+    - @category.children.each do |child|
+      .category__wrapper__header
+        = link_to categories_item_path(child.id) do
+          = child.name
+    .category__wrapper__title
+      = @category.name
+      の商品一覧
+    .category__wrapper__body
+      - @items.each do |item|
+        - if item.category_id == @category.id
+          = link_to item_path(item.id) do
+            %ul.item_lists
+              %li.item_list
+                .item_list__image
+                  = image_tag asset_path("#{item.images.first.src}")
+                .item_list__name
+                  = item.name
+                .item_list__price
+                  ¥ #{item.price}
+                -if item.buyer_id.present?
+                  .item_list__photo__sold
+                    .item_list__photo__sold__inner
+                      SOLD
+        - elsif item.child_id == @category.id
+          = link_to item_path(item.id) do
+            %ul.item_lists
+              %li.item_list
+                .item_list__image
+                  = image_tag asset_path("#{item.images.first.src}")
+                .item_list__name
+                  = item.name
+                .item_list__price
+                  ¥ #{item.price}
+                -if item.buyer_id.present?
+                  .item_list__photo__sold
+                    .item_list__photo__sold__inner
+                      SOLD
+        - elsif item.parent_name == @category.name
+          = link_to item_path(item.id) do
+            %ul.item_lists
+              %li.item_list
+                .item_list__image
+                  = image_tag asset_path("#{item.images.first.src}")
+                .item_list__name
+                  = item.name
+                .item_list__price
+                  ¥ #{item.price}
+                -if item.buyer_id.present?
+                  .item_list__photo__sold
+                    .item_list__photo__sold__inner
+                      SOLD
+=render "app_banner"
+=render "footer"
+.purchase_btn
+  - if user_signed_in?
+    = link_to new_item_path do
+      .purchase_btn__text
+        出品する
+      .purchase_btn__icon
+        = image_tag asset_path("icons/icon_camera.png")
+  - else
+    = link_to new_user_session_path do
+      .purchase_btn__text
+        出品する
+      .purchase_btn__icon
+        = image_tag asset_path("icons/icon_camera.png")

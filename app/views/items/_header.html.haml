@@ -1,26 +1,37 @@
 .mypage-header-contena
-  .mypage-header-inner
-    .mypage-header-top
-      .mypage-header-top__logo
+  .mypage-header-contena__inner
+    .mypage-header-contena__inner__top
+      .mypage-header-contena__inner__top__logo
         = link_to root_path do
           = image_tag asset_path("logo.png")
-      .mypage-header-top__search-box
-        = form_with url:'#', method: :get, local: true do |f|
-          = f.text_field :name, placeholder: 'お探しの物を教えてください',class: "search_field"
-          = f.submit type: "button", class: "search_btn", value: ""
-          = image_tag asset_path("icons/icon-search 1.png")
-
+      .mypage-header-contena__inner__top__search-box
+        = form_tag(search_items_path, method: :get) do
+          = text_field_tag :keyword, '', class: "search_field", placeholder: 'お探しの物を教えてください'
+          %label
+            = button_tag "", type: "submit", name: nil, class: "search_btn"
+            = image_tag asset_path("icons/icon-search 1.png") 
 
     .mypage-header-nav
-
       .mypage-header-nav__left-box
         .mypage-header-nav__left-box__category-box
-          = link_to "#" do
-            %ul.list
-              %li.icon
+          %ul.list
+            %li.category-icon
+              =link_to categories_index_items_path do
                 = icon('fas', 'fas fa-list-ul', class: 'icon')
-              %li.sentence
                 ="カテゴリーから探す"
+              %ul.category1
+                - @parents.each do |parent|
+                  %li.parent__list
+                    = link_to parent.name, categories_item_path(parent.id)
+                    %ul.category2
+                      - parent.children.each do |child|
+                        %li.child__list
+                          =link_to child.name, categories_item_path(child.id)
+                          %ul.category3
+                            - child.children.each do |grandchild|
+                              %li.grandchild__list
+                                = link_to grandchild.name, categories_item_path(grandchild.id)
+
         .mypage-header-nav__left-box__brands-box
           = link_to "#" do
             %ul.list
@@ -32,7 +43,7 @@
 
 
       .mypage-header-nav__right-box
-        .mypage-header-nav__right-box__mypage-box 
+        .mypage-header-nav__right-box__mypage-box
           - if user_signed_in?
             = icon('fas', 'fas fa-shopping-cart', class: 'icon')
             = link_to "新規出品", new_item_path
