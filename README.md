@@ -150,4 +150,4 @@ active_hashにて都道府県を追加
 ### Association
 - belongs_to :user
 - belongs_to :item
-
+tt
