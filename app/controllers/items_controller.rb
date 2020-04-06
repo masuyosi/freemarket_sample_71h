@@ -35,6 +35,9 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    unless @item.seller_id == current_user.id
+      redirect_to root_path
+    end
 
     grandchild_category = @item.category
     child_category = grandchild_category.parent

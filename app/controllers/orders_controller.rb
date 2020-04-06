@@ -2,6 +2,12 @@ class OrdersController < ApplicationController
   before_action :set_order, only:[:show,:create,:purchase]
 
   def show
+    if @item.seller_id == current_user.id
+      redirect_to root_path
+    end
+    unless @item.buyer_id == "null"
+      redirect_to root_path
+    end
   end
 
   def create
