@@ -71,10 +71,6 @@ $(document).on('turbolinks:load', ()=> {
     $('#image-box__container').show()
     $('#image-box__container').attr('class', `item-num-${num}`)
   })
-  function test(){
-    var obj = $("#img-file").get(0);
-    obj.value = "" ;
-  };
 
   function calcTotal(){
     var result = 0.1 * $('#price').val();

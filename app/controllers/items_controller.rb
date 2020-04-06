@@ -1,19 +1,17 @@
 class ItemsController < ApplicationController
 
-  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :brands]
+  before_action :move_to_index, except: [:index, :show, :new, :create, :brands_index, :brands, :categories_index, :categories, :search]
 
 
   def index
-    @items = Item.where("name LIKE ?", "%#{params[:name]}%")
     @items = Item.all.order("created_at DESC").limit(6)
     @images = Image.all.includes(:item)
-    @parents = Category.all.order("id ASC").limit(13)
+    
   end
 
   def new
     @item = Item.new
     @item.images.new
-    @parents = Category.all.order("id ASC").limit(13)
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
@@ -32,10 +30,14 @@ class ItemsController < ApplicationController
     @items = Item.all
     @images = Image.all
     @category = Category.find((@item).category_id)
+    @like = Like.all
   end
 
   def edit
     @item = Item.find(params[:id])
+    unless @item.seller_id == current_user.id
+      redirect_to root_path
+    end
 
     grandchild_category = @item.category
     child_category = grandchild_category.parent
@@ -67,6 +69,9 @@ class ItemsController < ApplicationController
       flash[:notice] = "商品情報を更新に失敗しました"
       render :edit
     end
+    unless @item.seller_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def destroy
@@ -74,6 +79,9 @@ class ItemsController < ApplicationController
     @item.destroy
     flash[:notice] = "削除が完了しました"
     redirect_to root_path
+    unless @item.seller_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def get_category_children
@@ -86,20 +94,34 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def categories_index
+  end
+
+  def categories
+    @category = Category.all.find(params[:id])
+    @items = Item.all.order("created_at DESC")
+  end
+
   def brands_index
     @items = Item.all
   end
 
   def brands
     @items = Item.all
+    @item = Item.find(params[:id])
   end
-  
+
+  def search
+    @items = Item.search(params[:keyword])
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,
-    :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, :category_id,
+    :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, :category_id, :child_id, :parent_name,
     :item_situation_id, images_attributes: [:src, :id]).merge(user_id: current_user.id, seller_id: current_user.id)
   end
+
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end

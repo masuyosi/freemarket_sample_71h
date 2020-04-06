@@ -1,19 +1,21 @@
 = render partial:"items/header"
 
+- breadcrumb :profile
+= render "layouts/breadcrumbs"
+
 
 
 .mypage-main-contents
-  .mypage-main-content-inner
+  .mypage-main-contents__inner
     = render "side-bar"
-    .main-box
-      →各コンテンツ表示
-      (以下各ページrenderあてはめ予定)
-
+    .mypage-main-contents__inner__main-box
       .mypage-user-icon
-        .mypage-user
-          アカウント詳細ページ仮置き
-        .user-icon
-          仮置き
+        = image_tag asset_path("spring-mypage:bg.jpg")
+        .mypage-user-icon__user
+          ようこそ　
+          = current_user.nickname 
+          さん
+
 
 = render partial:"items/app_banner"
 = render partial:"items/footer"

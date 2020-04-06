@@ -313,7 +313,7 @@ hr {
             margin-right: 5px;
             font-size: 14px;
           }
-          input.price {
+          input {
             @include form-layout($width: 285px);
             text-align: right;
           }
@@ -349,21 +349,10 @@ hr {
     justify-content: center;
     align-items: center;
     .button-1 {
-      display: inline-block;
-      text-align: center;
-      width: 320px;
-      line-height: 48px;
-      font-size: 17px;
-      background-color: #ec342c;
-      text-decoration: none;
-      user-select: none;
-      border-radius: 3px;
-      transition: 0.4s ease;
-      color: #fff;
+      @include button;
     }
     .button-1:hover {
-      background-color: #d5342c;
-      color: #fff;
+      @include button-hover;
     }
   }
   &__attention {

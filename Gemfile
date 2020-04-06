@@ -100,6 +100,7 @@ gem 'dotenv-rails'
 
 gem 'ancestry'
 
+gem "gretel"
 
 group :tools do
   gem 'squasher', '>= 0.6.0'
