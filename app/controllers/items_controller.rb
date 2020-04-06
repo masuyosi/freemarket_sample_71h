@@ -69,6 +69,9 @@ class ItemsController < ApplicationController
       flash[:notice] = "商品情報を更新に失敗しました"
       render :edit
     end
+    unless @item.seller_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def destroy
@@ -76,6 +79,9 @@ class ItemsController < ApplicationController
     @item.destroy
     flash[:notice] = "削除が完了しました"
     redirect_to root_path
+    unless @item.seller_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def get_category_children
