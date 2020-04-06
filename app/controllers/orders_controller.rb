@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     if @item.seller_id == current_user.id
       redirect_to root_path
     end
-    unless @item.buyer_id == "null"
+    unless @item.buyer_id == nil
       redirect_to root_path
     end
   end
