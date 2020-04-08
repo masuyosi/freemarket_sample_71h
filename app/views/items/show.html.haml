@@ -10,20 +10,20 @@
           = @item.name
           .itembox__itembody
             .itembox__itembody--pic
-              = image_tag asset_path("#{@item.images.first.src}"), class: "show_img_main"
+              = image_tag asset_path("#{@item.images.first.src}"), id: "show_img_main", width: 400, height: 430
               %ul
                 %li
                   - if @item.images.count >= 1
-                    = image_tag asset_path("#{@item.images.first.src}"), class: "show_img"
+                    = image_tag asset_path("#{@item.images.first.src}"), data: {imagesrc: asset_path("#{@item.images.first.src}")}, class: "show_img", width: 150, height: 180
                 %li
                   - if @item.images.count >= 2
-                    = image_tag asset_path("#{@item.images.second.src}"), class: "show_img"
+                    = image_tag asset_path("#{@item.images.second.src}"), data: {imagesrc: asset_path("#{@item.images.second.src}")}, class: "show_img", width: 150, height: 180
                 %li
                   - if @item.images.count >= 3
-                    = image_tag asset_path("#{@item.images.third.src}"), class: "show_img"
+                    = image_tag asset_path("#{@item.images.third.src}"), data: {imagesrc: asset_path("#{@item.images.third.src}")}, class: "show_img", width: 150, height: 180
                 %li
                   - if @item.images.count >= 4
-                    = image_tag asset_path("#{@item.images.fourth.src}"), class: "show_img"
+                    = image_tag asset_path("#{@item.images.fourth.src}"), data: {imagesrc: asset_path("#{@item.images.fourth.src}")}, class: "show_img", width: 150, height: 180
 
           .itembox__itemprice
             %span
