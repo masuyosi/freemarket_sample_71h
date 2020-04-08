@@ -18,6 +18,9 @@ class User < ApplicationRecord
   has_many :buyer_ids, foreign_key: "buyer_id", class_name: "Items"
   has_many :items, dependent: :destroy
   has_one :card
+  has_many :likes, dependent: :destroy
+  has_many :like_items, through: :likes, source: :item
+  has_many :comments
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
@@ -25,7 +28,5 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
-  has_many :likes, dependent: :destroy
-  has_many :like_items, through: :likes, source: :item
 
 end
