@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_044126) do
+ActiveRecord::Schema.define(version: 2020_04_08_172400) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture", null: false
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2020_04_03_044126) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text"
+    t.bigint "user_id"
+    t.bigint "tweet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_comments_on_tweet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "src", null: false
     t.bigint "item_id", null: false
@@ -59,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_044126) do
     t.text "content", null: false
     t.integer "price", null: false
     t.integer "seller_id"
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "postage_payer_id", null: false
@@ -68,7 +79,6 @@ ActiveRecord::Schema.define(version: 2020_04_03_044126) do
     t.string "brand"
     t.bigint "item_situation_id"
     t.bigint "user_id"
-    t.integer "buyer_id"
     t.bigint "category_id"
     t.bigint "child_id"
     t.integer "likes_count"
