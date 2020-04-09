@@ -16,6 +16,7 @@ class Item < ApplicationRecord
   validates :images, presence: true
 
   belongs_to :category
+  has_many :comments
 
   def self.search(search)
     if search

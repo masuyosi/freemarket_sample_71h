@@ -10,23 +10,25 @@
           = @item.name
           .itembox__itembody
             .itembox__itembody--pic
-              = image_tag asset_path("#{@item.images.first.src}"), id: "show_img_main"
-              %ul
-                %li
-                  - if @item.images.count >= 1
-                    = image_tag asset_path("#{@item.images.first.src}"), data: {imagesrc: asset_path("#{@item.images.first.src}")}, class: "show_img"
-                %li
-                  - if @item.images.count >= 2
-                    = image_tag asset_path("#{@item.images.second.src}"), data: {imagesrc: asset_path("#{@item.images.second.src}")}, class: "show_img"
-                %li
-                  - if @item.images.count >= 3
-                    = image_tag asset_path("#{@item.images.third.src}"), data: {imagesrc: asset_path("#{@item.images.third.src}")}, class: "show_img"
-                %li
-                  - if @item.images.count >= 4
-                    = image_tag asset_path("#{@item.images.fourth.src}"), data: {imagesrc: asset_path("#{@item.images.fourth.src}")}, class: "show_img"
-                %li
-                  - if @item.images.count >= 5
-                    = image_tag asset_path("#{@item.images.fifth.src}"), data: {imagesrc: asset_path("#{@item.images.fifth.src}")}, class: "show_img"
+              .main
+                = image_tag asset_path("#{@item.images.first.src}"), id: "show_img_main"
+              .sub
+                %ul
+                  %li
+                    - if @item.images.count >= 1
+                      = image_tag asset_path("#{@item.images.first.src}"), data: {imagesrc: asset_path("#{@item.images.first.src}")}, class: "show_img"
+                  %li
+                    - if @item.images.count >= 2
+                      = image_tag asset_path("#{@item.images.second.src}"), data: {imagesrc: asset_path("#{@item.images.second.src}")}, class: "show_img"
+                  %li
+                    - if @item.images.count >= 3
+                      = image_tag asset_path("#{@item.images.third.src}"), data: {imagesrc: asset_path("#{@item.images.third.src}")}, class: "show_img"
+                  %li
+                    - if @item.images.count >= 4
+                      = image_tag asset_path("#{@item.images.fourth.src}"), data: {imagesrc: asset_path("#{@item.images.fourth.src}")}, class: "show_img"
+                  %li
+                    - if @item.images.count >= 5
+                      = image_tag asset_path("#{@item.images.fifth.src}"), data: {imagesrc: asset_path("#{@item.images.fifth.src}")}, class: "show_img"
 
           .itembox__itemprice
             %span
@@ -94,6 +96,36 @@
         - else
           .item-btn
             = link_to "会員登録画面に進む", new_user_registration_path, class: 'item-btn'
-
+      .commentContainer
+        .commentContainer__comments
+          - if @comments.presence
+            .line-bc
+              - @comments.each do |comment|
+                .balloon6
+                  .faceicon
+                    = image_tag asset_path("member_photo_noimage_thumb.png")
+                  .nickname
+                    = comment.user.nickname
+                  .chatting
+                    .says
+                      %span
+                        =safe_join(comment.text.split("\n"),tag(:br))
+                      %p
+                        = icon('far', 'far fa-clock', class: 'icon')
+                        %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)
+          - elsif @comment.presence && @item.buyer_id.presence
+            .line-back
+              = "コメントはありません"
+          - else
+            .line-back-c
+              = "コメントはありません"
+        - unless @item.buyer_id.present?
+          .commentContainer__form
+            - if current_user
+              = form_with(model: [@item, @comment], local: true) do |f|
+                = f.text_area :text, rows: "4", class: "comment-box"
+                = f.submit "コメントする", class: "comment-btn"
+            - else
+              = link_to "コメントの投稿には新規登録/ログインが必要です", new_user_session_path
 = render partial: 'items/app_banner'
 = render partial: 'items/footer'
