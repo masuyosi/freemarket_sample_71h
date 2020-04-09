@@ -122,12 +122,12 @@
   }
 }
 
-@mixin button($width: 320px, $line-height: 48px, $background-color: #ec342c) {
+@mixin button($width: 320px, $line-height: 48px, $background-color: #ec342c, $font-size: 17px) {
   display: inline-block;
   text-align: center;
   width: $width;
   line-height: $line-height;
-  font-size: 17px;
+  font-size: $font-size;
   background-color: $background-color;
   text-decoration: none;
   user-select: none;
