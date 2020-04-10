@@ -9,6 +9,22 @@
   )
 end
 
+user = User.create(
+  nickname: "購入者",
+  email: "buyer@example.com",
+  password: "passwordb",
+  password_confirmation: "passwordb"
+)
+user.save
+
+user = User.create(
+  nickname: "出品者",
+  email: "seller@example.com",
+  password: "passwords",
+  password_confirmation: "passwords"
+)
+user.save
+
 # 親
 lady = Category.create(name: "レディース")
 men = Category.create(name: "メンズ")
