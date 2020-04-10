@@ -36,6 +36,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @item.images.destroy
     unless @item.seller_id == current_user.id
       redirect_to root_path
     end
@@ -83,6 +84,7 @@ class ItemsController < ApplicationController
     unless @item.seller_id == current_user.id
       redirect_to root_path
     end
+    @item.images.destroy
   end
 
   def get_category_children
@@ -120,7 +122,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :content, :price, :item_condition_id,
     :prefecture_id, :postage_payer_id, :preparation_day_id, :brand, :category_id, :child_id, :parent_name,
-    :item_situation_id, images_attributes: [:src, :id]).merge(user_id: current_user.id, seller_id: current_user.id)
+    :item_situation_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 
   def move_to_index

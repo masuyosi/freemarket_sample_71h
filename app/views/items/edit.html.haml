@@ -12,13 +12,13 @@
             必須
       .edititem-container__img-container__text
         最大5枚までアップロードできます
+        %br 右側のチェックを外して下部の更新ボタンを押すと画像が削除されます
       #edititem-container__image__box
         .edit__image__box
           = f.fields_for :images do |image|
-            = image_tag asset_path("#{image.object.src}")
+            = image_tag asset_path("#{image.object.src}"), class: "edit_image"
             = image.file_field :src
-            .delete_image
-              = "削除"
+            = image.check_box :_destroy, {checked: image.object.persisted?}, 0, 1 
             %br
       .edititem__add__image
         - @item.images.length.upto(4) do |i|
