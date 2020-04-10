@@ -71,13 +71,28 @@ $(document).on('turbolinks:load', ()=> {
     $('#image-box__container').show()
     $('#image-box__container').attr('class', `item-num-${num}`)
   })
-  //編集の削除機能
+  //編集で既存のサムネイルを差し替える機能
+  // $('input[type=file]').on('change', function (e) {
+  //   var target = $(this).prev(".edit_image");
+  //   var reader = new FileReader();
+  //   reader.onload = function (e) {
+  //       $(target).attr('src', e.target.result);
+  //   }
+  //   reader.readAsDataURL(e.target.files[0]);
+  // });
 
-  $(function() {
-    $('.delete_image').on('click', function() {
-      $(this).prev("input").val(null)
-    });
+  $('input[type=file]').on('change', function (e) {
+    var target = $(this)
+    var remove = $(this).prev(".edit_image");
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        var html = `<img class="edit_image" src="${e.target.result}">`
+        $(remove).remove();
+        $(target).before(html);
+    }
+    reader.readAsDataURL(e.target.files[0]);
   });
+
 
   function calcTotal(){
     var result = 0.1 * $('#price').val();

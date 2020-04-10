@@ -93,11 +93,13 @@ hr {
     padding: 40px;
     height: 600px;
     &__title {
-      lavel {
-        @include subtitle;
-      }
-      span {
-        @include box-optional-or-required;
+      &--text {
+        lavel {
+          @include subtitle;
+        }
+        span {
+          @include box-optional-or-required;
+        }
       }
     }
     &__text {
@@ -111,20 +113,17 @@ hr {
       background-color: #eeecec;
       display: flex;
       img{
-        width: 100px;
-        height: 80px;
-      }
-      .delete_image {
-        width: 40px;
-        background-color: #ccc;
-        text-align: center;
-        user-select: none;
-        display: inline-block;
-        border-radius: 3px;
+        height: 75px;
       }
     }
     .edititem__add__image{
-      padding-top: 20px;
+      width: 580px;
+      padding: 20px 70px 0 20px;
+      .box {
+        img {
+          height: 75px;
+        }
+      }
     }
     .camera-icon{
       width: 20px;

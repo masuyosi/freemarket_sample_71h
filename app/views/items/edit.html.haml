@@ -18,11 +18,12 @@
           = f.fields_for :images do |image|
             = image_tag asset_path("#{image.object.src}"), class: "edit_image"
             = image.file_field :src
-            = image.check_box :_destroy, {checked: image.object.persisted?}, 0, 1 
+            = image.check_box :_destroy, {checked: image.object.persisted?}, 0, 1
             %br
       .edititem__add__image
         - @item.images.length.upto(4) do |i|
-          %input{type: "file", name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_src"}
+          .box
+            %input{type: "file", name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_src"}
 
     %hr
     .newitem-container__body
