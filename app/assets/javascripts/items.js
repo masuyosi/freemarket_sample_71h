@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', ()=> {
       fileReader.readAsDataURL(file);
 　　　 //画像が5枚になったら超えたらドロップボックスを削除する
       if (num == 5){
-        $('#image-box__container').css('display', 'none')   
+        $('#image-box__container').css('display', 'none')
       }
       //読み込みが完了すると、srcにfileのURLを格納
       fileReader.onloadend = function() {
@@ -71,6 +71,15 @@ $(document).on('turbolinks:load', ()=> {
     $('#image-box__container').show()
     $('#image-box__container').attr('class', `item-num-${num}`)
   })
+  function clearFile(){
+    // input[]に上がったのを削除
+    $("input[type='file']").val(null);
+  }
+  $(function() {
+    $('#delete_image').on('click', function() {
+      clearFile();
+    });
+  });
 
   function calcTotal(){
     var result = 0.1 * $('#price').val();
