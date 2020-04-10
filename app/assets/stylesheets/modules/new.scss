@@ -114,6 +114,14 @@ hr {
         width: 100px;
         height: 80px;
       }
+      .delete_image {
+        width: 40px;
+        background-color: #ccc;
+        text-align: center;
+        user-select: none;
+        display: inline-block;
+        border-radius: 3px;
+      }
     }
     .edititem__add__image{
       padding-top: 20px;

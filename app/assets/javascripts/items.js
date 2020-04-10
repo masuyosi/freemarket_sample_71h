@@ -71,13 +71,11 @@ $(document).on('turbolinks:load', ()=> {
     $('#image-box__container').show()
     $('#image-box__container').attr('class', `item-num-${num}`)
   })
-  function clearFile(){
-    // input[]に上がったのを削除
-    $("input[type='file']").val(null);
-  }
+  //編集の削除機能
+
   $(function() {
-    $('#delete_image').on('click', function() {
-      clearFile();
+    $('.delete_image').on('click', function() {
+      $(this).prev("input").val(null)
     });
   });
 
