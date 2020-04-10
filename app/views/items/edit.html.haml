@@ -17,6 +17,7 @@
           = f.fields_for :images do |image|
             = image_tag asset_path("#{image.object.src}")
             = image.file_field :src
+            = image.submit :remove_src, value: "削除", method: "delete"
             %br
       .edititem__add__image
         - @item.images.length.upto(4) do |i|
