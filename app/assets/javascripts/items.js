@@ -72,16 +72,7 @@ $(document).on('turbolinks:load', ()=> {
     $('#image-box__container').attr('class', `item-num-${num}`)
   })
   //編集で既存のサムネイルを差し替える機能
-  // $('input[type=file]').on('change', function (e) {
-  //   var target = $(this).prev(".edit_image");
-  //   var reader = new FileReader();
-  //   reader.onload = function (e) {
-  //       $(target).attr('src', e.target.result);
-  //   }
-  //   reader.readAsDataURL(e.target.files[0]);
-  // });
-
-  $('input[type=file]').on('change', function (e) {
+  $('.item_edit').on('change', function (e) {
     var target = $(this)
     var remove = $(this).prev(".edit_image");
     var reader = new FileReader();
@@ -92,7 +83,6 @@ $(document).on('turbolinks:load', ()=> {
     }
     reader.readAsDataURL(e.target.files[0]);
   });
-
 
   function calcTotal(){
     var result = 0.1 * $('#price').val();
